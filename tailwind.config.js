@@ -7,7 +7,8 @@ module.exports = {
       fontFamily: {
         aboreto: ['var(--font-aboreto)'],
         alexBrush: ['var(--font-alex-brush)'],
-        afacad: ['var(--font-afacad)']
+        afacad: ['var(--font-afacad)'],
+        agdasima: ['var(--font-agdasima)']
       }
     },
     fontFamily: {

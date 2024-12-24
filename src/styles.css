@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Afacad&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Agdasima&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,4 +11,5 @@
   --font-aboreto: 'Aboreto', cursive;
   --font-alex-brush: 'Alex Brush', cursive;
   --font-afacad: 'Afacad', sans-serif;
+  --font-agdasima: 'Agdasima', sans-serif;
 }
