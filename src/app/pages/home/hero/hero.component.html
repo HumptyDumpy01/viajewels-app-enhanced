@@ -18,7 +18,7 @@
       your shopping experience. Enjoy a seamless journey
       with user-friendly navigation, secure payment options, and exceptional customer service.
     </app-paragraph>
-    <div class="flex items-center gap-3 overflow-hidden max-w-[500px] overflow-x-auto scrollbar-thin">
+    <div class="flex items-center gap-3 overflow-hidden max-w-lg overflow-x-auto scrollbar-thin">
       <app-link-circle
         [queryParams]="{ searchFor: 'rings' }"
         routerLinkHref="/explore-jewelry"
@@ -35,18 +35,18 @@
       </app-link-circle>
 
       <app-link-circle
-        [queryParams]="{ searchFor: 'rings' }"
+        [queryParams]="{ searchFor: 'necklaces' }"
         routerLinkHref="/explore-jewelry"
       >
-        <span class="font-alexBrush mb-6">E</span>xplore <br />Rings
+        <span class="font-alexBrush mb-6">E</span>xplore <br />Necklaces
       </app-link-circle>
 
       <app-link-circle
-        [queryParams]="{ searchFor: 'earrings' }"
+        [queryParams]="{ searchFor: 'bracelets' }"
         routerLinkHref="/explore-jewelry"
       >
         <span class="font-alexBrush mb-6 inline-block text-nowrap
-        linkContent">E</span>xplore <br />Earrings
+        linkContent">E</span>xplore <br />Bracelets
       </app-link-circle>
     </div>
   </div>
