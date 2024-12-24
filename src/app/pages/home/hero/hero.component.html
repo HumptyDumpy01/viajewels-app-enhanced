@@ -21,14 +21,14 @@
     <div class="flex items-center gap-3 overflow-hidden max-w-lg overflow-x-auto scrollbar-thin">
       <app-link-circle
         [queryParams]="{ searchFor: 'rings' }"
-        routerLinkHref="/explore-jewelry"
+        [routerLinkHref]="['/explore-jewelry']"
       >
         <span class="font-alexBrush mb-6">E</span>xplore <br />Rings
       </app-link-circle>
 
       <app-link-circle
         [queryParams]="{ searchFor: 'earrings' }"
-        routerLinkHref="/explore-jewelry"
+        [routerLinkHref]="['/explore-jewelry']"
       >
         <span class="font-alexBrush mb-6 inline-block text-nowrap
         linkContent">E</span>xplore <br />Earrings
@@ -36,14 +36,14 @@
 
       <app-link-circle
         [queryParams]="{ searchFor: 'necklaces' }"
-        routerLinkHref="/explore-jewelry"
+        [routerLinkHref]="['/explore-jewelry']"
       >
         <span class="font-alexBrush mb-6">E</span>xplore <br />Necklaces
       </app-link-circle>
 
       <app-link-circle
         [queryParams]="{ searchFor: 'bracelets' }"
-        routerLinkHref="/explore-jewelry"
+        [routerLinkHref]="['/explore-jewelry']"
       >
         <span class="font-alexBrush mb-6 inline-block text-nowrap
         linkContent">E</span>xplore <br />Bracelets

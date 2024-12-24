@@ -12,7 +12,7 @@ import { LinkTargetType } from '../../../../utils/generic-types/link.target.type
   styleUrl: './link-circle.component.css'
 })
 export class LinkCircleComponent {
-  routerLinkHref = input<string>('');
+  routerLinkHref = input.required<string[]>();
   queryParams = input<{ [k: string]: any }>({});
   linkTarget = input<LinkTargetType>('_self');
   customClasses = input<string>('');
