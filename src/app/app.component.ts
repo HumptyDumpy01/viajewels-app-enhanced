@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { NavigationComponent } from './navigation/navigation.component';
-import { ParagraphComponent } from './typography/paragraph/paragraph.component';
-import { LimitedAdditionCircleComponent } from './typography/limited-addition-circle/limited-addition-circle.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [NavigationComponent, ParagraphComponent, LimitedAdditionCircleComponent],
+  imports: [NavigationComponent, RouterOutlet],
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

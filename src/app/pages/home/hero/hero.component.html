@@ -1,0 +1,53 @@
+<section>
+  <div>
+    <h1 class="text-7xl text-zinc-900 mb-7 relative w-fit">
+      <span class="font-alexBrush">E</span>xplore
+      <span class="font-alexBrush">H</span>undreds <br>
+      Of Posh <span class="font-alexBrush">J</span>ewellery!
+      <app-limited-addition-circle customClasses="absolute -top-5 -right-2" />
+    </h1>
+    <app-paragraph customClasses="mb-4">
+      <span class="font-alexBrush">U</span>nveil a world of
+      sophistication with
+      Viajewels, your go-to destination
+      for exquisite jewelry. From <span class="font-semibold">dazzling
+        necklaces to timeless rings,</span> explore a curated collection designed to celebrate every moment.
+    </app-paragraph>
+    <app-paragraph customClasses="mb-7">
+      At Viajewels, we <span class="font-semibold">blend luxury and convenience</span> to redefine
+      your shopping experience. Enjoy a seamless journey
+      with user-friendly navigation, secure payment options, and exceptional customer service.
+    </app-paragraph>
+    <div class="flex items-center gap-3 overflow-hidden max-w-[500px] overflow-x-auto scrollbar-thin">
+      <app-link-circle
+        [queryParams]="{ searchFor: 'rings' }"
+        routerLinkHref="/explore-jewelry"
+      >
+        <span class="font-alexBrush mb-6">E</span>xplore <br />Rings
+      </app-link-circle>
+
+      <app-link-circle
+        [queryParams]="{ searchFor: 'earrings' }"
+        routerLinkHref="/explore-jewelry"
+      >
+        <span class="font-alexBrush mb-6 inline-block text-nowrap
+        linkContent">E</span>xplore <br />Earrings
+      </app-link-circle>
+
+      <app-link-circle
+        [queryParams]="{ searchFor: 'rings' }"
+        routerLinkHref="/explore-jewelry"
+      >
+        <span class="font-alexBrush mb-6">E</span>xplore <br />Rings
+      </app-link-circle>
+
+      <app-link-circle
+        [queryParams]="{ searchFor: 'earrings' }"
+        routerLinkHref="/explore-jewelry"
+      >
+        <span class="font-alexBrush mb-6 inline-block text-nowrap
+        linkContent">E</span>xplore <br />Earrings
+      </app-link-circle>
+    </div>
+  </div>
+</section>

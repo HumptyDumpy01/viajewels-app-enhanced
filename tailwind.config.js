@@ -11,6 +11,13 @@ module.exports = {
         agdasima: ['var(--font-agdasima)']
       }
     },
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        xl: '1280px'
+      }
+    },
     fontFamily: {
       sans: ['var(--font-afacad)', 'sans-serif'],
       serif: ['var(--font-afacad)', 'serif'],
@@ -19,5 +26,7 @@ module.exports = {
       body: ['var(--font-afacad)']
     }
   },
-  plugins: []
+  plugins: [
+    require('tailwind-scrollbar')
+  ]
 };
