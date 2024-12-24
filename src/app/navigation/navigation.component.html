@@ -1,9 +1,9 @@
-<nav class="pt-7 flex items-center justify-between">
+<nav class="pt-7 flex items-center justify-between pb-7">
   <span class="text-6xl font-alexBrush text-zinc-900">{{ heading() }}</span>
   <div class="flex items-center gap-14">
     <div class="flex items-center gap-2">
       <app-cart-icon />
-      <span class="font-agdasima text-2xl">0</span>
+      <span class="font-agdasima text-2xl">{{ cartItems() }}</span>
     </div>
     <div>
       <app-menu-icon />

@@ -11,4 +11,7 @@ import { CartIconComponent } from '../UI/icons/cart-icon/cart.icon.component';
 })
 export class NavigationComponent {
   heading = input(`ViaJewels`);
+
+  cartItems = input(0);
+
 }
