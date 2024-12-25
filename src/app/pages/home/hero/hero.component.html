@@ -18,7 +18,7 @@
       your shopping experience. Enjoy a seamless journey
       with user-friendly navigation, secure payment options, and exceptional customer service.
     </app-paragraph>
-    <div class="flex items-center gap-3 overflow-hidden max-w-lg overflow-x-auto scrollbar-thin">
+    <div class="flex items-center gap-3 overflow-hidden max-w-full overflow-x-auto scrollbar-thin">
       <app-link-circle
         [queryParams]="{ searchFor: 'rings' }"
         [routerLinkHref]="['/explore-jewelry']"
@@ -27,6 +27,7 @@
       </app-link-circle>
 
       <app-link-circle
+        customClasses="mb-6"
         [queryParams]="{ searchFor: 'earrings' }"
         [routerLinkHref]="['/explore-jewelry']"
       >
@@ -42,6 +43,7 @@
       </app-link-circle>
 
       <app-link-circle
+        customClasses="mb-6"
         [queryParams]="{ searchFor: 'bracelets' }"
         [routerLinkHref]="['/explore-jewelry']"
       >
