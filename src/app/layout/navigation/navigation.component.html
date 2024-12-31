@@ -1,12 +1,14 @@
-<nav class="pt-7 flex items-center justify-between pb-7 container">
-  <span class="text-6xl font-alexBrush text-zinc-900">{{ heading() }}</span>
-  <div class="flex items-center gap-14">
-    <div class="items-center gap-2 bg-white w-10 h-10 rounded-full justify-center hidden">
-      <app-cart-icon />
-      <span class="font-agdasima text-2xl">{{ cartItems() }}</span>
-    </div>
-    <div class="hidden">
-      <app-menu-icon />
-    </div>
-  </div>
+<nav class="pt-7 flex items-center pb-7 container">
+  <span class="text-6xl mr-9 font-alexBrush text-zinc-900">{{ heading() }}</span>
+  <ul class="flex items-center gap-4">
+    <li>
+      <a routerLink="#">Cart({{ cartItems() }})</a>
+    </li>
+    <li>
+      <a routerLink="#">Wishlist({{ wishlistedItems().length }})</a>
+    </li>
+    <li>
+      <button>Menu</button>
+    </li>
+  </ul>
 </nav>
