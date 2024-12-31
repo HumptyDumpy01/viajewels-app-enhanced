@@ -17,7 +17,7 @@
 @layer utilities {
   .scrollbar-thin {
     scrollbar-width: thin;
-    scrollbar-color: #a6a6a6 #9a9a9a;
+    scrollbar-color: #cecece #9a9a9a;
   }
 
   .scrollbar-thin::-webkit-scrollbar {
@@ -32,5 +32,9 @@
 
   .scrollbar-thin::-webkit-scrollbar-track {
     background-color: #a6a6a6;
+  }
+
+  .scrollbar-hidden {
+    scrollbar-width: none;
   }
 }

@@ -6,7 +6,8 @@ import { StarIconComponent } from '../../icons/star-icon/star-icon.component';
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
 import { RouterLink } from '@angular/router';
 import { ImgDataType } from '../collection-card/collection-card.component';
-import { formatCurrency } from '@angular/common';
+import { CurrencyPipe, DecimalPipe, NgForOf } from '@angular/common';
+import { TrimTextPipe } from '../../../trim-text.pipe';
 
 @Component({
   selector: 'app-item-card',
@@ -14,7 +15,11 @@ import { formatCurrency } from '@angular/common';
     LimitedAdditionCircleComponent,
     StarIconComponent,
     ParagraphComponent,
-    RouterLink
+    RouterLink,
+    CurrencyPipe,
+    NgForOf,
+    TrimTextPipe,
+    DecimalPipe
   ],
   standalone: true,
   templateUrl: './item-card.component.html',
@@ -25,8 +30,21 @@ export class ItemCardComponent {
   imgData = input.required<ImgDataType>();
   itemDetails = input.required<ItemDetailsType>();
 
-  get getFormattedPrice() {
-    return formatCurrency(this.itemDetails().price, 'en-US', '$');
+  get getRatingArray() {
+    const filledStars = Math.floor(this.itemDetails().rating);
+    const emptyStars = 5 - filledStars;
+    return [
+      ...Array(filledStars).fill('filled'),
+      ...Array(emptyStars).fill('empty')
+    ];
+  }
+
+  get firstLetterOfText() {
+    return this.itemDetails().description[0];
+  }
+
+  get restOfText() {
+    return this.itemDetails().description.slice(1);
   }
 }
 

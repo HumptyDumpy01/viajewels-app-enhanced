@@ -3,8 +3,8 @@
   <a [routerLink]="href()" class="flex flex-col justify-center gap-5">
 
     <div class="overflow-hidden relative">
-      <img alt="Classic Gold Bracelet" class="w-[312px] h-[312px] object-cover"
-           src="jewelry\classic-gold-bracelet\classic-gold-bracelet-1.png">
+      <img [alt]="imgData().alt" [attr.src]="imgData().src"
+           class="w-[312px] h-[312px] object-cover">
       <span class="opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto
       transition-all duration-300">
         <div class="absolute top-0 left-0 h-full w-full bg-zinc-800 opacity-75 flex items-center justify-center">
@@ -19,22 +19,16 @@
       </span>
     </div>
     <div>
-      <h2 class="text-zinc-800 text-2xl mb-2">Classic Golden Bracelet..</h2>
+      <h2 class="text-zinc-800 text-2xl mb-2">{{ itemDetails().heading | trimText: 28 }}</h2>
       <div class="flex items-center gap-2 mb-6">
-        <span class="text-green-600 text-2xl">$1,498</span>
+        <span class="text-green-600 text-2xl">{{ itemDetails().price | currency }}</span>
         <div class="flex items-center">
-          <app-star-icon dimensions="sm" />
-          <app-star-icon dimensions="sm" />
-          <app-star-icon dimensions="sm" />
-          <app-star-icon dimensions="sm" />
-          <app-star-icon dimensions="sm" />
+          <app-star-icon *ngFor="let star of getRatingArray" [mode]="star" dimensions="sm" />
         </div>
-        <span class="">(76)</span>
+        <span class="">({{ itemDetails().reviewCount | number }})</span>
       </div>
       <app-paragraph>
-        <span class="font-alexBrush">C</span>rafted with the finest diamonds, this necklace is designed to make you
-        stand out at every occasion. Adorn your
-        neckline with these symbols of sophistication...
+        <span class="font-alexBrush">{{ firstLetterOfText }}</span>{{ restOfText | trimText: 150 }}
       </app-paragraph>
     </div>
   </a>
