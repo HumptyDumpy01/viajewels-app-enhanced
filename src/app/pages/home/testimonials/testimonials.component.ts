@@ -3,6 +3,7 @@ import { HeadingComponent } from '../../../typography/heading/heading.component'
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
 import { StarIconComponent } from '../../../UI/icons/star-icon/star-icon.component';
 import { TestimonialsCardComponent } from '../../../UI/cards/testimonials-card/testimonials-card.component';
+import { ViajewelsButtonComponent } from '../../../UI/buttons/viajewels-button/viajewels-button.component';
 
 @Component({
   selector: 'app-testimonials',
@@ -10,7 +11,8 @@ import { TestimonialsCardComponent } from '../../../UI/cards/testimonials-card/t
     HeadingComponent,
     ParagraphComponent,
     StarIconComponent,
-    TestimonialsCardComponent
+    TestimonialsCardComponent,
+    ViajewelsButtonComponent
   ],
   standalone: true,
   templateUrl: './testimonials.component.html',
