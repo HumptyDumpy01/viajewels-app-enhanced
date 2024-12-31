@@ -1,0 +1,26 @@
+<section>
+  <div>
+    <div class="mb-14">
+      <span class="text-amber-500 uppercase z-10">Exclusive collections</span>
+      <h2 class="text-7xl text-white max-w-screen-sm z-10"><span class="font-alexBrush">E</span>xplore <span
+        class="font-alexBrush">E</span>xclusive hot
+        <span class="font-alexBrush">C</span>ollections</h2>
+    </div>
+    <div class="relative">
+      <div>
+        <app-collection-card
+          [imgData]="{ src: './collections/venera-collection-preview.png', alt: 'Venera Collection' }"
+          heading="Venera Collection"
+          text="Elevate your elegance with the Venera Collection, a timeless selection
+            of handcrafted jewelry inspired by
+            celestial beauty. Each piece reflects exquisite craftsmanship and attention to detail, designed to add a
+            touch of sophistication to your everyday moments and special occasions."
+        />
+      </div>
+      <div class="absolute top-0 right-0 flex items-center gap-6">
+        <app-arrow-button />
+        <app-arrow-button customIconClasses="rotate-180" />
+      </div>
+    </div>
+  </div>
+</section>
