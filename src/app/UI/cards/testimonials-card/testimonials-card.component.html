@@ -5,7 +5,7 @@
     <div class="flex items-center justify-between mb-3.5">
       <h3 class="text-4xl text-zinc-700">{{ initials() }}</h3>
       <div class="flex items-center gap-1">
-        <app-star-icon *ngFor="let star of getRatingArray" [mode]="star" />
+        <app-star-icon *ngFor="let star of getRatingArray" [mode]="star" dimensions="md" />
       </div>
     </div>
     <app-paragraph>

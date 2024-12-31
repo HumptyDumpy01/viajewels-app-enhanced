@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
-import { MenuIconComponent } from '../UI/icons/menu-icon/menu.icon.component';
-import { CartIconComponent } from '../UI/icons/cart-icon/cart.icon.component';
+import { MenuIconComponent } from '../../UI/icons/menu-icon/menu.icon.component';
+import { CartIconComponent } from '../../UI/icons/cart-icon/cart.icon.component';
 
 @Component({
   selector: 'app-navigation',

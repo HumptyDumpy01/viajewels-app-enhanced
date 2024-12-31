@@ -9,4 +9,5 @@ import { Component, input } from '@angular/core';
 })
 export class LimitedAdditionCircleComponent {
   customClasses = input<string>(``);
+  fillColor = input<string>(`black`);
 }

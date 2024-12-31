@@ -30,7 +30,7 @@ export class CollectionCardComponent {
   }
 }
 
-type ImgDataType = {
+export type ImgDataType = {
   src: string,
   alt: string
 }
