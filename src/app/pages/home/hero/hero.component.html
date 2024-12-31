@@ -4,7 +4,7 @@
       <span class="font-alexBrush">E</span>xplore
       <span class="font-alexBrush">H</span>undreds <br>
       Of Posh <span class="font-alexBrush">J</span>ewellery!
-      <app-limited-addition-circle customClasses="absolute -top-5 -right-2" />
+      <app-limited-addition-circle customClasses="absolute -top-6 -right-2" />
     </h1>
     <app-paragraph customClasses="mb-4">
       <span class="font-alexBrush">U</span>nveil a world of
@@ -13,43 +13,46 @@
       for exquisite jewelry. From <span class="font-semibold">dazzling
         necklaces to timeless rings,</span> explore a curated collection designed to celebrate every moment.
     </app-paragraph>
-    <app-paragraph customClasses="mb-7">
+    <!--<app-paragraph customClasses="mb-7">
       At Viajewels, we <span class="font-semibold">blend luxury and convenience</span> to redefine
       your shopping experience. Enjoy a seamless journey
       with user-friendly navigation, secure payment options, and exceptional customer service.
-    </app-paragraph>
-    <div class="flex items-center gap-3 overflow-hidden max-w-full overflow-x-auto scrollbar-thin">
-      <app-link-circle
-        [queryParams]="{ searchFor: 'rings' }"
-        [routerLinkHref]="['/explore-jewelry']"
-      >
-        <span class="font-alexBrush mb-6">E</span>xplore <br />Rings
-      </app-link-circle>
+    </app-paragraph>-->
+    <div class="flex gap-3">
+      <div class="flex items-center gap-3 text-left">
+        <app-link-circle
+          [queryParams]="{ searchFor: 'rings' }"
+          [routerLinkHref]="['/explore-jewelry']"
+        >
+          <span class="font-alexBrush mb-6">E</span>xplore <br />Rings
+        </app-link-circle>
 
-      <app-link-circle
-        [queryParams]="{ searchFor: 'earrings' }"
-        [routerLinkHref]="['/explore-jewelry']"
-        customClasses="mb-6"
-      >
+        <app-link-circle
+          [queryParams]="{ searchFor: 'earrings' }"
+          [routerLinkHref]="['/explore-jewelry']"
+          customClasses="mb-6"
+        >
         <span class="font-alexBrush mb-6 inline-block text-nowrap
         linkContent">E</span>xplore <br />Earrings
-      </app-link-circle>
+        </app-link-circle>
+      </div>
+      <div class="flex items-center gap-3 text-left ml-5 -mt-4">
+        <app-link-circle
+          [queryParams]="{ searchFor: 'necklaces' }"
+          [routerLinkHref]="['/explore-jewelry']"
+        >
+          <span class="font-alexBrush mb-6">E</span>xplore <br />Necklaces
+        </app-link-circle>
 
-      <app-link-circle
-        [queryParams]="{ searchFor: 'necklaces' }"
-        [routerLinkHref]="['/explore-jewelry']"
-      >
-        <span class="font-alexBrush mb-6">E</span>xplore <br />Necklaces
-      </app-link-circle>
-
-      <app-link-circle
-        [queryParams]="{ searchFor: 'bracelets' }"
-        [routerLinkHref]="['/explore-jewelry']"
-        customClasses="mb-6"
-      >
+        <app-link-circle
+          [queryParams]="{ searchFor: 'bracelets' }"
+          [routerLinkHref]="['/explore-jewelry']"
+          customClasses="mb-6"
+        >
         <span class="font-alexBrush mb-6 inline-block text-nowrap
         linkContent">E</span>xplore <br />Bracelets
-      </app-link-circle>
+        </app-link-circle>
+      </div>
     </div>
   </div>
 </section>
