@@ -10,6 +10,7 @@ import { Component, input } from '@angular/core';
 export class HeadingComponent {
   customContainerClasses = input<string>();
   span = input.required<string>();
+  spanColor = input<string | null>(null);
   mode = input<modeType>(`light`);
 
   get headingStyles() {
@@ -22,7 +23,7 @@ export class HeadingComponent {
     const lightStyles = `text-amber-600`;
     const darkStyles = `text-amber-500`;
 
-    return this.mode() === `dark` ? darkStyles : lightStyles;
+    return this.spanColor() ? this.spanColor() : this.mode() === `dark` ? darkStyles : lightStyles;
   }
 }
 
