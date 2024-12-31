@@ -2,9 +2,11 @@
   <img [alt]="imgData().alt" [attr.src]="imgData().src" class="h-[700px] w-[500px]">
   <div class="absolute top-20 left-0">
     <h2 class="font-aboreto text-white text-8xl mb-14 text-center max-w-screen-sm">{{ heading() }}</h2>
-    <p class="text-white max-w-screen-sm mb-14">
-      <span class="font-alexBrush">{{ firstLetterOfText }}</span>{{ restOfText }}
-    </p>
+    <app-paragraph customClasses="mb-14">
+      <div class="text-white">
+        <span class="font-alexBrush">{{ firstLetterOfText }}</span>{{ restOfText }}
+      </div>
+    </app-paragraph>
     <app-link-grey [label]="buttonData().label" [routerLink]="buttonData().href" />
   </div>
 </div>

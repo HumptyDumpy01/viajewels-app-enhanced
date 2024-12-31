@@ -1,0 +1,15 @@
+<div class="flex max-w-screen-sm items-center gap-9">
+      <span
+        class="flex items-center justify-center p-9 h-32 w-32 border border-zinc-800 rounded-full text-4xl">{{ getAbbreviatedInitials }}</span>
+  <div>
+    <div class="flex items-center justify-between mb-3.5">
+      <h3 class="text-4xl text-zinc-700">{{ initials() }}</h3>
+      <div class="flex items-center gap-1">
+        <app-star-icon *ngFor="let star of getRatingArray" [mode]="star" />
+      </div>
+    </div>
+    <app-paragraph>
+      <span class="font-alexBrush">{{ firstLetterOfText }}</span> {{ restOfText }}
+    </app-paragraph>
+  </div>
+</div>

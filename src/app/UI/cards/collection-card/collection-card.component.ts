@@ -1,10 +1,12 @@
 import { Component, input } from '@angular/core';
 import { LinkGreyComponent } from '../../links/link-grey/link-grey.component';
+import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
 
 @Component({
   selector: 'app-collection-card',
   imports: [
-    LinkGreyComponent
+    LinkGreyComponent,
+    ParagraphComponent
   ],
   standalone: true,
   templateUrl: './collection-card.component.html',
