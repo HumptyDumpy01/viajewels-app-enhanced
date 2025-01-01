@@ -1,4 +1,4 @@
-<app-search-jewelry-header />
+<app-search-jewelry-header [suggestedItems]="jewelryItems.slice(0, 5)" />
 <app-filter-jewelry />
 <app-jewelry-items [jewelry]="jewelryItems" />
 <app-recent-searches />

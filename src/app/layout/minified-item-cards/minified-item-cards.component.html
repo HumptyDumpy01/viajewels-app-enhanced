@@ -1,0 +1,12 @@
+<div
+  class="gap-5 items-center max-w-[386px] overflow-x-auto scrollbar-hidden pt-2 order-1 lg:order-none hidden lg:flex">
+  <app-item-card
+    *ngFor="let item of items()"
+    [addedToWishlist]="item.addedToWishlist"
+    [extraDetailsVisible]="false"
+    [href]="item.href"
+    [imgData]="item.imgData"
+    [itemDetails]="item.itemDetails"
+    imageDimensions="h-[184px] w-[312px]"
+  />
+</div>
