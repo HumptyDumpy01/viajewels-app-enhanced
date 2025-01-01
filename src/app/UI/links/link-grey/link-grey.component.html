@@ -1,1 +1,2 @@
-<a [routerLink]="routerLink()" class="text-white bg-gray-800 py-2 px-10 text-3xl">{{ label() }}</a>
+<a [class]="'text-white bg-gray-800 py-3 px-10 text-3xl ' + customClasses()"
+   [routerLink]="routerLink()">{{ label() }}</a>

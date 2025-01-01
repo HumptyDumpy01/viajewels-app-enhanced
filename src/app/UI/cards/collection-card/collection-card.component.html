@@ -1,12 +1,14 @@
 <div class="flex items-center justify-center relative">
-  <img [alt]="imgData().alt" [attr.src]="imgData().src" class="h-[700px] w-[500px]">
+  <img [alt]="imgData().alt" [attr.src]="imgData().src" class="sm-xl:h-[700px] h-[600px] w-[500px] object-cover">
   <div class="absolute top-20 left-0">
-    <h2 class="font-aboreto text-white text-8xl mb-14 text-center max-w-screen-sm">{{ heading() }}</h2>
+    <h2
+      class="font-aboreto text-white sm:text-8xl text-[53px] sm:mb-14 mb-6 text-center max-w-screen-sm">{{ heading() }}</h2>
     <app-paragraph customClasses="mb-14">
       <div class="text-white">
         <span class="font-alexBrush">{{ firstLetterOfText }}</span>{{ restOfText }}
       </div>
     </app-paragraph>
-    <app-link-grey [label]="buttonData().label" [routerLink]="buttonData().href" />
+    <app-link-grey [label]="buttonData().label" [routerLink]="buttonData().href"
+                   customClasses="flex sm:inline-block sm:w-fit w-full justify-center my-auto" />
   </div>
 </div>

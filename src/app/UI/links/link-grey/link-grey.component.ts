@@ -13,5 +13,6 @@ import { RouterLink } from '@angular/router';
 export class LinkGreyComponent {
   label = input.required<string>();
   routerLink = input<string>(`#`);
+  customClasses = input<string>(``);
 
 }
