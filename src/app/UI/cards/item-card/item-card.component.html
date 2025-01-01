@@ -3,8 +3,18 @@
   <a [routerLink]="href()" class="flex flex-col justify-center gap-5">
 
     <div class="overflow-hidden relative">
-      <img [alt]="imgData().alt" [attr.src]="imgData().src"
-           class="w-[312px] h-[312px] object-cover">
+      <div class="relative">
+        <img [alt]="imgData().alt" [attr.src]="imgData().src"
+             class="w-[312px] h-[312px] object-cover">
+
+        <div *ngIf="tagStyles !== ''">
+          <span
+            [class]="'uppercase text-white rounded-full p-2 px-4 absolute top-4 left-2 ' + tagStyles">
+            {{ tagText }}
+          </span>
+        </div>
+
+      </div>
       <span class="opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto
       transition-all duration-300">
         <div class="absolute top-0 left-0 h-full w-full bg-zinc-800 opacity-75 flex items-center justify-center">

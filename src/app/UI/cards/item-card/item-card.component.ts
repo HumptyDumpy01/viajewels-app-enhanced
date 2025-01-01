@@ -6,7 +6,7 @@ import { StarIconComponent } from '../../icons/star-icon/star-icon.component';
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
 import { RouterLink } from '@angular/router';
 import { ImgDataType } from '../collection-card/collection-card.component';
-import { CurrencyPipe, DecimalPipe, NgForOf } from '@angular/common';
+import { CurrencyPipe, DecimalPipe, NgForOf, NgIf } from '@angular/common';
 import { TrimTextPipe } from '../../../trim-text.pipe';
 
 @Component({
@@ -19,7 +19,8 @@ import { TrimTextPipe } from '../../../trim-text.pipe';
     CurrencyPipe,
     NgForOf,
     TrimTextPipe,
-    DecimalPipe
+    DecimalPipe,
+    NgIf
   ],
   standalone: true,
   templateUrl: './item-card.component.html',
@@ -46,6 +47,54 @@ export class ItemCardComponent {
   get restOfText() {
     return this.itemDetails().description.slice(1);
   }
+
+  get tagStyles() {
+    const comingSoon = `bg-red-400`;
+    const collection = `bg-zinc-900`;
+    const newItem = `bg-purple-400`;
+
+    let chosenStyle = ``;
+
+    switch (this.itemDetails().tag) {
+      case `coming-soon`:
+        chosenStyle = comingSoon;
+        break;
+      case `collection`:
+        chosenStyle = collection;
+        break;
+      case `new`:
+        chosenStyle = newItem;
+        break;
+      default:
+        chosenStyle = ``;
+    }
+
+    return chosenStyle;
+  }
+
+  get tagText() {
+    const comingSoon = `Coming Soon`;
+    const collection = `Collection`;
+    const newItem = `New`;
+
+    let chosenText = ``;
+
+    switch (this.itemDetails().tag) {
+      case `coming-soon`:
+        chosenText = comingSoon;
+        break;
+      case `collection`:
+        chosenText = collection;
+        break;
+      case `new`:
+        chosenText = newItem;
+        break;
+      default:
+        chosenText = ``;
+    }
+
+    return chosenText;
+  }
 }
 
 
@@ -55,4 +104,7 @@ type ItemDetailsType = {
   rating: number;
   reviewCount: number;
   description: string;
+  tag: ItemTagType;
 }
+
+export type ItemTagType = `coming-soon` | `collection` | `new` | null;
