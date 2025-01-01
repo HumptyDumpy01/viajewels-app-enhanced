@@ -24,6 +24,10 @@ module.exports = {
       mono: ['var(--font-afacad)', 'monospace'],
       display: ['var(--font-afacad)'],
       body: ['var(--font-afacad)']
+    },
+
+    screens: {
+      'bp-1210': '1210px'
     }
   },
   plugins: [
