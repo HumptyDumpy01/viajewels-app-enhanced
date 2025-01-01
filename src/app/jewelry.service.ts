@@ -13,4 +13,8 @@ export class JewelryService {
   getJewelry() {
     return this.jewelry;
   }
+
+  getJewel(id: number) {
+    return this.jewelry.find(jewel => jewel.id === id);
+  }
 }

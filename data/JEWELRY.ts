@@ -45,7 +45,7 @@ export const JEWELRY: JewelryType[] = [
       description: 'This stunning diamond necklace is a masterpiece of design and craftsmanship. Perfect for enhancing your beauty at weddings, galas, or any special event.',
       tag: null
     },
-    href: '/jewelry/diamond-necklace'
+    href: '/jewelry/2'
   },
   {
     id: 3,
@@ -62,7 +62,7 @@ export const JEWELRY: JewelryType[] = [
       description: 'These exquisite pearl earrings radiate grace and charm. Perfect for any occasion, they add a touch of timeless elegance to your ensemble.',
       tag: 'collection'
     },
-    href: '/jewelry/exquisite-pearl-earrings'
+    href: '/jewelry/3'
   },
   {
     id: 4,
@@ -76,7 +76,7 @@ export const JEWELRY: JewelryType[] = [
       description: 'Adorned with dazzling sapphires, this ring is a true symbol of luxury and refinement. A perfect choice for those who seek exclusivity and style.',
       tag: 'new'
     },
-    href: '/jewelry/sapphire-encrusted-ring'
+    href: '/jewelry/4'
   },
   {
     id: 5,
@@ -90,7 +90,7 @@ export const JEWELRY: JewelryType[] = [
       description: 'A unique design that exudes magic and allure. The spellbinding ring is perfect for making a memorable statement.',
       tag: null
     },
-    href: '/jewelry/spellbinding-ring'
+    href: '/jewelry/5'
   },
   {
     id: 6,
@@ -104,6 +104,6 @@ export const JEWELRY: JewelryType[] = [
       description: 'Celebrate your special day with this elegantly crafted wedding ring. A timeless symbol of your love and commitment.',
       tag: 'coming-soon'
     },
-    href: '/jewelry/wedding-ring'
+    href: '/jewelry/6'
   }
 ];
