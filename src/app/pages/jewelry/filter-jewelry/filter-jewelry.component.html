@@ -2,7 +2,7 @@
   <app-input-control helperText="Search for name, type, etc." mode="black"
                      placeholder="e.g. Beatuful rings for wedding.."
                      type="search" />
-  <div class="flex items-center">
+  <div class="flex bp-1210:items-center p-1 flex-col bp-1210:flex-row gap-3">
     <div class="flex items-center gap-4 mr-6">
       <span class="text-2xl">Category:</span>
       <div class="flex items-center gap-3">
@@ -22,15 +22,15 @@
         <app-star-icon dimensions="sm" mode="empty" />
       </div>
     </div>
-    <div class="flex items-center gap-3 mr-auto">
+    <div class="flex items-center gap-3 bp-1453:mr-auto mr-8">
       <span class="text-2xl">Price:</span>
       <div class="flex items-center gap-1">
         <span>133$</span>
-        <input class="w-24 h-8 border border-zinc-900 rounded-md text-center
+        <input class="min-w-24 h-8 border border-zinc-900 rounded-md text-center
           range-input" type="range" />
         <span>28,987$$</span>
       </div>
     </div>
-    <app-red-bulky-button label="Clear Filters" type="button" />
+    <app-red-bulky-button class="text-nowrap" label="Clear Filters" type="button" />
   </div>
 </section>

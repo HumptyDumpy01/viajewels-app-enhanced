@@ -24,7 +24,6 @@ import {
 export class JewelryComponent implements OnInit {
   private jewelryService = inject(JewelryService);
 
-
   get jewelryItems() {
     return this.jewelryService.getJewelry();
   }
