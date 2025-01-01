@@ -1,22 +1,25 @@
 <section>
-  <app-heading customContainerClasses="mb-7" span="have any questions? Let's talk!" spanColor="text-white">
-    <p class="text-white"><span class="font-alexBrush">C</span>ontact <span class="font-alexBrush">OUR</span> support
-      <span class="font-alexBrush">T</span>eam!</p>
-  </app-heading>
-  <div class="flex items-center justify-between mb-16">
-    <app-paragraph customClasses="text-white">
-      <span class="font-alexBrush">H</span>ave questions or need assistance? Our dedicated support team is ready to
-      provide you with personalized help every
-      step of the way. Whether it’s about choosing the perfect piece, tracking your order..
-    </app-paragraph>
+  <div class="flex bp-890:block flex-col items-center bp-890:text-left text-center">
+    <app-heading customContainerClasses="mb-7 flex flex-col" span="have any questions? Let's talk!"
+                 spanColor="text-white">
+      <p class="text-white"><span class="font-alexBrush">C</span>ontact <span class="font-alexBrush">OUR</span> support
+        <span class="font-alexBrush">T</span>eam!</p>
+    </app-heading>
+    <div class="flex items-center justify-between mb-16">
+      <app-paragraph customClasses="text-white">
+        <span class="font-alexBrush">H</span>ave questions or need assistance? Our dedicated support team is ready to
+        provide you with personalized help every
+        step of the way. Whether it’s about choosing the perfect piece, tracking your order..
+      </app-paragraph>
 
-    <app-paragraph customClasses="text-white">
-      <span class="font-alexBrush">Y</span>our satisfaction is our priority. Contact our support team via email, chat,
-      or phone, and experience fast, friendly service designed to meet your needs. Let us make your Viajewels journey
-      smooth and enjoyable.
-    </app-paragraph>
+      <app-paragraph customClasses="text-white hidden lg:block">
+        <span class="font-alexBrush">Y</span>our satisfaction is our priority. Contact our support team via email, chat,
+        or phone, and experience fast, friendly service designed to meet your needs. Let us make your Viajewels journey
+        smooth and enjoyable.
+      </app-paragraph>
+    </div>
   </div>
-  <div class="flex items-center justify-between">
+  <div class="flex items-center justify-center bp-890:justify-between">
     <div class="flex items-center max-w-[599px]">
       <form class="w-full flex flex-col gap-20">
         <div class="flex justify-center flex-col gap-1">
@@ -26,8 +29,10 @@
         <app-viajewels-button label="Let's talk" styling="white" type="submit" />
       </form>
     </div>
-    <div class="flex items-center gap-10">
-      <img alt="A beautiful rings made of perfect stones" src="cta/support-team-1.png">
+    <div class="items-center gap-10 hidden bp-890:flex">
+      <div class="hidden bp-1210:flex">
+        <img alt="A beautiful rings made of perfect stones" src="cta/support-team-1.png">
+      </div>
       <img alt="Top-notch rings crafted for you" src="cta/support-team-2.png">
     </div>
   </div>
