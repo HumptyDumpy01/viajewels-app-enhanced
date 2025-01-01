@@ -1,0 +1,44 @@
+<div class="bg-red-600 py-24 pb-28">
+  <div class="container">
+    <section>
+      <div class="flex bp-890:block flex-col items-center bp-890:text-left text-center">
+        <app-heading customContainerClasses="mb-7 flex flex-col" span="want to know about the new jewelry first?"
+                     spanColor="text-white">
+          <p class="text-white"><span class="font-alexBrush">S</span>ubscribe onto <span
+            class="font-alexBrush">OUR</span>
+            support
+            <span class="font-alexBrush">N</span>ewsletter!</p>
+        </app-heading>
+        <div class="flex items-center justify-between mb-16">
+          <app-paragraph customClasses="text-white">
+            <span class="font-alexBrush">B</span>e the first to know about exclusive offers, new arrivals, and the
+            latest trends in jewelry! By subscribing to our newsletter, you’ll stay updated with curated content, tips,
+            and inspirations to elevate your style.
+          </app-paragraph>
+
+          <app-paragraph customClasses="text-white hidden lg:block">
+            <span class="font-alexBrush">J</span>oin our community today and unlock access to members-only perks, sneak
+            peeks, and special discounts. Don’t miss out—sign up now and stay connected to the world of exquisite
+            jewelry!
+          </app-paragraph>
+        </div>
+      </div>
+      <div class="flex items-center justify-center bp-890:justify-between">
+        <div class="flex items-center max-w-[599px]">
+          <form class="w-full flex flex-col gap-14">
+            <div class="flex justify-center flex-col gap-1">
+              <app-input-control helperText="Enter your email" placeholder="Email" type="email" />
+            </div>
+            <app-viajewels-button label="Subscribe" styling="empty-white" type="submit" />
+          </form>
+        </div>
+        <div class="items-center gap-10 hidden bp-890:flex">
+          <div class="hidden bp-1210:flex">
+            <img alt="A beautiful rings made of perfect stones" src="./newsletter/newsletter-img-1.png">
+          </div>
+          <img alt="Top-notch rings crafted for you" class="mb-12" src="./newsletter/newsletter-img-2.png">
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
-import { ItemCardComponent } from '../../../UI/cards/item-card/item-card.component';
-import { ViajewelsButtonComponent } from '../../../UI/buttons/viajewels-button/viajewels-button.component';
-import { JewelryType } from '../../../../../data/JEWELRY';
+import { ItemCardComponent } from '../../UI/cards/item-card/item-card.component';
+import { ViajewelsButtonComponent } from '../../UI/buttons/viajewels-button/viajewels-button.component';
+import { JewelryType } from '../../../../data/JEWELRY';
 import { NgForOf, NgIf } from '@angular/common';
 
 @Component({

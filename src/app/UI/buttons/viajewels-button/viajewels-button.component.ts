@@ -18,10 +18,11 @@ export class ViajewelsButtonComponent {
   get getStyles() {
     const defaultStyles = `border border-zinc-800`;
     const whiteStyles = ` bg-white text-red-600`;
-    return this.styling() === `default` ? defaultStyles : whiteStyles;
+    const emptyWhiteStyles = `text-white border border-white`;
+    return this.styling() === `default` ? defaultStyles : this.styling() === `white` ? whiteStyles : emptyWhiteStyles;
   }
 
 }
 
 
-type ViajewelsButtonStylingType = `default` | `white`
+type ViajewelsButtonStylingType = `default` | `white` | `empty-white`;
