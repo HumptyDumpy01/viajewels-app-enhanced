@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { CardsCarouselComponent } from '../../../layout/cards-carousel/cards-carousel.component';
-import { HeadingComponent } from '../../../typography/heading/heading.component';
-import { JewelryService } from '../../../jewelry.service';
+import { CardsCarouselComponent } from '../cards-carousel/cards-carousel.component';
+import { HeadingComponent } from '../../typography/heading/heading.component';
+import { JewelryService } from '../../jewelry.service';
 
 @Component({
   selector: 'app-recent-searches',
