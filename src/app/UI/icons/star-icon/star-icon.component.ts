@@ -13,8 +13,9 @@ export class StarIconComponent {
 
   get starStyles() {
     const filled = `#D19E40`;
+    const darkFilled = `#C27E00`;
     const empty = `rgba(209, 158, 64, 0.30)`;
-    return this.mode() === `filled` ? filled : empty;
+    return this.mode() === `filled` ? filled : this.mode() === `darkFilled` ? darkFilled : empty;
   }
 
   get starDimensions(): StarDimensionsType {
@@ -26,7 +27,7 @@ export class StarIconComponent {
   }
 }
 
-type ModeType = `filled` | `empty`;
+type ModeType = `filled` | `darkFilled` | `empty`;
 
 type StarDimensionsType = { viewBox: string, width: number, height: number, pathD: string };
 

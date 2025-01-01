@@ -1,0 +1,67 @@
+<section class="container">
+  <div class="flex justify-between">
+    <div>
+      <div class="flex items-center gap-2 pb-2">
+        <app-navigate-to-link [href]="['/']" label="Home ." />
+        <app-navigate-to-link [href]="['/jewelry']" label="Jewelry ." />
+      </div>
+      <h1 class="sm:text-7xl text-6xl max-w-screen-sm z-10 mb-6">Search For Any
+        Jewelry you’d like!</h1>
+      <app-paragraph>
+        <span class="font-alexBrush">D</span>iscover a world of stunning jewelry at your fingertips! Whether you're
+        looking for timeless classics, modern
+        designs, or unique statement pieces, our collection is curated to match every style and occasion!
+      </app-paragraph>
+    </div>
+
+    <div class="flex gap-5 items-center max-w-[386px] overflow-x-auto scrollbar-hidden pt-2">
+      <app-item-card
+        [addedToWishlist]="false"
+        [extraDetailsVisible]="false"
+        [imgData]="{src: './jewelry/classic-gold-bracelet/classic-gold-bracelet-1.png', alt: 'Classic Gold Bracelet'}"
+        [itemDetails]="{
+          heading: 'Classic Golden Bracelet made of perfect stone',
+          price: 1229,
+          rating: 4.44,
+          reviewCount: 132,
+          description: 'Crafted with the finest diamonds, this necklace is designed to make you stand out at every occasion. adorn your neckline with these symbols of sophistication.',
+          tag: 'new',
+          }"
+        href="/jewelry/1"
+        imageDimensions="h-[184px] w-[312px]"
+      />
+
+      <app-item-card
+        [addedToWishlist]="false"
+        [extraDetailsVisible]="false"
+        [imgData]="{src: './jewelry/classic-gold-bracelet/classic-gold-bracelet-1.png', alt: 'Classic Gold Bracelet'}"
+        [itemDetails]="{
+          heading: 'Classic Golden Bracelet made of perfect stone',
+          price: 1229,
+          rating: 4.44,
+          reviewCount: 132,
+          description: 'Crafted with the finest diamonds, this necklace is designed to make you stand out at every occasion. adorn your neckline with these symbols of sophistication.',
+          tag: 'new',
+          }"
+        href="/jewelry/1"
+        imageDimensions="h-[184px] w-[312px]"
+      />
+
+      <app-item-card
+        [addedToWishlist]="false"
+        [extraDetailsVisible]="false"
+        [imgData]="{src: './jewelry/classic-gold-bracelet/classic-gold-bracelet-1.png', alt: 'Classic Gold Bracelet'}"
+        [itemDetails]="{
+          heading: 'Classic Golden Bracelet made of perfect stone',
+          price: 1229,
+          rating: 4.44,
+          reviewCount: 132,
+          description: 'Crafted with the finest diamonds, this necklace is designed to make you stand out at every occasion. adorn your neckline with these symbols of sophistication.',
+          tag: 'new',
+          }"
+        href="/jewelry/1"
+        imageDimensions="h-[184px] w-[312px]"
+      />
+    </div>
+  </div>
+</section>

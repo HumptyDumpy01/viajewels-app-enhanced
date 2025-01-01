@@ -1,85 +1,11 @@
 <div class="flex items-center gap-6 px-8 overflow-x-auto pt-3 scrollbar-hidden">
+  <p *ngIf="jewelry().length === 0" class="text-white">Oops! No items to be seen!</p>
   <app-item-card
-    [addedToWishlist]="false"
-    [imgData]="{src: './jewelry/classic-gold-bracelet/classic-gold-bracelet-1.png', alt: 'Classic Gold Bracelet'}"
-    [itemDetails]="{
-    heading: 'Classic Golden Bracelet made of perfect stone',
-    price: 1229,
-    rating: 4.44,
-    reviewCount: 132,
-    description: 'Crafted with the finest diamonds, this necklace is designed to make you stand out at every occasion. adorn your neckline with these symbols of sophistication.',
-    tag: 'new',
-    }"
-    href="/jewelry/1"
+    *ngFor="let item of jewelry()"
+    [addedToWishlist]="item.addedToWishlist"
+    [cardMode]="cardMode()"
+    [href]="item.href"
+    [imgData]="item.imgData"
+    [itemDetails]="item.itemDetails"
   />
-  <app-item-card
-    [addedToWishlist]="true"
-    [imgData]="{src: './jewelry/diamond-necklace/diamond-necklace-1.png', alt: 'Diamond Necklace'}"
-    [itemDetails]="{
-    heading: 'Diamond Necklace - Elegance and Brilliance Combined',
-    price: 2499,
-    rating: 4.8,
-    reviewCount: 210,
-    description: 'This stunning diamond necklace is a masterpiece of design and craftsmanship. Perfect for enhancing your beauty at weddings, galas, or any special event.',
-    tag: null,
-    }"
-    href="/jewelry/diamond-necklace"
-  />
-
-  <app-item-card
-    [addedToWishlist]="true"
-    [imgData]="{src: './jewelry/exquisite-pearl-earrings/exquisite-pearl-earrings-1.png', alt: 'Exquisite Pearl Earrings'}"
-    [itemDetails]="{
-    heading: 'Exquisite Pearl Earrings - Timeless Sophistication',
-    price: 899,
-    rating: 4.7,
-    reviewCount: 176,
-    description: 'These exquisite pearl earrings radiate grace and charm. Perfect for any occasion, they add a touch of timeless elegance to your ensemble.',
-    tag: 'collection',
-    }"
-    href="/jewelry/exquisite-pearl-earrings"
-  />
-
-  <app-item-card
-    [addedToWishlist]="false"
-    [imgData]="{src: './jewelry/sapphire-encrusted-ring/sapphire-encrusted-ring-1.png', alt: 'Sapphire Encrusted Ring'}"
-    [itemDetails]="{
-    heading: 'Sapphire Encrusted Ring - A Royal Statement',
-    price: 1599,
-    rating: 4.9,
-    reviewCount: 98,
-    description: 'Adorned with dazzling sapphires, this ring is a true symbol of luxury and refinement. A perfect choice for those who seek exclusivity and style.',
-    tag: 'new',
-    }"
-    href="/jewelry/sapphire-encrusted-ring"
-  />
-
-  <app-item-card
-    [addedToWishlist]="false"
-    [imgData]="{src: './jewelry/spellbinding-ring/spellbinding-ring-1.png', alt: 'Spellbinding Ring'}"
-    [itemDetails]="{
-    heading: 'Spellbinding Ring - Captivate and Mesmerize',
-    price: 1349,
-    rating: 4.6,
-    reviewCount: 143,
-    description: 'A unique design that exudes magic and allure. The spellbinding ring is perfect for making a memorable statement.',
-    tag: null,
-    }"
-    href="/jewelry/spellbinding-ring"
-  />
-
-  <app-item-card
-    [addedToWishlist]="true"
-    [imgData]="{src: './jewelry/wedding-ring/wedding-ring-1.png', alt: 'Wedding Ring'}"
-    [itemDetails]="{
-    heading: 'Wedding Ring - The Perfect Symbol of Love',
-    price: 1899,
-    rating: 4.9,
-    reviewCount: 254,
-    description: 'Celebrate your special day with this elegantly crafted wedding ring. A timeless symbol of your love and commitment.',
-    tag: 'coming-soon'
-    }"
-    href="/jewelry/wedding-ring"
-  />
-
 </div>

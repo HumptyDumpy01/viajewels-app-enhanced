@@ -10,7 +10,7 @@
     <div class="overflow-hidden relative">
       <div class="relative">
         <img [alt]="imgData().alt" [attr.src]="imgData().src"
-             class="w-[312px] h-[312px] object-cover">
+             [class]="'object-cover ' + imageDimensions()">
 
         <div *ngIf="tagStyles !== ''">
           <span
@@ -32,9 +32,10 @@
         </div>
       </span>
     </div>
-    <div>
-      <h2 class="text-zinc-800 text-2xl mb-2">{{ itemDetails().heading | trimText: 28 }}</h2>
-      <div class="flex items-center gap-2 mb-6">
+    <div [class]="cardMode() === 'white' ? 'text-neutral-100': ''">
+      <h2
+        [class]="'text-2xl mb-2 ' + (cardMode() === 'black' ? 'text-zinc-800' : '')">{{ itemDetails().heading | trimText: 28 }}</h2>
+      <div *ngIf="extraDetailsVisible()" class="flex items-center gap-2 mb-6">
         <span class="text-green-600 text-2xl">{{ itemDetails().price | currency }}</span>
         <div class="flex items-center">
           <app-star-icon *ngFor="let star of getRatingArray" [mode]="star" dimensions="sm" />

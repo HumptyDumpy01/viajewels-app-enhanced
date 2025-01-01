@@ -33,12 +33,15 @@ export class ItemCardComponent {
   imgData = input.required<ImgDataType>();
   itemDetails = input.required<ItemDetailsType>();
   addedToWishlist = input.required<boolean>();
+  imageDimensions = input<string>(`w-[312px] h-[312px]`);
+  extraDetailsVisible = input<boolean>(true);
+  cardMode = input<CardModeType>(`black`);
 
   get getRatingArray() {
     const filledStars = Math.floor(this.itemDetails().rating);
     const emptyStars = 5 - filledStars;
     return [
-      ...Array(filledStars).fill('filled'),
+      ...Array(filledStars).fill(this.cardMode() === `white` ? `darkFilled` : `filled`),
       ...Array(emptyStars).fill('empty')
     ];
   }
@@ -111,3 +114,5 @@ type ItemDetailsType = {
 }
 
 export type ItemTagType = `coming-soon` | `collection` | `new` | null;
+
+export type CardModeType = `black` | `white`;
