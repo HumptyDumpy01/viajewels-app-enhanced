@@ -11,13 +11,16 @@
       special moments!
     </app-paragraph>
 
-    <app-paragraph>
-      <span class="font-alexBrush">F</span>rom the sparkle of our designs to the quality of our service, our customers
-      can’t stop raving about their Viajewels experience. With glowing reviews and heartfelt testimonials, we’re honored
-      to be a part of their journey to find jewelry that truly shines.
-    </app-paragraph>
+    <div class="hidden lg:flex">
+      <app-paragraph>
+        <span class="font-alexBrush">F</span>rom the sparkle of our designs to the quality of our service, our customers
+        can’t stop raving about their Viajewels experience. With glowing reviews and heartfelt testimonials, we’re
+        honored
+        to be a part of their journey to find jewelry that truly shines.
+      </app-paragraph>
+    </div>
   </div>
-  <div class="grid items-center grid-cols-2 gap-11">
+  <div class="grid items-center bp-1124:grid-cols-2 gap-11 grid-cols-1">
     <app-testimonials-card
       [rating]="5"
       initials="Nick Baker"
