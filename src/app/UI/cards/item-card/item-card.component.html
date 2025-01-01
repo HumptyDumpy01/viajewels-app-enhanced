@@ -1,5 +1,10 @@
 <figure class="w-[312px] group hover:-translate-y-1.5 transition-all
-    duration-300 hover:animate-pulse hover:border-b hover:border-b-zinc-900 pb-4">
+    duration-300 hover:animate-pulse hover:border-b hover:border-b-zinc-900 pb-4 relative">
+
+  <div class="absolute top-4 right-4 cursor-pointer z-50">
+    <app-heart-icon [mode]="addedToWishlist() ? 'filled': 'empty'" />
+  </div>
+
   <a [routerLink]="href()" class="flex flex-col justify-center gap-5">
 
     <div class="overflow-hidden relative">
@@ -13,7 +18,6 @@
             {{ tagText }}
           </span>
         </div>
-
       </div>
       <span class="opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto
       transition-all duration-300">

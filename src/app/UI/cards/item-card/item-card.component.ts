@@ -8,6 +8,7 @@ import { RouterLink } from '@angular/router';
 import { ImgDataType } from '../collection-card/collection-card.component';
 import { CurrencyPipe, DecimalPipe, NgForOf, NgIf } from '@angular/common';
 import { TrimTextPipe } from '../../../trim-text.pipe';
+import { HeartIconComponent } from '../../icons/heart-icon/heart-icon.component';
 
 @Component({
   selector: 'app-item-card',
@@ -20,7 +21,8 @@ import { TrimTextPipe } from '../../../trim-text.pipe';
     NgForOf,
     TrimTextPipe,
     DecimalPipe,
-    NgIf
+    NgIf,
+    HeartIconComponent
   ],
   standalone: true,
   templateUrl: './item-card.component.html',
@@ -30,6 +32,7 @@ export class ItemCardComponent {
   href = input<string>(`#`);
   imgData = input.required<ImgDataType>();
   itemDetails = input.required<ItemDetailsType>();
+  addedToWishlist = input.required<boolean>();
 
   get getRatingArray() {
     const filledStars = Math.floor(this.itemDetails().rating);
