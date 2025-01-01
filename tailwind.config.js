@@ -27,7 +27,10 @@ module.exports = {
     },
 
     screens: {
-      'bp-1210': '1210px'
+      'bp-1210': '1210px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px'
     }
   },
   plugins: [
