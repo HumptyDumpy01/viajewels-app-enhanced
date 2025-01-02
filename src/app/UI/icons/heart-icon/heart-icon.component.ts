@@ -12,7 +12,26 @@ import { NgIf } from '@angular/common';
 })
 export class HeartIconComponent {
   mode = input.required<HeartMode>();
+  color = input<ColorType>({
+    filled: {
+      color: `#FF5555`
+    },
+    empty: {
+      color: `white`
+    }
+  });
 }
 
 
 type HeartMode = `filled` | `empty`;
+
+type ColorType = {
+  filled: {
+    color: string
+  },
+  empty: {
+    color: string
+  }
+
+}
+

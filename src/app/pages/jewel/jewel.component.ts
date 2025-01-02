@@ -7,6 +7,8 @@ import { CurrencyPipe, NgForOf, NgIf, TitleCasePipe, UpperCasePipe } from '@angu
 import { StarIconComponent } from '../../UI/icons/star-icon/star-icon.component';
 import { InfoBadgeComponent } from '../../UI/badges/info-badge/info-badge.component';
 import { BulkyBadgeComponent } from '../../UI/badges/bulky-badge/bulky-badge.component';
+import { HeartIconComponent } from '../../UI/icons/heart-icon/heart-icon.component';
+import { DetailsComponent } from '../../UI/details/details/details.component';
 
 @Component({
   selector: 'app-jewel',
@@ -19,7 +21,9 @@ import { BulkyBadgeComponent } from '../../UI/badges/bulky-badge/bulky-badge.com
     StarIconComponent,
     CurrencyPipe,
     InfoBadgeComponent,
-    BulkyBadgeComponent
+    BulkyBadgeComponent,
+    HeartIconComponent,
+    DetailsComponent
   ],
   standalone: true,
   templateUrl: './jewel.component.html',
@@ -63,6 +67,8 @@ export class JewelComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
+
     if (this.id()) {
       const jewel = this.jewelryService.getJewel(Number(this.id()));
       if (jewel) {

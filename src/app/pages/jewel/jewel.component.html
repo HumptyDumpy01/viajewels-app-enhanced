@@ -9,7 +9,7 @@
       <div class="flex items-start gap-3.5">
         <div>
           <img [alt]="jewelDetails.imgData[0].alt" [attr.src]="jewelDetails.imgData[0].src"
-               class="min-w-[421px] h-[650px] object-center">
+               class="min-w-[421px] h-[650px] object-cover">
         </div>
         <div class="flex flex-col justify-center gap-4">
           <img *ngFor="let image of jewelDetails.imgData.slice(1)" [alt]="image.alt" [attr.src]="image.src"
@@ -17,8 +17,8 @@
         </div>
       </div>
       <div>
-        <div *ngIf="jewelDetails.itemDetails.tag">
-          <span class="text-yellow-600">{{ jewelDetails.itemDetails.tag | uppercase }}</span>
+        <div>
+          <span class="text-yellow-600">Enjoy this precious!</span>
         </div>
         <h1 class="text-5xl text-zinc-800 leading-normal mb-2">{{ jewelDetails.itemDetails.heading | titlecase }}</h1>
         <div class="flex items-center mb-4">
@@ -27,10 +27,54 @@
         </div>
         <div class="flex items-center gap-7">
           <span class="text-yellow-600 text-2xl">{{ jewelDetails.itemDetails.price | currency }}</span>
-          <div *ngIf="jewelDetails.itemDetails.tag">
-            <app-bulky-badge [active]="false" label="{{jewelDetails.itemDetails.tag | titlecase}}" />
+          <div *ngFor="let tag of jewelDetails.itemDetails.tag" class="flex items-center">
+            <app-bulky-badge [active]="false" class="-mr-3" label="{{tag | titlecase}}" />
           </div>
-          <div></div>
+          <div class="ml-3 cursor-pointer">
+            <app-heart-icon [color]="{
+            filled: {
+            color: 'rgb(202, 138, 4)'
+            },
+            empty: {
+            color : 'rgb(202, 138, 4)'
+            }
+            }" mode="empty" />
+          </div>
+        </div>
+        <app-details
+          [open]="true"
+          [text]="[jewelDetails.itemDetails.info.description, jewelDetails.itemDetails.description]"
+          summary="Product Description"
+        />
+        <app-details
+          [text]="[jewelDetails.itemDetails.info.material]"
+          summary="Material"
+        />
+        <app-details
+          [text]="[jewelDetails.itemDetails.info.dimensions]"
+          summary="Dimensions"
+        />
+
+        <app-details
+          [text]="[jewelDetails.itemDetails.info.warranty]"
+          summary="Warranty"
+        />
+
+        <app-details
+          [text]="[jewelDetails.itemDetails.info.delivery]"
+          summary="Delivery options"
+        />
+        <div class="flex items-start gap-10 mt-10 mb-3">
+          <div class="flex flex-col gap-2">
+            <button class="text-yellow-600 px-16 py-3.5 uppercase border border-yellow-600 text-2xl">purchase</button>
+            <button class="uppercase text-zinc-600 text-xl">or add to cart</button>
+          </div>
+          <div class="flex items-center gap-2">
+            <button class="w-9 h-9 border border-yellow-600 text-yellow-600 text-2xl" type="button">+</button>
+            <input class="text-yellow-600 text-3xl text-center
+            focus:outline-none placeholder-yellow-600 w-9" placeholder="0" type="number">
+            <button class="w-9 h-9 border border-yellow-600 text-yellow-600 text-2xl" type="button">-</button>
+          </div>
         </div>
       </div>
     </div>

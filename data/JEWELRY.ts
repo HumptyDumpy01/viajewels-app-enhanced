@@ -16,7 +16,8 @@ export type JewelryType = {
     tag: ItemTagType[],
     info: JewelryInfoType
   },
-  href: string
+  href: string,
+  itemsLeft: number
 }
 
 export type JewelryInfoType = {
@@ -52,7 +53,8 @@ export const JEWELRY: JewelryType[] = [
         delivery: 'Free standard shipping within 5-7 business days. Express delivery options available at checkout.'
       }
     },
-    href: '/jewelry/1'
+    href: '/jewelry/1',
+    itemsLeft: 4
   },
   {
     id: 2,
@@ -78,7 +80,8 @@ export const JEWELRY: JewelryType[] = [
         delivery: 'Complimentary insured delivery within 3-5 business days. Priority shipping available.'
       }
     },
-    href: '/jewelry/2'
+    href: '/jewelry/2',
+    itemsLeft: 10
   },
   {
     id: 3,
@@ -104,7 +107,8 @@ export const JEWELRY: JewelryType[] = [
         delivery: 'Standard delivery within 4-6 business days. Express options available for faster shipping.'
       }
     },
-    href: '/jewelry/3'
+    href: '/jewelry/3',
+    itemsLeft: 8
   },
   {
     id: 4,
@@ -130,7 +134,8 @@ export const JEWELRY: JewelryType[] = [
         delivery: 'Secure and insured shipping within 5-7 business days.'
       }
     },
-    href: '/jewelry/4'
+    href: '/jewelry/4',
+    itemsLeft: 2
   },
   {
     id: 5,
@@ -156,7 +161,8 @@ export const JEWELRY: JewelryType[] = [
         delivery: 'Fast and secure shipping within 3-5 business days.'
       }
     },
-    href: '/jewelry/5'
+    href: '/jewelry/5',
+    itemsLeft: 5
   },
   {
     id: 6,
@@ -182,6 +188,7 @@ export const JEWELRY: JewelryType[] = [
         delivery: 'Pre-order now for priority delivery within 6-8 weeks.'
       }
     },
-    href: '/jewelry/6'
+    href: '/jewelry/6',
+    itemsLeft: 0
   }
 ];
