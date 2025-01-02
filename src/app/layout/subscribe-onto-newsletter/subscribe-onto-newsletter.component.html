@@ -1,4 +1,4 @@
-<div class="bg-red-600 py-24 pb-28">
+<div [class]="'py-24 pb-28 ' + (background() === 'red' ? 'bg-red-600 ': 'bg-purple-700')">
   <div class="container">
     <section>
       <div class="flex bp-890:block flex-col items-center bp-890:text-left text-center">

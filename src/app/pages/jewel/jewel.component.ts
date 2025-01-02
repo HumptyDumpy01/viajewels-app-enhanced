@@ -7,6 +7,9 @@ import { JewelHeaderComponent } from './jewel-header/jewel-header.component';
 import { JewelTestimonialsComponent } from './jewel-testimonials/jewel-testimonials.component';
 import { LeaveReviewComponent } from './leave-review/leave-review.component';
 import { YouMightAlsoLikeComponent } from '../../layout/you-might-also-like/you-might-also-like.component';
+import {
+  SubscribeOntoNewsletterComponent
+} from '../../layout/subscribe-onto-newsletter/subscribe-onto-newsletter.component';
 
 @Component({
   selector: 'app-jewel',
@@ -15,7 +18,8 @@ import { YouMightAlsoLikeComponent } from '../../layout/you-might-also-like/you-
     JewelHeaderComponent,
     JewelTestimonialsComponent,
     LeaveReviewComponent,
-    YouMightAlsoLikeComponent
+    YouMightAlsoLikeComponent,
+    SubscribeOntoNewsletterComponent
   ],
   standalone: true,
   templateUrl: './jewel.component.html',
