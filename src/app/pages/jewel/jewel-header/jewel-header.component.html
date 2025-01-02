@@ -65,14 +65,24 @@
       />
       <div class="flex items-start gap-10 mt-10 mb-3">
         <div class="flex flex-col gap-2">
-          <button class="text-yellow-700 px-16 py-3.5 uppercase border border-yellow-700 text-2xl">purchase</button>
+          <button
+            [class]="'px-16 py-3.5 uppercase border text-2xl ' + getButtonExtraStyles"
+            [disabled]="jewelDetails().itemsLeft === 0">
+            {{ jewelDetails().itemsLeft === 0 ? 'Out of Stock' : 'Buy Now' }}
+          </button>
           <button class="uppercase text-zinc-600 text-xl">or add to cart</button>
         </div>
         <div class="flex items-center gap-2">
-          <button class="w-9 h-9 border border-yellow-700 text-yellow-700 text-2xl" type="button">-</button>
-          <input class="text-yellow-700 text-3xl text-center
-            focus:outline-none placeholder-yellow-700 w-9" placeholder="0" type="number">
-          <button class="w-9 h-9 border border-yellow-700 text-yellow-700 text-2xl" type="button">+</button>
+          <button [class]="'w-9 h-9 border text-2xl' + getButtonExtraStyles" [disabled]="jewelDetails().itemsLeft === 0"
+                  type="button">-
+          </button>
+          <input [class]="'text-3xl text-center focus:outline-none w-9 disabled:text-zinc-500 text-yellow-700'"
+                 [defaultValue]="0"
+                 [disabled]="jewelDetails().itemsLeft === 0" placeholder="0"
+                 type="number">
+          <button [class]="'w-9 h-9 border text-2xl' + getButtonExtraStyles"
+                  [disabled]="jewelDetails().itemsLeft === 0" type="button">+
+          </button>
         </div>
       </div>
     </div>

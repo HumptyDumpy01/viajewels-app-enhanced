@@ -37,6 +37,11 @@ export class JewelHeaderComponent {
     };
   }
 
+  get getButtonExtraStyles() {
+    return this.jewelDetails().itemsLeft === 0 ? 'text-zinc-500 border-zinc-500' :
+      'text-yellow-700 border-yellow-700';
+  }
+
   get getRatingArray() {
     if (this.jewelDetails) {
       const filledStars = Math.floor(this.jewelDetails().itemDetails.rating);
