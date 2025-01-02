@@ -31,7 +31,12 @@ export const JEWELRY: JewelryType[] = [
   {
     id: 1,
     addedToWishlist: false,
-    imgData: [{ src: './jewelry/classic-gold-bracelet/classic-gold-bracelet-1.png', alt: 'Classic Gold Bracelet' }],
+    imgData: [
+      { src: './jewelry/classic-gold-bracelet/classic-gold-bracelet-1.png', alt: 'Classic Gold Bracelet 1' },
+      { src: './jewelry/classic-gold-bracelet/classic-gold-bracelet-2.png', alt: 'Classic Gold Bracelet 2' },
+      { src: './jewelry/classic-gold-bracelet/classic-gold-bracelet-3.png', alt: 'Classic Gold Bracelet 3' },
+      { src: './jewelry/classic-gold-bracelet/classic-gold-bracelet-4.png', alt: 'Classic Gold Bracelet 4' }
+    ],
     itemDetails: {
       heading: 'Classic Golden Bracelet made of perfect stone',
       price: 1229,
@@ -52,7 +57,12 @@ export const JEWELRY: JewelryType[] = [
   {
     id: 2,
     addedToWishlist: true,
-    imgData: [{ src: './jewelry/diamond-necklace/diamond-necklace-1.png', alt: 'Diamond Necklace' }],
+    imgData: [
+      { src: './jewelry/diamond-necklace/diamond-necklace-1.png', alt: 'Diamond Necklace 1' },
+      { src: './jewelry/diamond-necklace/diamond-necklace-2.png', alt: 'Diamond Necklace 2 ' },
+      { src: './jewelry/diamond-necklace/diamond-necklace-3.png', alt: 'Diamond Necklace 3' },
+      { src: './jewelry/diamond-necklace/diamond-necklace-4.png', alt: 'Diamond Necklace 4 ' }
+    ],
     itemDetails: {
       heading: 'Diamond Necklace - Elegance and Brilliance Combined',
       price: 2499,
@@ -73,10 +83,12 @@ export const JEWELRY: JewelryType[] = [
   {
     id: 3,
     addedToWishlist: true,
-    imgData: [{
-      src: './jewelry/exquisite-pearl-earrings/exquisite-pearl-earrings-1.png',
-      alt: 'Exquisite Pearl Earrings'
-    }],
+    imgData: [
+      { src: './jewelry/exquisite-pearl-earrings/exquisite-pearl-earrings-1.png', alt: 'Exquisite Pearl Earrings 1' },
+      { src: './jewelry/exquisite-pearl-earrings/exquisite-pearl-earrings-2.png', alt: 'Exquisite Pearl Earrings 2' },
+      { src: './jewelry/exquisite-pearl-earrings/exquisite-pearl-earrings-3.png', alt: 'Exquisite Pearl Earrings 3' },
+      { src: './jewelry/exquisite-pearl-earrings/exquisite-pearl-earrings-4.png', alt: 'Exquisite Pearl Earrings 4' }
+    ],
     itemDetails: {
       heading: 'Exquisite Pearl Earrings - Timeless Sophistication',
       price: 899,
@@ -97,10 +109,12 @@ export const JEWELRY: JewelryType[] = [
   {
     id: 4,
     addedToWishlist: false,
-    imgData: [{
-      src: './jewelry/sapphire-encrusted-ring/sapphire-encrusted-ring-1.png',
-      alt: 'Sapphire Encrusted Ring'
-    }],
+    imgData: [
+      { src: './jewelry/sapphire-encrusted-ring/sapphire-encrusted-ring-1.png', alt: 'Sapphire Encrusted Ring 1' },
+      { src: './jewelry/sapphire-encrusted-ring/sapphire-encrusted-ring-2.png', alt: 'Sapphire Encrusted Ring 2' },
+      { src: './jewelry/sapphire-encrusted-ring/sapphire-encrusted-ring-3.png', alt: 'Sapphire Encrusted Ring 3' },
+      { src: './jewelry/sapphire-encrusted-ring/sapphire-encrusted-ring-4.png', alt: 'Sapphire Encrusted Ring 4' }
+    ],
     itemDetails: {
       heading: 'Sapphire Encrusted Ring - A Royal Statement',
       price: 1599,
@@ -121,7 +135,12 @@ export const JEWELRY: JewelryType[] = [
   {
     id: 5,
     addedToWishlist: false,
-    imgData: [{ src: './jewelry/spellbinding-ring/spellbinding-ring-1.png', alt: 'Spellbinding Ring' }],
+    imgData: [
+      { src: './jewelry/spellbinding-ring/spellbinding-ring-1.png', alt: 'Spellbinding Ring 1' },
+      { src: './jewelry/spellbinding-ring/spellbinding-ring-2.png', alt: 'Spellbinding Ring 2' },
+      { src: './jewelry/spellbinding-ring/spellbinding-ring-3.png', alt: 'Spellbinding Ring 3' },
+      { src: './jewelry/spellbinding-ring/spellbinding-ring-4.png', alt: 'Spellbinding Ring 4' }
+    ],
     itemDetails: {
       heading: 'Spellbinding Ring - Captivate and Mesmerize',
       price: 1349,
@@ -142,7 +161,12 @@ export const JEWELRY: JewelryType[] = [
   {
     id: 6,
     addedToWishlist: true,
-    imgData: [{ src: './jewelry/wedding-ring/wedding-ring-1.png', alt: 'Wedding Ring' }],
+    imgData: [
+      { src: './jewelry/wedding-ring/wedding-ring-1.png', alt: 'Wedding Ring 1' },
+      { src: './jewelry/wedding-ring/wedding-ring-2.png', alt: 'Wedding Ring 2' },
+      { src: './jewelry/wedding-ring/wedding-ring-3.png', alt: 'Wedding Ring 3' },
+      { src: './jewelry/wedding-ring/wedding-ring-4.png', alt: 'Wedding Ring 4' }
+    ],
     itemDetails: {
       heading: 'Wedding Ring - The Perfect Symbol of Love',
       price: 1899,
