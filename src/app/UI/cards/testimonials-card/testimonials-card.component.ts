@@ -1,15 +1,16 @@
 import { Component, input } from '@angular/core';
 import { StarIconComponent } from '../../icons/star-icon/star-icon.component';
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
-import { abbreviateInitials } from '../../../../utils/funcs/abbreviateInitials';
 import { NgForOf } from '@angular/common';
+import { AbbrInitialsPipe } from '../../../abbr-initials.pipe';
 
 @Component({
   selector: 'app-testimonials-card',
   imports: [
     StarIconComponent,
     ParagraphComponent,
-    NgForOf
+    NgForOf,
+    AbbrInitialsPipe
   ],
   standalone: true,
   templateUrl: './testimonials-card.component.html',
@@ -19,10 +20,6 @@ export class TestimonialsCardComponent {
   initials = input.required<string>();
   review = input.required<string>();
   rating = input.required<number>();
-
-  get getAbbreviatedInitials() {
-    return abbreviateInitials(this.initials());
-  }
 
   // if e.g. rating is 4.5, we want to create an array of 4 elements
   get getRatingArray() {
