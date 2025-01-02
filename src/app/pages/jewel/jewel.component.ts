@@ -4,12 +4,14 @@ import { JewelryService } from '../../jewelry.service';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { JewelHeaderComponent } from './jewel-header/jewel-header.component';
+import { JewelTestimonialsComponent } from './jewel-testimonials/jewel-testimonials.component';
 
 @Component({
   selector: 'app-jewel',
   imports: [
     NgIf,
-    JewelHeaderComponent
+    JewelHeaderComponent,
+    JewelTestimonialsComponent
   ],
   standalone: true,
   templateUrl: './jewel.component.html',
