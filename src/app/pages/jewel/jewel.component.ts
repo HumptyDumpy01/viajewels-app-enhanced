@@ -9,6 +9,7 @@ import { InfoBadgeComponent } from '../../UI/badges/info-badge/info-badge.compon
 import { BulkyBadgeComponent } from '../../UI/badges/bulky-badge/bulky-badge.component';
 import { HeartIconComponent } from '../../UI/icons/heart-icon/heart-icon.component';
 import { DetailsComponent } from '../../UI/details/details/details.component';
+import { JewelHeaderComponent } from './jewel-header/jewel-header.component';
 
 @Component({
   selector: 'app-jewel',
@@ -23,7 +24,8 @@ import { DetailsComponent } from '../../UI/details/details/details.component';
     InfoBadgeComponent,
     BulkyBadgeComponent,
     HeartIconComponent,
-    DetailsComponent
+    DetailsComponent,
+    JewelHeaderComponent
   ],
   standalone: true,
   templateUrl: './jewel.component.html',
@@ -43,28 +45,7 @@ export class JewelComponent implements OnInit {
     return jewel;
   }
 
-  getLinkData() {
-    const jewelHeading = signal(this.jewelDetails?.itemDetails.heading || '');
-    const jewelId = signal(this.jewelDetails?.id || '');
-    return {
-      jewelHeading: jewelHeading() ? jewelHeading() + ` .` : ``,
-      jewelUrl: [`/jewelry`, `${jewelId()}`]
-    };
-  }
 
-  get getRatingArray() {
-    if (this.jewelDetails) {
-      const filledStars = Math.floor(this.jewelDetails.itemDetails.rating);
-      const emptyStars = 5 - filledStars;
-      return [
-        ...Array(filledStars).fill(`filled`),
-        ...Array(emptyStars).fill('empty')
-      ];
-    } else {
-      this.router.navigate([`/`]).then();
-      return;
-    }
-  }
 
   ngOnInit() {
     window.scrollTo(0, 0);
