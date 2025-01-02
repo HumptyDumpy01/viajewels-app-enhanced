@@ -10,7 +10,6 @@ import { JewelryType } from '../../../../../data/JEWELRY';
   imports: [
     NavigateToLinkComponent,
     ParagraphComponent,
-    ItemCardComponent,
     MinifiedItemCardsComponent
   ],
   standalone: true,

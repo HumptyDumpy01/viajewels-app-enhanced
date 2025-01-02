@@ -17,7 +17,16 @@ export type JewelryType = {
     info: JewelryInfoType
   },
   href: string,
-  itemsLeft: number
+  itemsLeft: number,
+  reviews: JewelryReviewType[] | null
+}
+
+export type JewelryReviewType = {
+  initials: string;
+  email?: string;
+  rated: number;
+  review: string;
+  createdAt: string;
 }
 
 export type JewelryInfoType = {
@@ -54,7 +63,58 @@ export const JEWELRY: JewelryType[] = [
       }
     },
     href: '/jewelry/1',
-    itemsLeft: 4
+    itemsLeft: 4,
+    reviews: [
+      {
+        initials: 'John Smith',
+        email: 'johnsmith@example.com',
+        rated: 5,
+        review: 'Absolutely stunning! The gold finish is perfect, and the design is timeless.',
+        createdAt: '2025-01-01'
+      },
+      {
+        initials: 'Emily Davis',
+        email: 'emilyd@example.com',
+        rated: 4,
+        review: 'Beautiful bracelet, but I wish the clasp was a bit sturdier.',
+        createdAt: '2024-12-30'
+      },
+      {
+        initials: 'Sophia Johnson',
+        email: 'sophiaj@example.com',
+        rated: 5,
+        review: 'Love it! Perfect for everyday wear or special occasions.',
+        createdAt: '2024-12-25'
+      },
+      {
+        initials: 'Michael Brown',
+        email: 'michaelb@example.com',
+        rated: 4,
+        review: 'Great quality, but slightly smaller than I expected.',
+        createdAt: '2024-12-20'
+      },
+      {
+        initials: 'Olivia Wilson',
+        email: 'oliviaw@example.com',
+        rated: 5,
+        review: 'A gift for my mom, and she adores it!',
+        createdAt: '2024-12-18'
+      },
+      {
+        initials: 'Daniel Martinez',
+        email: 'danielm@example.com',
+        rated: 5,
+        review: 'Exceptional craftsmanship, worth every penny.',
+        createdAt: '2024-12-15'
+      },
+      {
+        initials: 'Liam Garcia',
+        email: 'liamg@example.com',
+        rated: 4,
+        review: 'Lovely bracelet but took longer to arrive than expected.',
+        createdAt: '2024-12-10'
+      }
+    ]
   },
   {
     id: 2,
@@ -81,7 +141,58 @@ export const JEWELRY: JewelryType[] = [
       }
     },
     href: '/jewelry/2',
-    itemsLeft: 10
+    itemsLeft: 10,
+    reviews: [
+      {
+        initials: 'Emma Harris',
+        email: 'emmah@example.com',
+        rated: 5,
+        review: 'Gorgeous necklace, the diamonds sparkle beautifully.',
+        createdAt: '2025-01-02'
+      },
+      {
+        initials: 'William Clark',
+        email: 'williamc@example.com',
+        rated: 4,
+        review: 'Very elegant but slightly expensive.',
+        createdAt: '2024-12-29'
+      },
+      {
+        initials: 'Ava Lewis',
+        email: 'aval@example.com',
+        rated: 5,
+        review: 'I wore this to a gala, and everyone complimented me!',
+        createdAt: '2024-12-27'
+      },
+      {
+        initials: 'James Robinson',
+        email: 'jamesr@example.com',
+        rated: 5,
+        review: 'A perfect anniversary gift for my wife. She loves it!',
+        createdAt: '2024-12-22'
+      },
+      {
+        initials: 'Isabella Walker',
+        email: 'isabellaw@example.com',
+        rated: 4,
+        review: 'Stunning necklace but came in a slightly damaged box.',
+        createdAt: '2024-12-17'
+      },
+      {
+        initials: 'Benjamin Hall',
+        email: 'benjaminh@example.com',
+        rated: 5,
+        review: 'The craftsmanship is unmatched. Highly recommend!',
+        createdAt: '2024-12-12'
+      },
+      {
+        initials: 'Mia Young',
+        email: 'miay@example.com',
+        rated: 5,
+        review: 'Absolutely love this necklace, it’s my favorite piece now.',
+        createdAt: '2024-12-08'
+      }
+    ]
   },
   {
     id: 3,
@@ -108,7 +219,51 @@ export const JEWELRY: JewelryType[] = [
       }
     },
     href: '/jewelry/3',
-    itemsLeft: 8
+    itemsLeft: 8,
+    reviews: [
+      {
+        initials: 'Charlotte King',
+        email: 'charlottek@example.com',
+        rated: 5,
+        review: 'These earrings are absolutely beautiful and lightweight.',
+        createdAt: '2024-12-30'
+      },
+      {
+        initials: 'Henry Scott',
+        email: 'henrys@example.com',
+        rated: 4,
+        review: 'Lovely pearls but a bit smaller than expected.',
+        createdAt: '2024-12-28'
+      },
+      {
+        initials: 'Amelia Adams',
+        email: 'ameliaa@example.com',
+        rated: 5,
+        review: 'They add a perfect touch of elegance to any outfit.',
+        createdAt: '2024-12-25'
+      },
+      {
+        initials: 'Lucas Baker',
+        email: 'lucasb@example.com',
+        rated: 5,
+        review: 'Bought these as a gift, and the recipient loved them!',
+        createdAt: '2024-12-21'
+      },
+      {
+        initials: 'Harper Carter',
+        email: 'harperc@example.com',
+        rated: 4,
+        review: 'Very pretty, but the backing could be more secure.',
+        createdAt: '2024-12-15'
+      },
+      {
+        initials: 'Evelyn Murphy',
+        email: 'evelynm@example.com',
+        rated: 5,
+        review: 'Timeless and elegant, perfect for every occasion.',
+        createdAt: '2024-12-10'
+      }
+    ]
   },
   {
     id: 4,
@@ -135,7 +290,51 @@ export const JEWELRY: JewelryType[] = [
       }
     },
     href: '/jewelry/4',
-    itemsLeft: 2
+    itemsLeft: 2,
+    reviews: [
+      {
+        initials: 'Ella Turner',
+        email: 'ellat@example.com',
+        rated: 5,
+        review: 'A ring fit for royalty! Absolutely love the sapphires.',
+        createdAt: '2024-12-31'
+      },
+      {
+        initials: 'Alexander Mitchell',
+        email: 'alexanderm@example.com',
+        rated: 4,
+        review: 'Beautiful ring but a bit pricey.',
+        createdAt: '2024-12-28'
+      },
+      {
+        initials: 'Grace Perez',
+        email: 'gracep@example.com',
+        rated: 5,
+        review: 'The sapphires are stunning, and the design is elegant.',
+        createdAt: '2024-12-24'
+      },
+      {
+        initials: 'Samuel Roberts',
+        email: 'samuelr@example.com',
+        rated: 5,
+        review: 'Purchased for my wife, and she hasn’t taken it off since!',
+        createdAt: '2024-12-20'
+      },
+      {
+        initials: 'Luna Evans',
+        email: 'lunale@example.com',
+        rated: 4,
+        review: 'Love the ring, but the delivery was delayed.',
+        createdAt: '2024-12-17'
+      },
+      {
+        initials: 'Jack Phillips',
+        email: 'jackp@example.com',
+        rated: 5,
+        review: 'A truly luxurious ring, worth the investment.',
+        createdAt: '2024-12-13'
+      }
+    ]
   },
   {
     id: 5,
@@ -162,7 +361,51 @@ export const JEWELRY: JewelryType[] = [
       }
     },
     href: '/jewelry/5',
-    itemsLeft: 5
+    itemsLeft: 5,
+    reviews: [
+      {
+        initials: 'Aria Rodriguez',
+        email: 'ariar@example.com',
+        rated: 5,
+        review: 'This ring is simply magical. I’m mesmerized by its beauty.',
+        createdAt: '2024-12-30'
+      },
+      {
+        initials: 'Matthew Anderson',
+        email: 'matthewa@example.com',
+        rated: 5,
+        review: 'The design is unique, and the quality is top-notch.',
+        createdAt: '2024-12-26'
+      },
+      {
+        initials: 'Scarlett Moore',
+        email: 'scarlettm@example.com',
+        rated: 4,
+        review: 'Amazing ring, but the size adjustment was tricky.',
+        createdAt: '2024-12-22'
+      },
+      {
+        initials: 'Elijah Thomas',
+        email: 'elijaht@example.com',
+        rated: 5,
+        review: 'I get compliments every time I wear this ring.',
+        createdAt: '2024-12-18'
+      },
+      {
+        initials: 'Avery Martinez',
+        email: 'averym@example.com',
+        rated: 5,
+        review: 'An excellent addition to my jewelry collection.',
+        createdAt: '2024-12-14'
+      },
+      {
+        initials: 'Sofia Thompson',
+        email: 'sofiat@example.com',
+        rated: 5,
+        review: 'Enchants everyone who sees it. Highly recommend!',
+        createdAt: '2024-12-12'
+      }
+    ]
   },
   {
     id: 6,
@@ -189,6 +432,57 @@ export const JEWELRY: JewelryType[] = [
       }
     },
     href: '/jewelry/6',
-    itemsLeft: 0
+    itemsLeft: 0,
+    reviews: [
+      {
+        initials: 'Chloe White',
+        email: 'chloew@example.com',
+        rated: 5,
+        review: 'The perfect symbol of our love. Couldn’t be happier!',
+        createdAt: '2024-12-31'
+      },
+      {
+        initials: 'Mason Green',
+        email: 'masong@example.com',
+        rated: 5,
+        review: 'Elegant, timeless, and absolutely beautiful.',
+        createdAt: '2024-12-27'
+      },
+      {
+        initials: 'Zoe Hernandez',
+        email: 'zoeh@example.com',
+        rated: 4,
+        review: 'Amazing ring, but it took a while to arrive.',
+        createdAt: '2024-12-23'
+      },
+      {
+        initials: 'Logan Walker',
+        email: 'loganw@example.com',
+        rated: 5,
+        review: 'My partner loves it! Thank you for this masterpiece.',
+        createdAt: '2024-12-20'
+      },
+      {
+        initials: 'Ella Allen',
+        email: 'ellaa@example.com',
+        rated: 5,
+        review: 'The craftsmanship is superb. Highly recommend.',
+        createdAt: '2024-12-15'
+      },
+      {
+        initials: 'James Wright',
+        email: 'jamesw@example.com',
+        rated: 5,
+        review: 'This ring is everything we wanted and more.',
+        createdAt: '2024-12-10'
+      },
+      {
+        initials: 'Abigail King',
+        email: 'abigailk@example.com',
+        rated: 5,
+        review: 'An exquisite piece. Couldn’t have chosen better.',
+        createdAt: '2024-12-08'
+      }
+    ]
   }
 ];

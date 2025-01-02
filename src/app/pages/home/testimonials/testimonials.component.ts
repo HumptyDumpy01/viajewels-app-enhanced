@@ -18,4 +18,7 @@ import { ViajewelsButtonComponent } from '../../../UI/buttons/viajewels-button/v
 })
 export class TestimonialsComponent {
 
+  get getTestimonials() {
+    return;
+  }
 }
