@@ -1,3 +1,16 @@
-<section>
-  fkwejfkj
+<section class="container">
+  <div class="flex items-center gap-2 pb-2">
+    <app-navigate-to-link [href]="['/']" label="Home ." />
+    <app-navigate-to-link [href]="['/jewelry']" label="Jewelry ." />
+    <app-navigate-to-link [href]="getLinkData().jewelUrl" [label]="getLinkData().jewelHeading" />
+  </div>
+  <div class="flex items-center gap-14">
+    <div class="flex items-center gap-3.5">
+      <div>
+      </div>
+      <div></div>
+    </div>
+    <div>
+    </div>
+  </div>
 </section>

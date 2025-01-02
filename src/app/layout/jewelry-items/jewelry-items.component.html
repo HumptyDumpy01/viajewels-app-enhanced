@@ -7,7 +7,7 @@
       *ngFor="let item of jewelry()"
       [addedToWishlist]="item.addedToWishlist"
       [href]="item.href"
-      [imgData]="item.imgData"
+      [imgData]="item.imgData[0]"
       [itemDetails]="item.itemDetails"
     />
   </div>

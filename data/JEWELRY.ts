@@ -6,7 +6,7 @@ export type JewelryType = {
   imgData: {
     src: string,
     alt: string
-  },
+  }[],
   itemDetails: {
     heading: string,
     price: number,
@@ -31,7 +31,7 @@ export const JEWELRY: JewelryType[] = [
   {
     id: 1,
     addedToWishlist: false,
-    imgData: { src: './jewelry/classic-gold-bracelet/classic-gold-bracelet-1.png', alt: 'Classic Gold Bracelet' },
+    imgData: [{ src: './jewelry/classic-gold-bracelet/classic-gold-bracelet-1.png', alt: 'Classic Gold Bracelet' }],
     itemDetails: {
       heading: 'Classic Golden Bracelet made of perfect stone',
       price: 1229,
@@ -52,7 +52,7 @@ export const JEWELRY: JewelryType[] = [
   {
     id: 2,
     addedToWishlist: true,
-    imgData: { src: './jewelry/diamond-necklace/diamond-necklace-1.png', alt: 'Diamond Necklace' },
+    imgData: [{ src: './jewelry/diamond-necklace/diamond-necklace-1.png', alt: 'Diamond Necklace' }],
     itemDetails: {
       heading: 'Diamond Necklace - Elegance and Brilliance Combined',
       price: 2499,
@@ -73,10 +73,10 @@ export const JEWELRY: JewelryType[] = [
   {
     id: 3,
     addedToWishlist: true,
-    imgData: {
+    imgData: [{
       src: './jewelry/exquisite-pearl-earrings/exquisite-pearl-earrings-1.png',
       alt: 'Exquisite Pearl Earrings'
-    },
+    }],
     itemDetails: {
       heading: 'Exquisite Pearl Earrings - Timeless Sophistication',
       price: 899,
@@ -97,7 +97,10 @@ export const JEWELRY: JewelryType[] = [
   {
     id: 4,
     addedToWishlist: false,
-    imgData: { src: './jewelry/sapphire-encrusted-ring/sapphire-encrusted-ring-1.png', alt: 'Sapphire Encrusted Ring' },
+    imgData: [{
+      src: './jewelry/sapphire-encrusted-ring/sapphire-encrusted-ring-1.png',
+      alt: 'Sapphire Encrusted Ring'
+    }],
     itemDetails: {
       heading: 'Sapphire Encrusted Ring - A Royal Statement',
       price: 1599,
@@ -118,7 +121,7 @@ export const JEWELRY: JewelryType[] = [
   {
     id: 5,
     addedToWishlist: false,
-    imgData: { src: './jewelry/spellbinding-ring/spellbinding-ring-1.png', alt: 'Spellbinding Ring' },
+    imgData: [{ src: './jewelry/spellbinding-ring/spellbinding-ring-1.png', alt: 'Spellbinding Ring' }],
     itemDetails: {
       heading: 'Spellbinding Ring - Captivate and Mesmerize',
       price: 1349,
@@ -139,7 +142,7 @@ export const JEWELRY: JewelryType[] = [
   {
     id: 6,
     addedToWishlist: true,
-    imgData: { src: './jewelry/wedding-ring/wedding-ring-1.png', alt: 'Wedding Ring' },
+    imgData: [{ src: './jewelry/wedding-ring/wedding-ring-1.png', alt: 'Wedding Ring' }],
     itemDetails: {
       heading: 'Wedding Ring - The Perfect Symbol of Love',
       price: 1899,
