@@ -2,5 +2,13 @@
   <app-heading class="md:text-nowrap" span="Our Customers adore this jewelry!">
     <span class="font-alexBrush">C</span>heckout the <span class="font-alexBrush">R</span>eviews!
   </app-heading>
-  <app-testimonials [testimonials]="[]" />
+  <div class="flex items-center gap-4 mr-6 mb-16 mt-3">
+    <span class="text-2xl">Sort by:</span>
+    <div class="flex items-center gap-3 overflow-x-auto">
+      <app-bulky-badge [active]="false" label="New" />
+      <app-bulky-badge [active]="true" label="Top Rated" />
+      <app-bulky-badge [active]="false" label="Old" />
+    </div>
+  </div>
+  <app-testimonials [testimonials]="jewelReviews().slice(0, 4)" />
 </section>

@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { StarIconComponent } from '../../icons/star-icon/star-icon.component';
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
-import { NgForOf } from '@angular/common';
+import { DatePipe, NgForOf } from '@angular/common';
 import { AbbrInitialsPipe } from '../../../abbr-initials.pipe';
 import { TrimTextPipe } from '../../../trim-text.pipe';
 
@@ -12,7 +12,8 @@ import { TrimTextPipe } from '../../../trim-text.pipe';
     ParagraphComponent,
     NgForOf,
     AbbrInitialsPipe,
-    TrimTextPipe
+    TrimTextPipe,
+    DatePipe
   ],
   standalone: true,
   templateUrl: './testimonials-card.component.html',
@@ -22,6 +23,7 @@ export class TestimonialsCardComponent {
   initials = input.required<string>();
   review = input.required<string>();
   rating = input.required<number>();
+  createdAt = input.required<string>();
 
   // if e.g. rating is 4.5, we want to create an array of 4 elements
   get getRatingArray() {
