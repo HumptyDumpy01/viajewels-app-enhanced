@@ -13,7 +13,7 @@ export type JewelryType = {
     rating: number,
     reviewCount: number,
     description: string,
-    tag: ItemTagType[] | null,
+    tag: ItemTagType[],
     info: JewelryInfoType
   },
   href: string

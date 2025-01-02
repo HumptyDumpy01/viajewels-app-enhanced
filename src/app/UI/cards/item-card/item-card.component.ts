@@ -104,7 +104,7 @@ type ItemDetailsType = {
   rating: number;
   reviewCount: number;
   description: string;
-  tag: ItemTagType;
+  tag: ItemTagType[];
 }
 
 export type ItemTagType = `coming-soon` | `collection` | `new` | `bracelets` | `necklaces` | `rings` | `earrings`;
