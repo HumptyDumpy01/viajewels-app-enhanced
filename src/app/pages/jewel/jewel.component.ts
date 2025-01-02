@@ -3,11 +3,23 @@ import { Title } from '@angular/platform-browser';
 import { JewelryService } from '../../jewelry.service';
 import { NavigateToLinkComponent } from '../../UI/links/navigate-to-link/navigate-to-link.component';
 import { Router } from '@angular/router';
+import { CurrencyPipe, NgForOf, NgIf, TitleCasePipe, UpperCasePipe } from '@angular/common';
+import { StarIconComponent } from '../../UI/icons/star-icon/star-icon.component';
+import { InfoBadgeComponent } from '../../UI/badges/info-badge/info-badge.component';
+import { BulkyBadgeComponent } from '../../UI/badges/bulky-badge/bulky-badge.component';
 
 @Component({
   selector: 'app-jewel',
   imports: [
-    NavigateToLinkComponent
+    NavigateToLinkComponent,
+    NgIf,
+    NgForOf,
+    TitleCasePipe,
+    UpperCasePipe,
+    StarIconComponent,
+    CurrencyPipe,
+    InfoBadgeComponent,
+    BulkyBadgeComponent
   ],
   standalone: true,
   templateUrl: './jewel.component.html',
@@ -34,6 +46,20 @@ export class JewelComponent implements OnInit {
       jewelHeading: jewelHeading() ? jewelHeading() + ` .` : ``,
       jewelUrl: [`/jewelry`, `${jewelId()}`]
     };
+  }
+
+  get getRatingArray() {
+    if (this.jewelDetails) {
+      const filledStars = Math.floor(this.jewelDetails.itemDetails.rating);
+      const emptyStars = 5 - filledStars;
+      return [
+        ...Array(filledStars).fill(`filled`),
+        ...Array(emptyStars).fill('empty')
+      ];
+    } else {
+      this.router.navigate([`/`]).then();
+      return;
+    }
   }
 
   ngOnInit() {

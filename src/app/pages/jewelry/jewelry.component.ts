@@ -29,7 +29,7 @@ export class JewelryComponent implements OnInit {
   }
 
   get suggestedItems() {
-    return this.jewelryItems.filter((jewelry) => jewelry.itemDetails.tag === `new`);
+    return this.jewelryItems.filter((jewelry) => jewelry.itemDetails.tag?.includes('new'));
   }
 
   ngOnInit() {

@@ -61,18 +61,16 @@ export class ItemCardComponent {
 
     let chosenStyle = ``;
 
-    switch (this.itemDetails().tag) {
-      case `coming-soon`:
-        chosenStyle = comingSoon;
-        break;
-      case `collection`:
-        chosenStyle = collection;
-        break;
-      case `new`:
-        chosenStyle = newItem;
-        break;
-      default:
-        chosenStyle = ``;
+    if (this.itemDetails().tag.includes(`coming-soon`)) {
+      chosenStyle = comingSoon;
+    }
+
+    if (this.itemDetails().tag.includes(`collection`)) {
+      chosenStyle = collection;
+    }
+
+    if (this.itemDetails().tag.includes(`new`)) {
+      chosenStyle = newItem;
     }
 
     return chosenStyle;
@@ -85,18 +83,14 @@ export class ItemCardComponent {
 
     let chosenText = ``;
 
-    switch (this.itemDetails().tag) {
-      case `coming-soon`:
-        chosenText = comingSoon;
-        break;
-      case `collection`:
-        chosenText = collection;
-        break;
-      case `new`:
-        chosenText = newItem;
-        break;
-      default:
-        chosenText = ``;
+    if (this.itemDetails().tag.includes(`coming-soon`)) {
+      chosenText = comingSoon;
+    }
+    if (this.itemDetails().tag.includes(`collection`)) {
+      chosenText = collection;
+    }
+    if (this.itemDetails().tag.includes(`new`)) {
+      chosenText = newItem;
     }
 
     return chosenText;
@@ -113,6 +107,6 @@ type ItemDetailsType = {
   tag: ItemTagType;
 }
 
-export type ItemTagType = `coming-soon` | `collection` | `new` | null;
+export type ItemTagType = `coming-soon` | `collection` | `new` | `bracelets` | `necklaces` | `rings` | `earrings`;
 
 export type CardModeType = `black` | `white`;

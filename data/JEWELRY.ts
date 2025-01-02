@@ -13,7 +13,7 @@ export type JewelryType = {
     rating: number,
     reviewCount: number,
     description: string,
-    tag: ItemTagType,
+    tag: ItemTagType[] | null,
     info: JewelryInfoType
   },
   href: string
@@ -43,7 +43,7 @@ export const JEWELRY: JewelryType[] = [
       rating: 4.44,
       reviewCount: 132,
       description: 'Crafted with the finest diamonds, this necklace is designed to make you stand out at every occasion. Adorn your neckline with these symbols of sophistication and timeless beauty.',
-      tag: 'new',
+      tag: ['new', 'bracelets'],
       info: {
         description: 'A classic golden bracelet designed to enhance elegance with every wear. Features intricate detailing and a smooth finish.',
         material: '18k Gold and Premium Stones',
@@ -69,7 +69,7 @@ export const JEWELRY: JewelryType[] = [
       rating: 4.8,
       reviewCount: 210,
       description: 'This stunning diamond necklace is a masterpiece of design and craftsmanship. Perfect for enhancing your beauty at weddings, galas, or any special event.',
-      tag: null,
+      tag: ['necklaces'],
       info: {
         description: 'A breathtaking diamond necklace featuring a cascade of brilliant-cut diamonds. A symbol of eternal elegance.',
         material: 'Platinum and High-Grade Diamonds',
@@ -95,7 +95,7 @@ export const JEWELRY: JewelryType[] = [
       rating: 4.7,
       reviewCount: 176,
       description: 'These exquisite pearl earrings radiate grace and charm. Perfect for any occasion, they add a touch of timeless elegance to your ensemble.',
-      tag: 'collection',
+      tag: ['collection', 'earrings'],
       info: {
         description: 'Delicately designed pearl earrings that exude timeless sophistication. A must-have for every jewelry collection.',
         material: 'Cultured Pearls and Sterling Silver',
@@ -121,7 +121,7 @@ export const JEWELRY: JewelryType[] = [
       rating: 4.9,
       reviewCount: 98,
       description: 'Adorned with dazzling sapphires, this ring is a true symbol of luxury and refinement. A perfect choice for those who seek exclusivity and style.',
-      tag: 'new',
+      tag: ['new', 'rings'],
       info: {
         description: 'A stunning sapphire-encrusted ring crafted to make a royal statement. Designed for those who appreciate unparalleled luxury.',
         material: 'White Gold and Natural Sapphires',
@@ -147,7 +147,7 @@ export const JEWELRY: JewelryType[] = [
       rating: 4.6,
       reviewCount: 143,
       description: 'A unique design that exudes magic and allure. The spellbinding ring is perfect for making a memorable statement.',
-      tag: null,
+      tag: ['rings'],
       info: {
         description: 'An enchanting ring that captivates with its intricate design and mesmerizing beauty. A true conversation starter.',
         material: 'Rose Gold and Moissanite',
@@ -173,7 +173,7 @@ export const JEWELRY: JewelryType[] = [
       rating: 4.9,
       reviewCount: 254,
       description: 'Celebrate your special day with this elegantly crafted wedding ring. A timeless symbol of your love and commitment.',
-      tag: 'coming-soon',
+      tag: ['coming-soon', 'rings'],
       info: {
         description: 'A beautifully designed wedding ring symbolizing eternal love and devotion. Ideal for your most cherished moments.',
         material: '14k White Gold and Conflict-Free Diamonds',
