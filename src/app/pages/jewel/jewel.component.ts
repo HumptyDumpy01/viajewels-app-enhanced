@@ -5,13 +5,15 @@ import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { JewelHeaderComponent } from './jewel-header/jewel-header.component';
 import { JewelTestimonialsComponent } from './jewel-testimonials/jewel-testimonials.component';
+import { LeaveReviewComponent } from './leave-review/leave-review.component';
 
 @Component({
   selector: 'app-jewel',
   imports: [
     NgIf,
     JewelHeaderComponent,
-    JewelTestimonialsComponent
+    JewelTestimonialsComponent,
+    LeaveReviewComponent
   ],
   standalone: true,
   templateUrl: './jewel.component.html',

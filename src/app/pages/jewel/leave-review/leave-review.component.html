@@ -1,0 +1,48 @@
+<div class="bg-red-600 py-24 pb-28 mt-20 relative z-10">
+  <img alt="A wonderful bracelets for your loved one." class="absolute object-cover top-0 -right-20 h-full z-[-1]"
+       src="./jewel/leave-review.png">
+  <div class="container">
+    <section>
+      <div class="flex bp-890:block flex-col items-center bp-890:text-left text-center">
+        <app-heading customContainerClasses="mb-7 flex flex-col" span="want to share your exprerience?"
+                     spanColor="text-white">
+          <p class="text-white"><span class="font-alexBrush">L</span>eave a review
+            <span class="font-alexBrush">B</span>elow!</p>
+        </app-heading>
+        <div class="flex items-center justify-between mb-16">
+          <app-paragraph customClasses="text-white">
+            <span class="font-alexBrush">W</span>e value your feedback and would love to hear about your experience
+            with our products! Sharing your thoughts not only helps us improve but also helps other customers make
+            informed decisions. Whether it’s a story about how the item brought joy to your life or a suggestion for
+            improvement, every review matters.
+          </app-paragraph>
+        </div>
+      </div>
+      <div class="flex items-center">
+        <div class="flex items-center">
+          <form class="w-full flex flex-col gap-14">
+            <div class="flex justify-center flex-col gap-1">
+              <div class="flex items-center gap-4 mb-7">
+                <span class="uppercase text-3xl text-white">rating</span>
+                <div class="flex items-center gap-1">
+                  <app-star-white-icon class="cursor-pointer" mode="filled" />
+                  <app-star-white-icon class="cursor-pointer" mode="filled" />
+                  <app-star-white-icon class="cursor-pointer" mode="filled" />
+                  <app-star-white-icon class="cursor-pointer" mode="transparent" />
+                  <app-star-white-icon class="cursor-pointer" mode="transparent" />
+                </div>
+              </div>
+              <div class="flex items-center gap-20">
+                <app-input-control class="max-w-96" helperText="Enter your email" placeholder="Email" type="email" />
+                <app-input-control class="max-w-96" helperText="Enter your initials" placeholder="Initials"
+                                   type="text" />
+              </div>
+              <app-input-control class="w-full" helperText="Enter your review" placeholder="Review" type="text" />
+            </div>
+            <app-viajewels-button label="leave Review" styling="empty-white" type="submit" />
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
