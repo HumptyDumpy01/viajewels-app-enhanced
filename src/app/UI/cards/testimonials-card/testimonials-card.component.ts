@@ -3,6 +3,7 @@ import { StarIconComponent } from '../../icons/star-icon/star-icon.component';
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
 import { NgForOf } from '@angular/common';
 import { AbbrInitialsPipe } from '../../../abbr-initials.pipe';
+import { TrimTextPipe } from '../../../trim-text.pipe';
 
 @Component({
   selector: 'app-testimonials-card',
@@ -10,7 +11,8 @@ import { AbbrInitialsPipe } from '../../../abbr-initials.pipe';
     StarIconComponent,
     ParagraphComponent,
     NgForOf,
-    AbbrInitialsPipe
+    AbbrInitialsPipe,
+    TrimTextPipe
   ],
   standalone: true,
   templateUrl: './testimonials-card.component.html',

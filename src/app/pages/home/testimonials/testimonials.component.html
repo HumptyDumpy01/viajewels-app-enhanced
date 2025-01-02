@@ -20,34 +20,12 @@
       </app-paragraph>
     </div>
   </div>
-  <div class="grid items-center bp-1124:grid-cols-2 gap-11 grid-cols-1">
+  <div *ngIf="getTestimonials.length > 0" class="grid items-center bp-1124:grid-cols-2 gap-11 grid-cols-1">
     <app-testimonials-card
-      [rating]="5"
-      initials="Nick Baker"
-      review="I was blown away by the beauty and craftsmanship of my necklace from
-          Viajewels. It’s even more stunning in
-          person and has quickly become my go-to accessory for every special occasion!"
-    />
-    <app-testimonials-card
-      [rating]="5"
-      initials="Nick Baker"
-      review="I was blown away by the beauty and craftsmanship of my necklace from
-          Viajewels. It’s even more stunning in
-          person and has quickly become my go-to accessory for every special occasion!"
-    />
-    <app-testimonials-card
-      [rating]="5"
-      initials="Nick Baker"
-      review="I was blown away by the beauty and craftsmanship of my necklace from
-          Viajewels. It’s even more stunning in
-          person and has quickly become my go-to accessory for every special occasion!"
-    />
-    <app-testimonials-card
-      [rating]="5"
-      initials="Nick Baker"
-      review="I was blown away by the beauty and craftsmanship of my necklace from
-          Viajewels. It’s even more stunning in
-          person and has quickly become my go-to accessory for every special occasion!"
+      *ngFor="let testimonial of getTestimonials"
+      [initials]="testimonial?.initials!"
+      [rating]="testimonial?.rated!"
+      [review]="testimonial?.review!"
     />
   </div>
   <div class="mt-16">

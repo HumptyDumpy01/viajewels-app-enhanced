@@ -9,7 +9,7 @@
       </div>
     </div>
     <app-paragraph>
-      <span class="font-alexBrush">{{ firstLetterOfText }}</span> {{ restOfText }}
+      <span class="font-alexBrush">{{ firstLetterOfText }}</span> {{ restOfText | trimText: 190 }}
     </app-paragraph>
   </div>
 </div>
