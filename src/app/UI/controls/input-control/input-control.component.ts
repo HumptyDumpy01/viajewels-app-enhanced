@@ -20,12 +20,12 @@ export class InputControlComponent {
     const redStyles = `
     w-full py-4 pb-5 pl-1 px-4 text-3xl bg-red-600
     text-white placeholder-white border-2 border-red-600 border-b-white
-         focus:outline-0 focus:border-2 focus:pl-5 focus:border-white
+         focus:outline-none focus:border-2 focus:pl-5 focus:border-white
          transition-all duration-300`;
     const blackStyles = `
     w-full py-4 pb-5 pl-1 px-4 text-3xl
     text-zinc-800 placeholder-zinc-800 border-2 border-transparent border-b-zinc-800
-          focus:outline-0 focus:border-2 focus:pl-5 focus:border-zinc-800
+          focus:outline-none focus:border-2 focus:pl-5 focus:border-zinc-800
           transition-all duration-300`;
 
     return this.mode() === `red` ? redStyles : blackStyles;
