@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, computed, inject, OnInit } from '@angular/core';
 import { HeroComponent } from './hero/hero.component';
 import { WhyUsComponent } from './why-us/why-us.component';
 import { CollectionsComponent } from './collections/collections.component';
@@ -21,6 +21,18 @@ export class HomeComponent implements OnInit {
 
   get jewelry() {
     return this.jewelryService.getJewelry();
+  }
+
+
+  testimonialData = computed(() => this.jewelryService.getJewelry().filter((j) =>
+    j.reviews!.length > 0));
+
+  get getTestimonials() {
+    // gather all reviews onto a single array and return it
+    const reviews = this.testimonialData().map((j) => j.reviews).flat()
+      .filter((r) => r!.rated >= 4).slice(0, 4);
+
+    return reviews!;
   }
 
   ngOnInit() {

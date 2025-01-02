@@ -20,9 +20,9 @@
       </app-paragraph>
     </div>
   </div>
-  <div *ngIf="getTestimonials.length > 0" class="grid items-center bp-1124:grid-cols-2 gap-11 grid-cols-1">
+  <div *ngIf="testimonials().length > 0" class="grid items-center bp-1124:grid-cols-2 gap-11 grid-cols-1">
     <app-testimonials-card
-      *ngFor="let testimonial of getTestimonials"
+      *ngFor="let testimonial of testimonials()"
       [initials]="testimonial?.initials!"
       [rating]="testimonial?.rated!"
       [review]="testimonial?.review!"

@@ -18,7 +18,7 @@ export type JewelryType = {
   },
   href: string,
   itemsLeft: number,
-  reviews: JewelryReviewType[] | null
+  reviews: JewelryReviewType[] | []
 }
 
 export type JewelryReviewType = {
