@@ -6,6 +6,7 @@ import { NgIf } from '@angular/common';
 import { JewelHeaderComponent } from './jewel-header/jewel-header.component';
 import { JewelTestimonialsComponent } from './jewel-testimonials/jewel-testimonials.component';
 import { LeaveReviewComponent } from './leave-review/leave-review.component';
+import { YouMightAlsoLikeComponent } from '../../layout/you-might-also-like/you-might-also-like.component';
 
 @Component({
   selector: 'app-jewel',
@@ -13,7 +14,8 @@ import { LeaveReviewComponent } from './leave-review/leave-review.component';
     NgIf,
     JewelHeaderComponent,
     JewelTestimonialsComponent,
-    LeaveReviewComponent
+    LeaveReviewComponent,
+    YouMightAlsoLikeComponent
   ],
   standalone: true,
   templateUrl: './jewel.component.html',
