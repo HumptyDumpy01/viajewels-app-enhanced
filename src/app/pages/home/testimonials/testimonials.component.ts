@@ -22,4 +22,7 @@ import { JewelryReviewType } from '../../../../../data/JEWELRY';
 })
 export class TestimonialsComponent {
   testimonials = input.required<JewelryReviewType[]>();
+  paginationVariation = input<PaginationVariationType>(`see-more-btn`);
 }
+
+type PaginationVariationType = `circles` | `see-more-btn`
