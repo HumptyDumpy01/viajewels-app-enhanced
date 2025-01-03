@@ -1,14 +1,12 @@
 import { Component, inject, signal } from '@angular/core';
 import { JewelryService } from '../../../jewelry.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavigateToLinkComponent } from '../../../UI/links/navigate-to-link/navigate-to-link.component';
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
 import { OrderDetailCardComponent } from '../../../UI/cards/order-detail-card/order-detail-card.component';
 
 @Component({
   selector: 'app-check-out-header',
   imports: [
-    NavigateToLinkComponent,
     ParagraphComponent,
     OrderDetailCardComponent
   ],
