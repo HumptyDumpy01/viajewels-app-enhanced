@@ -2,7 +2,7 @@
   <div class="flex gap-12 flex-col bp-1210:flex-row items-start justify-between">
     <div class="overflow-auto">
       <app-check-out-header />
-      <app-shipping-details />
+      <app-shipping-details [button]="{type: 'submit', text: 'Checkout', btnMode: 'btn'}" />
     </div>
     <div>
       <h3 class="text-4xl text-zinc-800 mb-2">Your <span class="font-alexBrush">W</span>ishlist</h3>

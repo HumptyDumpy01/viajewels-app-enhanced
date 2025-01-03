@@ -37,6 +37,13 @@
     </div>
     <app-info-message text="Double-check everything to make sure it’s
         just how you want it." />
-    <app-viajewels-button class="mt-12 inline-block" label="Checkout" styling="default" type="submit" />
+    <app-viajewels-button
+      [href]="button().href"
+      [label]="button().text"
+      [mode]="button().btnMode"
+      [type]="button().type"
+      class="mt-12 inline-block"
+      styling="default"
+    />
   </form>
 </section>
