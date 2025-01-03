@@ -1,117 +1,41 @@
 <section class="mb-12">
-  <div class="flex items-start justify-between">
-    <div>
-
-      <div class="flex items-center gap-2 pb-2 text-nowrap overflow-x-auto">
-        <app-navigate-to-link [href]="['/']" label="Home ." />
-        <app-navigate-to-link [href]="['/jewelry']" label="Jewelry ." />
+  <!--<div class="flex items-center gap-2 pb-2 overflow-y-auto max-w-96">
+    <app-navigate-to-link [href]="['/']" label="Home ." />
+    <app-navigate-to-link [href]="['/jewelry']" label="Jewelry ." />
         <app-navigate-to-link [href]="getLinkData().jewelUrl" [label]="getLinkData().jewelHeading" />
-        <app-navigate-to-link [href]="['/check-out', id()!]" label="Checkout" />
-      </div>
-      <div>
-        <h1 class="text-zinc-800 text-5xl max-w-screen-sm-xl leading-tight">Good choice! Let's finish your order!</h1>
-        <app-paragraph class="mt-6 inline-block mb-8">
-          <span class="font-alexBrush">Y</span>ou've made a fantastic selection! We’re thrilled to help you bring this
-          product into your life. Rest assured,
-          you’re just moments away from owning something special. Let’s move forward to secure your order and ensure a
-          seamless shopping experience!
-        </app-paragraph>
-        <h2 class="text-4xl text-zinc-800 mb-7">Order Details</h2>
-        <div class="flex flex-col justify-center gap-5">
-          <figure class="flex items-center gap-4">
-            <img alt="Image 1" class="w-20 h-20" src="jewelry/classic-gold-bracelet/classic-gold-bracelet-1.png">
-            <div>
-              <h2 class="text-xl text-zinc-800">Classic Golden Bracelet Made Of Perfect Stone</h2>
-              <p class="text-zinc-800 max-w-screen-sm-xl">A classic golden bracelet designed to enhance elegance with
-                every
-                wear. Features
-                intricate detailing and a
-                smooth finish.
-              </p>
-            </div>
-            <div class="flex items-center gap-4">
-              <span class="text-yellow-600 text-xl">{{ totalPrice() | currency }}</span>
-              <div class="flex items-center gap-2 ">
-                <button (click)="decreaseItemCount()" [class]="'w-9 h-9 border text-2xl' + getButtonExtraStyles"
-                        [disabled]="jewelDetails?.itemsLeft === 0"
-                        type="button">-
-                </button>
-                <input [class]="'text-3xl text-center focus:outline-none w-9 disabled:text-zinc-500 text-yellow-700'"
-                       [defaultValue]="jewelDetails?.itemsLeft === 0 ? 0 : itemCounter()"
-                       [disabled]="jewelDetails?.itemsLeft === 0" placeholder="1"
-                       type="number">
-                <button (click)="increaseItemCount()" [class]="'w-9 h-9 border text-2xl' + getButtonExtraStyles"
-                        [disabled]="jewelDetails?.itemsLeft === 0" type="button">+
-                </button>
-              </div>
-            </div>
-          </figure>
+    <app-navigate-to-link [href]="['/check-out', id()!]" label="Checkout" />
+  </div>-->
+  <span class="text-yellow-600 text-xl uppercase">let's checkout!</span>
+  <h1 class="text-zinc-800 text-5xl max-w-screen-sm-xl leading-tight">Good choice! Let's finish your order!</h1>
+  <app-paragraph class="mt-6 inline-block mb-8">
+    <span class="font-alexBrush">Y</span>ou've made a fantastic selection! We’re thrilled to help you bring this
+    product into your life. Rest assured,
+    you’re just moments away from owning something special. Let’s move forward to secure your order and ensure a
+    seamless shopping experience!
+  </app-paragraph>
+  <h2 class="text-4xl text-zinc-800 mb-7">Order Details</h2>
+  <div class="flex flex-col justify-center gap-5">
+    <app-order-detail-card
+      [heading]="jewelDetails!.itemDetails.heading"
+      [imgData]="{alt: 'Image 1', src: 'jewelry/classic-gold-bracelet/classic-gold-bracelet-1.png'}"
+      [jewelDetails]="{itemsLeft: jewelDetails!.itemsLeft, itemPrice: jewelDetails!.itemDetails.price}"
+      text="A classic golden bracelet designed to enhance elegance with every wear. Features intricate detailing and a smooth finish."
+    />
 
-          <figure class="flex items-center gap-4">
-            <img alt="Image 1" class="w-20 h-20" src="jewelry/classic-gold-bracelet/classic-gold-bracelet-1.png">
-            <div>
-              <h2 class="text-xl text-zinc-800">Classic Golden Bracelet Made Of Perfect Stone</h2>
-              <p class="text-zinc-800 max-w-screen-sm-xl">A classic golden bracelet designed to enhance elegance with
-                every
-                wear. Features
-                intricate detailing and a
-                smooth finish.
-              </p>
-            </div>
-            <div class="flex items-center gap-4">
-              <span class="text-yellow-600 text-xl">{{ totalPrice() | currency }}</span>
-              <div class="flex items-center gap-2 ">
-                <button (click)="decreaseItemCount()" [class]="'w-9 h-9 border text-2xl' + getButtonExtraStyles"
-                        [disabled]="jewelDetails?.itemsLeft === 0"
-                        type="button">-
-                </button>
-                <input [class]="'text-3xl text-center focus:outline-none w-9 disabled:text-zinc-500 text-yellow-700'"
-                       [defaultValue]="jewelDetails?.itemsLeft === 0 ? 0 : itemCounter()"
-                       [disabled]="jewelDetails?.itemsLeft === 0" placeholder="1"
-                       type="number">
-                <button (click)="increaseItemCount()" [class]="'w-9 h-9 border text-2xl' + getButtonExtraStyles"
-                        [disabled]="jewelDetails?.itemsLeft === 0" type="button">+
-                </button>
-              </div>
-            </div>
-          </figure>
+    <app-order-detail-card
+      [heading]="jewelDetails!.itemDetails.heading"
+      [imgData]="{alt: 'Image 1', src: 'jewelry/classic-gold-bracelet/classic-gold-bracelet-1.png'}"
+      [jewelDetails]="{itemsLeft: jewelDetails!.itemsLeft, itemPrice: jewelDetails!.itemDetails.price}"
+      text="A classic golden bracelet designed to enhance elegance with every wear. Features intricate detailing and a smooth finish."
+    />
 
-          <figure class="flex items-center gap-4">
-            <img alt="Image 1" class="w-20 h-20" src="jewelry/classic-gold-bracelet/classic-gold-bracelet-1.png">
-            <div>
-              <h2 class="text-xl text-zinc-800">Classic Golden Bracelet Made Of Perfect Stone</h2>
-              <p class="text-zinc-800 max-w-screen-sm-xl">A classic golden bracelet designed to enhance elegance with
-                every
-                wear. Features
-                intricate detailing and a
-                smooth finish.
-              </p>
-            </div>
-            <div class="flex items-center gap-4">
-              <span class="text-yellow-600 text-xl">{{ totalPrice() | currency }}</span>
-              <div class="flex items-center gap-2 ">
-                <button (click)="decreaseItemCount()" [class]="'w-9 h-9 border text-2xl' + getButtonExtraStyles"
-                        [disabled]="jewelDetails?.itemsLeft === 0"
-                        type="button">-
-                </button>
-                <input [class]="'text-3xl text-center focus:outline-none w-9 disabled:text-zinc-500 text-yellow-700'"
-                       [defaultValue]="jewelDetails?.itemsLeft === 0 ? 0 : itemCounter()"
-                       [disabled]="jewelDetails?.itemsLeft === 0" placeholder="1"
-                       type="number">
-                <button (click)="increaseItemCount()" [class]="'w-9 h-9 border text-2xl' + getButtonExtraStyles"
-                        [disabled]="jewelDetails?.itemsLeft === 0" type="button">+
-                </button>
-              </div>
-            </div>
-          </figure>
-        </div>
-        <span class="text-2xl inline-block mt-5 ">Total: {{ totalPrice() | currency }}</span>
-      </div>
-    </div>
-    <div>
-      <h3 class="text-4xl text-zinc-800 mb-2">Your <span class="font-alexBrush">W</span>ishlist</h3>
-      <app-minified-item-cards [items]="getItems()" />
-    </div>
+    <app-order-detail-card
+      [heading]="jewelDetails!.itemDetails.heading"
+      [imgData]="{alt: 'Image 1', src: 'jewelry/classic-gold-bracelet/classic-gold-bracelet-1.png'}"
+      [jewelDetails]="{itemsLeft: jewelDetails!.itemsLeft, itemPrice: jewelDetails!.itemDetails.price}"
+      text="A classic golden bracelet designed to enhance elegance with every wear. Features intricate detailing and a smooth finish."
+    />
   </div>
+  <span class="text-2xl inline-block mt-5 ">Total: 99999$</span>
 
 </section>

@@ -7,27 +7,29 @@
     your preferred shipping option, and place your order. We’ll take care of the rest and get your item to you as
     quickly as possible!
   </app-paragraph>
-  <form class="max-w-screen-bp-890 mt-8">
-    <div class="flex items-center gap-9">
+  <form class="md:max-w-screen-bp-890 w-full mt-8">
+    <div class="flex flex-col md:flex-row md:items-center md:gap-9 gap-3">
       <app-input-control helperText="Enter your first name" mode="black" placeholder="First Name" type="text" />
       <app-input-control helperText="Enter your last name" mode="black" placeholder="Last Name" type="text" />
     </div>
 
-    <div class="flex items-center gap-9">
+    <div class="flex flex-col md:flex-row md:items-center md:gap-9 gap-3">
       <app-input-control helperText="Enter your shipping address" mode="black" placeholder="Address" type="text" />
       <app-input-control helperText="Enter your Apartment(optional)" mode="black" placeholder="Apartment" type="text" />
     </div>
     <div class="w-full">
       <app-input-control helperText="Enter your City" mode="black" placeholder="City" type="text" />
     </div>
-    <div class="flex items-center gap-9">
-      <app-input-control class="max-w-64" helperText="Choose your Country" mode="black" placeholder="Country"
-                         type="text" />
-      <app-input-control class="max-w-64" helperText="Choose a State" mode="black" placeholder="State" type="text" />
+    <div class="flex flex-col md:flex-row md:items-center gap-9">
+      <div class="flex flex-col sm:flex-row sm:items-center gap-9">
+        <app-input-control class="max-w-64" helperText="Choose your Country" mode="black" placeholder="Country"
+                           type="text" />
+        <app-input-control class="max-w-64" helperText="Choose a State" mode="black" placeholder="State" type="text" />
+      </div>
       <app-input-control class="max-w-64" helperText="Enter your Zip Code" mode="black" placeholder="Zip Code"
                          type="number" />
     </div>
-    <div class="flex items-center gap-9 mb-12">
+    <div class="flex flex-col md:flex-row md:items-center gap-9 mb-12">
       <app-input-control helperText="Enter your valid Email" mode="black" placeholder="Email"
                          type="email" />
       <app-input-control helperText="Enter your valid Phone" mode="black" placeholder="Phone"
