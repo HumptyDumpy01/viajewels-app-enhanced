@@ -74,17 +74,23 @@
           </button>
           <button class="uppercase text-zinc-600 text-xl">or add to cart</button>
         </div>
-        <div class="flex items-center gap-2 order-1 sm-xl:order-none">
-          <button [class]="'w-9 h-9 border text-2xl' + getButtonExtraStyles" [disabled]="jewelDetails().itemsLeft === 0"
-                  type="button">-
-          </button>
-          <input [class]="'text-3xl text-center focus:outline-none w-9 disabled:text-zinc-500 text-yellow-700'"
-                 [defaultValue]="0"
-                 [disabled]="jewelDetails().itemsLeft === 0" placeholder="0"
-                 type="number">
-          <button [class]="'w-9 h-9 border text-2xl' + getButtonExtraStyles"
-                  [disabled]="jewelDetails().itemsLeft === 0" type="button">+
-          </button>
+        <div class="flex flex-col  gap-2 order-1 sm-xl:order-none">
+          <div class="flex items-center gap-2 ">
+            <button (click)="decreaseItemCount()" [class]="'w-9 h-9 border text-2xl' + getButtonExtraStyles"
+                    [disabled]="jewelDetails().itemsLeft === 0"
+                    type="button">-
+            </button>
+            <input [class]="'text-3xl text-center focus:outline-none w-9 disabled:text-zinc-500 text-yellow-700'"
+                   [defaultValue]="jewelDetails().itemsLeft === 0 ? 0 : itemCounter()"
+                   [disabled]="jewelDetails().itemsLeft === 0" placeholder="1"
+                   type="number">
+            <button (click)="increaseItemCount()" [class]="'w-9 h-9 border text-2xl' + getButtonExtraStyles"
+                    [disabled]="jewelDetails().itemsLeft === 0" type="button">+
+            </button>
+          </div>
+          <div>
+            <span class="text-xl">Total: {{ totalPrice() | currency }} </span>
+          </div>
         </div>
       </div>
     </div>
