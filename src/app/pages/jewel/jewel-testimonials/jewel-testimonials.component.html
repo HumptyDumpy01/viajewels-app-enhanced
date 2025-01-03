@@ -6,8 +6,8 @@
     No reviews yet. Be the first to leave a review!
   </p>
   <div *ngIf="jewelReviews().length > 0" class="flex items-center gap-4 mr-6 mb-16 mt-3">
-    <span class="text-2xl">Sort by:</span>
-    <div class="flex items-center gap-3 overflow-x-auto">
+    <span class="text-2xl text-nowrap">Sort by:</span>
+    <div class="flex items-center gap-3 overflow-x-auto text-nowrap">
       <app-bulky-badge [active]="false" label="New" />
       <app-bulky-badge [active]="true" label="Top Rated" />
       <app-bulky-badge [active]="false" label="Old" />

@@ -1,18 +1,18 @@
 <header class="container">
-  <div class="flex items-center gap-2 pb-2">
+  <div class="flex items-center gap-2 pb-2 text-nowrap overflow-x-auto">
     <app-navigate-to-link [href]="['/']" label="Home ." />
     <app-navigate-to-link [href]="['/jewelry']" label="Jewelry ." />
     <app-navigate-to-link [href]="getLinkData().jewelUrl" [label]="getLinkData().jewelHeading" />
   </div>
-  <div class="flex items-start gap-14 mt-4">
-    <div class="flex items-start gap-3.5">
+  <div class="flex flex-col lg:flex-row items-start gap-14 mt-4">
+    <div class="flex flex-col lg:flex-row items-start gap-3.5">
       <div>
         <img [alt]="jewelDetails().imgData[0].alt" [attr.src]="jewelDetails().imgData[0].src"
-             class="min-w-[421px] h-[650px] object-cover">
+             class="lg:min-w-[421px] w-lvw lg:h-[650px] h-96 object-cover">
       </div>
-      <div class="flex flex-col justify-center gap-4">
+      <div class="flex lg:flex-col justify-center gap-4">
         <img *ngFor="let image of jewelDetails().imgData.slice(1)" [alt]="image.alt" [attr.src]="image.src"
-             class="min-w-[139px] h-24 object-cover">
+             class="lg:min-w-[139px] w-32 h-24 object-cover">
       </div>
     </div>
     <div>
@@ -24,13 +24,14 @@
         <app-star-icon *ngFor="let star of getRatingArray" [mode]="star" dimensions="sm" />
         <span class="text-neutral-600 text-lg ml-2">({{ jewelDetails().itemDetails.reviewCount }})</span>
       </div>
-      <div class="flex items-center gap-7">
+      <div class="flex flex-col sm-xl:flex-row items-center gap-7">
         <span class="text-yellow-700 text-2xl">{{ jewelDetails().itemDetails.price | currency }}</span>
-        <div *ngFor="let tag of jewelDetails().itemDetails.tag" class="flex items-center">
-          <app-bulky-badge [active]="false" class="-mr-3" label="{{tag | titlecase}}" />
-        </div>
-        <div class="ml-3 cursor-pointer">
-          <app-heart-icon [color]="{
+        <div class="flex items-center gap-6">
+          <div *ngFor="let tag of jewelDetails().itemDetails.tag" class="flex items-center">
+            <app-bulky-badge [active]="false" class="-mr-3" label="{{tag | titlecase}}" />
+          </div>
+          <div class="ml-3 cursor-pointer">
+            <app-heart-icon [color]="{
             filled: {
             color: 'rgb(161, 98, 7)'
             },
@@ -38,6 +39,7 @@
             color : 'rgb(161, 98, 7)'
             }
             }" mode="empty" />
+          </div>
         </div>
       </div>
       <app-details
@@ -63,8 +65,8 @@
         [text]="[jewelDetails().itemDetails.info.delivery]"
         summary="Delivery options"
       />
-      <div class="flex items-start gap-10 mt-10 mb-3">
-        <div class="flex flex-col gap-2">
+      <div class="flex flex-col sm-xl:flex-row items-start gap-10 mt-10 mb-3">
+        <div class="flex flex-col gap-2 order-2 sm-xl:order-none">
           <button
             [class]="'px-16 py-3.5 uppercase border text-2xl ' + getButtonExtraStyles"
             [disabled]="jewelDetails().itemsLeft === 0">
@@ -72,7 +74,7 @@
           </button>
           <button class="uppercase text-zinc-600 text-xl">or add to cart</button>
         </div>
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 order-1 sm-xl:order-none">
           <button [class]="'w-9 h-9 border text-2xl' + getButtonExtraStyles" [disabled]="jewelDetails().itemsLeft === 0"
                   type="button">-
           </button>
