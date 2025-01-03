@@ -67,9 +67,9 @@
       />
       <div class="flex flex-col sm-xl:flex-row items-start gap-10 mt-10 mb-3">
         <div class="flex flex-col gap-2 order-2 sm-xl:order-none">
-          <button
-            [class]="'px-16 py-3.5 uppercase border text-2xl ' + getButtonExtraStyles"
-            [disabled]="jewelDetails().itemsLeft === 0">
+          <button (click)="handleBuyNow()"
+                  [class]="'px-16 py-3.5 uppercase border text-2xl ' + getButtonExtraStyles"
+                  [disabled]="jewelDetails().itemsLeft === 0">
             {{ jewelDetails().itemsLeft === 0 ? 'Out of Stock' : 'Buy Now' }}
           </button>
           <button class="uppercase text-zinc-600 text-xl">or add to cart</button>

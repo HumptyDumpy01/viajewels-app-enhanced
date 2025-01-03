@@ -1,0 +1,40 @@
+<section>
+  <h2 class="text-4xl text-zinc-800">Shipping Details</h2>
+  <app-paragraph class="inline-block mt-7">
+    <span class="font-alexBrush">Y</span>ou’re almost there! A few quick steps are all that’s left to complete your
+    purchase. Review your
+    details, select
+    your preferred shipping option, and place your order. We’ll take care of the rest and get your item to you as
+    quickly as possible!
+  </app-paragraph>
+  <form class="max-w-screen-bp-890 mt-8">
+    <div class="flex items-center gap-9">
+      <app-input-control helperText="Enter your first name" mode="black" placeholder="First Name" type="text" />
+      <app-input-control helperText="Enter your last name" mode="black" placeholder="Last Name" type="text" />
+    </div>
+
+    <div class="flex items-center gap-9">
+      <app-input-control helperText="Enter your shipping address" mode="black" placeholder="Address" type="text" />
+      <app-input-control helperText="Enter your Apartment(optional)" mode="black" placeholder="Apartment" type="text" />
+    </div>
+    <div class="w-full">
+      <app-input-control helperText="Enter your City" mode="black" placeholder="City" type="text" />
+    </div>
+    <div class="flex items-center gap-9">
+      <app-input-control class="max-w-64" helperText="Choose your Country" mode="black" placeholder="Country"
+                         type="text" />
+      <app-input-control class="max-w-64" helperText="Choose a State" mode="black" placeholder="State" type="text" />
+      <app-input-control class="max-w-64" helperText="Enter your Zip Code" mode="black" placeholder="Zip Code"
+                         type="number" />
+    </div>
+    <div class="flex items-center gap-9 mb-12">
+      <app-input-control helperText="Enter your valid Email" mode="black" placeholder="Email"
+                         type="email" />
+      <app-input-control helperText="Enter your valid Phone" mode="black" placeholder="Phone"
+                         type="number" />
+    </div>
+    <app-info-message text="Double-check everything to make sure it’s
+        just how you want it." />
+    <app-viajewels-button class="mt-12 inline-block" label="Checkout" styling="default" type="submit" />
+  </form>
+</section>

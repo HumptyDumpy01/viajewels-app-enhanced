@@ -25,15 +25,20 @@ import { Router } from '@angular/router';
   styleUrl: './jewel-header.component.css'
 })
 export class JewelHeaderComponent implements OnInit {
+  private router = inject(Router);
+
   jewelDetails = input.required<JewelryType>();
   itemCounter = signal<number>(1);
   totalPrice = signal<number | null>(null);
+
+  handleBuyNow() {
+    this.router.navigate([`/check-out`, this.jewelDetails().id]).then();
+  }
 
   ngOnInit() {
     this.totalPrice.update(() => this.jewelDetails().itemDetails.price * this.itemCounter());
   }
 
-  private router = inject(Router);
 
   increaseItemCount() {
     this.itemCounter.update((count) => this.jewelDetails().itemsLeft > count ? count + 1 : count);
