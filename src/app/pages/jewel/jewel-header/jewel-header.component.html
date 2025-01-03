@@ -8,7 +8,7 @@
     <div class="flex flex-col lg:flex-row items-start gap-3.5">
       <div>
         <img [alt]="jewelDetails().imgData[0].alt" [attr.src]="jewelDetails().imgData[0].src"
-             class="lg:min-w-[421px] w-lvw lg:h-[650px] h-96 object-cover">
+             class="lg:min-w-[421px] lg:w-full w-lvw lg:h-[650px] h-96 object-cover">
       </div>
       <div class="flex lg:flex-col justify-center gap-4">
         <img *ngFor="let image of jewelDetails().imgData.slice(1)" [alt]="image.alt" [attr.src]="image.src"
