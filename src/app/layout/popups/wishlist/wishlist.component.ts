@@ -4,7 +4,7 @@ import { ViajewelsButtonComponent } from '../../../UI/buttons/viajewels-button/v
 import {
   ViajewelsButtonSmallComponent
 } from '../../../UI/buttons/viajewels-button-small/viajewels-button-small.component';
-import { NgClass, NgForOf, NgIf } from '@angular/common';
+import { CurrencyPipe, NgClass, NgForOf, NgIf } from '@angular/common';
 import { PopupsService } from '../../../popups.service';
 import { CloseIconComponent } from '../../../UI/icons/close-icon/close-icon.component';
 import { JewelWishlistService } from '../../../jewel-wishlist.service';
@@ -19,7 +19,8 @@ import { JewelryType } from '../../../../../data/JEWELRY';
     NgClass,
     CloseIconComponent,
     NgForOf,
-    NgIf
+    NgIf,
+    CurrencyPipe
   ],
   standalone: true,
   templateUrl: './wishlist.component.html',
@@ -27,18 +28,12 @@ import { JewelryType } from '../../../../../data/JEWELRY';
 })
 export class WishlistComponent {
   private jewelryWishlistService = inject(JewelWishlistService);
-
   private popupsService = inject(PopupsService);
 
-  get wishlist() {
-    return this.jewelryWishlistService.getWishlist().map((j) => ({
-      ...j,
-      count: 1
-    }));
-  }
+  totalWishlistPrice = 0;
 
-  get getTotalItemCount() {
-    return this.wishlist.reduce((acc, item) => acc + item.count, 0);
+  get wishlist() {
+    return this.jewelryWishlistService.getWishlist();
   }
 
   removeItemFromWishlist(jewel: JewelryType) {
@@ -51,5 +46,9 @@ export class WishlistComponent {
 
   onClose() {
     this.popupsService.changeWishlistPopupVisibility(false);
+  }
+
+  onTotalPriceChange(priceDifference: number) {
+    this.totalWishlistPrice += priceDifference;
   }
 }
