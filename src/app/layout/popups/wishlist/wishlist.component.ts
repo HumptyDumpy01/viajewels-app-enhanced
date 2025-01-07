@@ -31,7 +31,14 @@ export class WishlistComponent {
   private popupsService = inject(PopupsService);
 
   get wishlist() {
-    return this.jewelryWishlistService.getWishlist();
+    return this.jewelryWishlistService.getWishlist().map((j) => ({
+      ...j,
+      count: 1
+    }));
+  }
+
+  get getTotalItemCount() {
+    return this.wishlist.reduce((acc, item) => acc + item.count, 0);
   }
 
   removeItemFromWishlist(jewel: JewelryType) {
