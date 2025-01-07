@@ -4,9 +4,13 @@
        class="sm-xl:h-[700px] h-[600px] w-[500px] object-cover transition-all duration-300">
   <div class="absolute top-20 left-0">
     <h2
-      class="font-aboreto text-white sm:text-8xl text-[53px] sm:mb-14 mb-6 text-center max-w-screen-sm">{{ heading() }}</h2>
+      [ngClass]="{ 'opacity-100': isImageVisible(), 'opacity-0': !isImageVisible() }"
+      class="font-aboreto text-white sm:text-8xl text-[53px] sm:mb-14 mb-6 text-center max-w-screen-sm
+ transition-all duration-300 "> {{ heading() }}</h2>
     <app-paragraph customClasses="mb-14">
-      <div class="text-white">
+      <div
+        [ngClass]="{ 'opacity-100 -translate-y-[0]': isImageVisible(), 'transform -translate-y-[-50%] opacity-0': !isImageVisible() }"
+        class="text-white transition-all duration-300">
         <span class="font-alexBrush">{{ firstLetterOfText }}</span>{{ restOfText | trimText: 250 }}
       </div>
     </app-paragraph>
