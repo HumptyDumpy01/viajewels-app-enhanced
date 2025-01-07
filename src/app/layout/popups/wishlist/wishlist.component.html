@@ -1,4 +1,4 @@
-<dialog (close)="onClose()" [open]="open()"
+<dialog (close)="onClose()" [open]="popupVisibility"
         class="bg-white fixed top-0 left-0 w-screen sm:h-[650px] h-screen z-50">
   <div class="container pt-11">
     <div class="flex items-center gap-5 mb-5">
@@ -84,5 +84,6 @@
     </div>
   </div>
 </dialog>
-<div class="fixed z-40 top-0 left-0 h-screen w-screen bg-zinc-900/90">
+<div (click)="onClose()" [ngClass]="{'hidden': !popupVisibility}"
+     class="fixed z-40 top-0 left-0 h-screen w-screen bg-zinc-900/90">
 </div>

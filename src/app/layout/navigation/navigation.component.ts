@@ -9,6 +9,7 @@ import {
   runInInjectionContext
 } from '@angular/core';
 import { JewelWishlistService } from '../../jewel-wishlist.service';
+import { PopupsService } from '../../popups.service';
 
 @Component({
   selector: 'app-navigation',
@@ -18,6 +19,8 @@ import { JewelWishlistService } from '../../jewel-wishlist.service';
   styleUrl: './navigation.component.css'
 })
 export class NavigationComponent implements OnInit {
+  private popupsService = inject(PopupsService);
+
   private jewelWishlistService = inject(JewelWishlistService);
   private cdr = inject(ChangeDetectorRef);
   private injector = inject(Injector);
@@ -33,6 +36,10 @@ export class NavigationComponent implements OnInit {
         this.updateWishlistCount();
       }, { allowSignalWrites: true });
     });
+  }
+
+  onWishlistClick() {
+    this.popupsService.changeWishlistPopupVisibility(true);
   }
 
   private updateWishlistCount() {
