@@ -1,5 +1,5 @@
 <div class="group">
-  <input [class]="inputStyles" [name]="name()" [placeholder]="placeholder()"
+  <input #inputElement [class]="inputStyles" [name]="name()" [placeholder]="placeholder()"
          [required]="required()" [type]="type()">
   <span
     [class]="'group-focus-within:opacity-100 opacity-0 leading-relaxed pl-0.5 mt-1 inline-block ' + (mode() === 'red' ? 'text-white':

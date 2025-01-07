@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, ElementRef, input, ViewChild } from '@angular/core';
 import { ControlType } from '../../../../utils/generic-types/control.type';
 import { FormsModule } from '@angular/forms';
 
@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './input-control.component.css'
 })
 export class InputControlComponent {
+  @ViewChild('inputElement') inputElement!: ElementRef;
+
   placeholder = input<string>(``);
   required = input<boolean>(true);
   type = input.required<ControlType>();
@@ -36,7 +38,9 @@ export class InputControlComponent {
     return this.mode() === `red` ? redStyles : blackStyles;
   }
 
+  getValue(): string {
+    return this.inputElement.nativeElement.value;
+  }
 }
 
 type InputControlMode = `black` | `red`;
-

@@ -12,7 +12,7 @@
         step of the way. Whether it’s about choosing the perfect piece, tracking your order..
       </app-paragraph>
 
-      <app-paragraph customClasses="text-white hidden lg:block">
+      <app-paragraph class="support-team-paragraph" customClasses="text-white hidden lg:block">
         <span class="font-alexBrush">Y</span>our satisfaction is our priority. Contact our support team via email, chat,
         or phone, and experience fast, friendly service designed to meet your needs. Let us make your Viajewels journey
         smooth and enjoyable.
@@ -21,10 +21,11 @@
   </div>
   <div class="flex items-center justify-center bp-890:justify-between">
     <div class="flex items-center max-w-[599px]">
-      <form class="w-full flex flex-col gap-20">
+      <form (ngSubmit)="onSubmit()" class="w-full flex flex-col gap-20">
+        <p *ngIf="errorMessage()" class="text-white text-2xl">{{ errorMessage() }} </p>
         <div class="flex justify-center flex-col gap-1 max-w-[500px]">
-          <app-input-control helperText="Enter your email" placeholder="Email" type="email" />
-          <app-input-control helperText="Enter your phone number" placeholder="Phone" type="tel" />
+          <app-input-control #emailInput helperText="Enter your email" placeholder="Email" type="email" />
+          <app-input-control #phoneInput helperText="Enter your phone number" placeholder="Phone" type="tel" />
         </div>
         <app-viajewels-button label="Let's talk" styling="white" type="submit" />
       </form>
