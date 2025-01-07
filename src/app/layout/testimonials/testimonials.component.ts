@@ -3,6 +3,7 @@ import { TestimonialsCardComponent } from '../../UI/cards/testimonials-card/test
 import { ViajewelsButtonComponent } from '../../UI/buttons/viajewels-button/viajewels-button.component';
 import { NgClass, NgForOf, NgIf } from '@angular/common';
 import { JewelryReviewType } from '../../../../data/JEWELRY';
+import { scrollToTag } from '../../../utils/functions/scrollToTag';
 
 @Component({
   selector: 'app-testimonials',
@@ -75,7 +76,12 @@ export class TestimonialsComponent {
     this.currentPage.set(page);
   }
 
-  protected readonly Math = Math;
+  setTestimonialsToDefault() {
+    this.totalTestimonialsToShow.set(this.testimonialsPerPage);
+    this.currentPage.set(1);
+    //scroll to testimonials-heading class
+    scrollToTag('.testimonials-heading');
+  }
 }
 
 type PaginationVariationType = `circles` | `see-more-btn`
