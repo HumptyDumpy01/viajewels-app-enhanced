@@ -1,13 +1,16 @@
 <figure class="flex flex-col md:flex-row md:items-center gap-4">
-  <img [alt]="imgData().alt" [attr.src]="imgData().src" class="w-20 h-20 object-cover">
-  <div>
-    <h2 class="text-xl text-zinc-800">{{ heading() | trimText: 70 }}</h2>
-    <p class="text-zinc-800 max-w-screen-sm-xl">{{ text() | trimText: 120 }}</p>
-  </div>
+  <a [href]="href()" class="flex flex-col md:flex-row md:items-center gap-4">
+    <img [alt]="imgData().alt" [attr.src]="imgData().src" class="w-20 h-20 object-cover">
+    <div>
+      <h2 class="text-xl text-zinc-800">{{ heading() | trimText: 70 }}</h2>
+      <p class="text-zinc-800 max-w-screen-sm-xl">{{ text() | trimText: 120 }}</p>
+    </div>
+  </a>
   <div class="flex items-center gap-4">
     <span class="text-yellow-600 text-xl">{{ totalPrice() | currency }}</span>
     <div class="flex items-center gap-2 ">
-      <button (click)="decreaseItemCount()" [class]="'w-9 h-9 border text-2xl' + getButtonExtraStyles"
+      <button (click)="decreaseItemCount()"
+              [class]="'w-9 h-9 border text-2xl transition-all duration-300 ' + getButtonExtraStyles"
               [disabled]="jewelDetails().itemsLeft === 0"
               type="button">-
       </button>
@@ -15,7 +18,8 @@
              [defaultValue]="jewelDetails().itemsLeft === 0 ? 0 : itemCounter()"
              [disabled]="jewelDetails().itemsLeft === 0" placeholder="1"
              type="number">
-      <button (click)="increaseItemCount()" [class]="'w-9 h-9 border text-2xl' + getButtonExtraStyles"
+      <button (click)="increaseItemCount()"
+              [class]="'w-9 h-9 border text-2xl transition-all duration-300 ' + getButtonExtraStyles"
               [disabled]="jewelDetails().itemsLeft === 0" type="button">+
       </button>
     </div>

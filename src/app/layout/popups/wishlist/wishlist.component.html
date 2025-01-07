@@ -8,6 +8,7 @@
       </h2>
       <span class="text-5xl font-alexBrush text-zinc-800">{{ wishlist.length }}</span>
     </div>
+    <p *ngIf="wishlist.length === 0">Your wishlist is empty! Feel free to add some!</p>
     <div *ngIf="wishlist.length > 0">
 
       <div
@@ -16,6 +17,7 @@
              class="flex sm:items-center gap-10 flex-col justify-between bp-1210:flex-row">
           <app-order-detail-card
             [heading]="item.itemDetails.heading"
+            [href]="item.href"
             [imgData]="item.imgData[0]"
             [jewelDetails]="{itemsLeft: item.itemsLeft, itemPrice: item.itemDetails.price}"
             [text]="item.itemDetails.description"

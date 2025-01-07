@@ -20,6 +20,8 @@ export class OrderDetailCardComponent implements OnInit {
   heading = input.required<string>();
   text = input.required<string>();
 
+  href = input.required<string>();
+
   ngOnInit() {
     this.totalPrice.update(() => this.jewelDetails().itemPrice * this.itemCounter());
   }
@@ -29,6 +31,7 @@ export class OrderDetailCardComponent implements OnInit {
   increaseItemCount() {
     this.itemCounter.update((count) => this.jewelDetails().itemsLeft > count ? count + 1 : count);
     this.totalPrice.update(() => this.jewelDetails().itemPrice * this.itemCounter());
+    console.log(this.totalPrice());
   }
 
   decreaseItemCount() {
@@ -37,7 +40,7 @@ export class OrderDetailCardComponent implements OnInit {
   }
 
   get getButtonExtraStyles() {
-    return this.jewelDetails().itemsLeft === 0 ? ' text-zinc-500 border-zinc-500' :
-      ' text-yellow-700 border-yellow-700';
+    return this.jewelDetails().itemsLeft === 0 ? ' text-zinc-500 border-zinc-500 hover:bg-zinc-500 hover:text-white' :
+      ' text-yellow-700 border-yellow-700 hover:bg-yellow-700 hover:text-white';
   }
 }
