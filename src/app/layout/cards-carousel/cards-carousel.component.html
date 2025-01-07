@@ -2,10 +2,9 @@
   <p *ngIf="jewelry().length === 0" class="text-white">Oops! No items to be seen!</p>
   <app-item-card
     *ngFor="let item of jewelry()"
-    [addedToWishlist]="item.addedToWishlist"
     [cardMode]="cardMode()"
     [href]="item.href"
     [imgData]="item.imgData[0]"
-    [itemDetails]="item.itemDetails"
+    [item]="item"
   />
 </div>

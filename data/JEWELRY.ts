@@ -2,7 +2,6 @@ import { ItemTagType } from '../src/app/UI/cards/item-card/item-card.component';
 
 export type JewelryType = {
   id: number,
-  addedToWishlist: boolean,
   imgData: {
     src: string,
     alt: string
@@ -40,7 +39,6 @@ export type JewelryInfoType = {
 export const JEWELRY: JewelryType[] = [
   {
     id: 1,
-    addedToWishlist: false,
     imgData: [
       { src: './jewelry/classic-gold-bracelet/classic-gold-bracelet-1.png', alt: 'Classic Gold Bracelet 1' },
       { src: './jewelry/classic-gold-bracelet/classic-gold-bracelet-2.png', alt: 'Classic Gold Bracelet 2' },
@@ -118,7 +116,6 @@ export const JEWELRY: JewelryType[] = [
   },
   {
     id: 2,
-    addedToWishlist: true,
     imgData: [
       { src: './jewelry/diamond-necklace/diamond-necklace-1.png', alt: 'Diamond Necklace 1' },
       { src: './jewelry/diamond-necklace/diamond-necklace-2.png', alt: 'Diamond Necklace 2 ' },
@@ -196,7 +193,6 @@ export const JEWELRY: JewelryType[] = [
   },
   {
     id: 3,
-    addedToWishlist: true,
     imgData: [
       { src: './jewelry/exquisite-pearl-earrings/exquisite-pearl-earrings-1.png', alt: 'Exquisite Pearl Earrings 1' },
       { src: './jewelry/exquisite-pearl-earrings/exquisite-pearl-earrings-2.png', alt: 'Exquisite Pearl Earrings 2' },
@@ -268,7 +264,6 @@ export const JEWELRY: JewelryType[] = [
   },
   {
     id: 4,
-    addedToWishlist: false,
     imgData: [
       { src: './jewelry/sapphire-encrusted-ring/sapphire-encrusted-ring-1.png', alt: 'Sapphire Encrusted Ring 1' },
       { src: './jewelry/sapphire-encrusted-ring/sapphire-encrusted-ring-2.png', alt: 'Sapphire Encrusted Ring 2' },
@@ -340,7 +335,6 @@ export const JEWELRY: JewelryType[] = [
   },
   {
     id: 5,
-    addedToWishlist: false,
     imgData: [
       { src: './jewelry/spellbinding-ring/spellbinding-ring-1.png', alt: 'Spellbinding Ring 1' },
       { src: './jewelry/spellbinding-ring/spellbinding-ring-2.png', alt: 'Spellbinding Ring 2' },
@@ -412,7 +406,6 @@ export const JEWELRY: JewelryType[] = [
   },
   {
     id: 6,
-    addedToWishlist: true,
     imgData: [
       { src: './jewelry/wedding-ring/wedding-ring-1.png', alt: 'Wedding Ring 1' },
       { src: './jewelry/wedding-ring/wedding-ring-2.png', alt: 'Wedding Ring 2' },

@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, input, OnInit, signal } from '@angular/core';
 import {
   LimitedAdditionCircleComponent
 } from '../../../typography/limited-addition-circle/limited-addition-circle.component';
@@ -9,6 +9,8 @@ import { ImgDataType } from '../collection-card/collection-card.component';
 import { CurrencyPipe, DecimalPipe, NgForOf, NgIf } from '@angular/common';
 import { TrimTextPipe } from '../../../trim-text.pipe';
 import { HeartIconComponent } from '../../icons/heart-icon/heart-icon.component';
+import { JewelWishlistService } from '../../../jewel-wishlist.service';
+import { JewelryType } from '../../../../../data/JEWELRY';
 
 @Component({
   selector: 'app-item-card',
@@ -28,17 +30,25 @@ import { HeartIconComponent } from '../../icons/heart-icon/heart-icon.component'
   templateUrl: './item-card.component.html',
   styleUrl: './item-card.component.css'
 })
-export class ItemCardComponent {
+export class ItemCardComponent implements OnInit {
+  private jewelryWishlistService = inject(JewelWishlistService);
+  private cdr = inject(ChangeDetectorRef);
+
   href = input<string>(`#`);
   imgData = input.required<ImgDataType>();
-  itemDetails = input.required<ItemDetailsType>();
-  addedToWishlist = input.required<boolean>();
+  item = input.required<JewelryType>();
+  addedToWishlist = signal<boolean | null>(null);
+
+  ngOnInit() {
+    this.updateWishlistStatus();
+  }
+
   imageDimensions = input<string>(`w-[312px] h-[312px]`);
   extraDetailsVisible = input<boolean>(true);
   cardMode = input<CardModeType>(`black`);
 
   get getRatingArray() {
-    const filledStars = Math.floor(this.itemDetails().rating);
+    const filledStars = Math.floor(this.item().itemDetails.rating);
     const emptyStars = 5 - filledStars;
     return [
       ...Array(filledStars).fill(this.cardMode() === `white` ? `darkFilled` : `filled`),
@@ -47,11 +57,27 @@ export class ItemCardComponent {
   }
 
   get firstLetterOfText() {
-    return this.itemDetails().description[0];
+    return this.item().itemDetails.description[0];
+  }
+
+  addItemToWishlist() {
+    this.jewelryWishlistService.addToWishlist(this.item());
+    this.cdr.detectChanges();
+    this.updateWishlistStatus();
+  }
+
+  removeItemFromWishlist() {
+    this.jewelryWishlistService.removeFromWishlist(this.item());
+    this.cdr.detectChanges();
+    this.updateWishlistStatus();
+  }
+
+  updateWishlistStatus() {
+    this.addedToWishlist.set(this.jewelryWishlistService.userHasInWishlist(this.item().id));
   }
 
   get restOfText() {
-    return this.itemDetails().description.slice(1);
+    return this.item().itemDetails.description.slice(1);
   }
 
   get tagStyles() {
@@ -61,15 +87,15 @@ export class ItemCardComponent {
 
     let chosenStyle = ``;
 
-    if (this.itemDetails().tag.includes(`coming-soon`)) {
+    if (this.item().itemDetails.tag.includes(`coming-soon`)) {
       chosenStyle = comingSoon;
     }
 
-    if (this.itemDetails().tag.includes(`collection`)) {
+    if (this.item().itemDetails.tag.includes(`collection`)) {
       chosenStyle = collection;
     }
 
-    if (this.itemDetails().tag.includes(`new`)) {
+    if (this.item().itemDetails.tag.includes(`new`)) {
       chosenStyle = newItem;
     }
 
@@ -83,28 +109,18 @@ export class ItemCardComponent {
 
     let chosenText = ``;
 
-    if (this.itemDetails().tag.includes(`coming-soon`)) {
+    if (this.item().itemDetails.tag.includes(`coming-soon`)) {
       chosenText = comingSoon;
     }
-    if (this.itemDetails().tag.includes(`collection`)) {
+    if (this.item().itemDetails.tag.includes(`collection`)) {
       chosenText = collection;
     }
-    if (this.itemDetails().tag.includes(`new`)) {
+    if (this.item().itemDetails.tag.includes(`new`)) {
       chosenText = newItem;
     }
 
     return chosenText;
   }
-}
-
-
-type ItemDetailsType = {
-  heading: string;
-  price: number;
-  rating: number;
-  reviewCount: number;
-  description: string;
-  tag: ItemTagType[];
 }
 
 export type ItemTagType = `coming-soon` | `collection` | `new` | `bracelets` | `necklaces` | `rings` | `earrings`;

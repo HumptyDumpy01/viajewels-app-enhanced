@@ -7,9 +7,6 @@ import { JEWELRY, JewelryType } from '../../data/JEWELRY';
 export class JewelryService {
   jewelry: JewelryType[] = JEWELRY;
 
-  constructor() {
-  }
-
   getJewelry() {
     return this.jewelry;
   }

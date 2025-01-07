@@ -4,7 +4,7 @@
       <app-check-out-header />
       <app-shipping-details [button]="{type: 'submit', text: 'Checkout', btnMode: 'btn'}" />
     </div>
-    <div>
+    <div *ngIf="getItems().length > 0">
       <h3 class="text-4xl text-zinc-800 mb-2">Your <span class="font-alexBrush">W</span>ishlist</h3>
       <app-minified-item-cards [items]="getItems()" />
     </div>
