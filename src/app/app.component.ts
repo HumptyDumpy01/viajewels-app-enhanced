@@ -2,10 +2,11 @@ import { Component, inject, OnInit } from '@angular/core';
 import { NavigationComponent } from './layout/navigation/navigation.component';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { FooterComponent } from './layout/footer/footer.component';
+import { WishlistComponent } from './layout/popups/wishlist/wishlist.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavigationComponent, FooterComponent],
+  imports: [RouterOutlet, NavigationComponent, FooterComponent, WishlistComponent],
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
