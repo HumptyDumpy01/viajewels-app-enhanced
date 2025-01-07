@@ -7,19 +7,17 @@
     <div class="relative">
       <div>
         <app-collection-card
-          [buttonData]="{ label: 'View Collection', href: '/jewelry?collection=venera' }"
-          [imgData]="{ src: './collections/venera-collection-preview.png', alt: 'Venera Collection' }"
-          heading="Venera Collection"
-          text="Elevate your elegance with the Venera Collection, a timeless selection
-            of handcrafted jewelry inspired by
-            celestial beauty. Each piece reflects exquisite craftsmanship and attention to detail, designed to add a
-            touch of sophistication to your everyday moments and special occasions."
+          [buttonData]="{ label: 'View Collection', href: collections().href }"
+          [heading]="collections().heading"
+          [imgData]="collections().imgData"
+          [isImageVisible]="isImageVisible()"
+          [text]="collections().text"
         />
       </div>
       <div
         class="absolute md:top-0 md:right-0 md:bottom-auto md:left-auto -bottom-16 left-[25%] flex items-center gap-6">
-        <app-arrow-button />
-        <app-arrow-button customIconClasses="rotate-180" />
+        <app-arrow-button (click)="nextCollection()" />
+        <app-arrow-button (click)="prevCollection()" customIconClasses="rotate-180" />
       </div>
     </div>
   </div>

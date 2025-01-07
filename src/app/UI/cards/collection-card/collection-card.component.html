@@ -1,11 +1,13 @@
 <div class="flex items-center justify-center relative">
-  <img [alt]="imgData().alt" [attr.src]="imgData().src" class="sm-xl:h-[700px] h-[600px] w-[500px] object-cover">
+  <img [alt]="imgData().alt" [attr.src]="imgData().src"
+       [ngClass]="{ 'image-enter-active': isImageVisible(), 'image-leave-active': !isImageVisible() }"
+       class="sm-xl:h-[700px] h-[600px] w-[500px] object-cover transition-all duration-300">
   <div class="absolute top-20 left-0">
     <h2
       class="font-aboreto text-white sm:text-8xl text-[53px] sm:mb-14 mb-6 text-center max-w-screen-sm">{{ heading() }}</h2>
     <app-paragraph customClasses="mb-14">
       <div class="text-white">
-        <span class="font-alexBrush">{{ firstLetterOfText }}</span>{{ restOfText }}
+        <span class="font-alexBrush">{{ firstLetterOfText }}</span>{{ restOfText | trimText: 250 }}
       </div>
     </app-paragraph>
     <app-link-grey [label]="buttonData().label" [routerLink]="buttonData().href"

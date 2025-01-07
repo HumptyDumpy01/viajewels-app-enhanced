@@ -1,12 +1,16 @@
 import { Component, input } from '@angular/core';
 import { LinkGreyComponent } from '../../links/link-grey/link-grey.component';
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
+import { TrimTextPipe } from '../../../trim-text.pipe';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-collection-card',
   imports: [
     LinkGreyComponent,
-    ParagraphComponent
+    ParagraphComponent,
+    TrimTextPipe,
+    NgClass
   ],
   standalone: true,
   templateUrl: './collection-card.component.html',
@@ -16,6 +20,7 @@ export class CollectionCardComponent {
   imgData = input.required<ImgDataType>();
   heading = input.required<string>();
   text = input.required<string>();
+  isImageVisible = input(true);
   buttonData = input<ButtonDataType>({
     label: 'View Collection',
     href: '#'
