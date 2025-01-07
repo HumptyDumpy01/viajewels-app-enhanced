@@ -1,5 +1,6 @@
 <dialog (close)="onClose()" [open]="popupVisibility"
         class="bg-white fixed top-0 left-0 w-screen sm:h-[650px] h-screen z-50">
+  <app-close-icon (click)="onClose()" class="absolute top-5 right-14" />
   <div class="container pt-11">
     <div class="flex items-center gap-5 mb-5">
       <h2 class="text-6xl text-zinc-800 mb-6"><span class="font-alexBrush">Y</span>our <span

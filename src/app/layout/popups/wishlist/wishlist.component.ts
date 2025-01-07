@@ -6,6 +6,7 @@ import {
 } from '../../../UI/buttons/viajewels-button-small/viajewels-button-small.component';
 import { NgClass } from '@angular/common';
 import { PopupsService } from '../../../popups.service';
+import { CloseIconComponent } from '../../../UI/icons/close-icon/close-icon.component';
 
 @Component({
   selector: 'app-wishlist',
@@ -13,7 +14,8 @@ import { PopupsService } from '../../../popups.service';
     OrderDetailCardComponent,
     ViajewelsButtonComponent,
     ViajewelsButtonSmallComponent,
-    NgClass
+    NgClass,
+    CloseIconComponent
   ],
   standalone: true,
   templateUrl: './wishlist.component.html',
