@@ -1,7 +1,7 @@
 <section>
-  <div *ngIf="testimonials().length > 0" class="grid items-center bp-1124:grid-cols-2 gap-11 grid-cols-1">
+  <div *ngIf="paginatedTestimonials.length > 0" class="grid items-center bp-1124:grid-cols-2 gap-11 grid-cols-1">
     <app-testimonials-card
-      *ngFor="let testimonial of testimonials()"
+      *ngFor="let testimonial of paginatedTestimonials"
       [createdAt]="testimonial.createdAt"
       [initials]="testimonial.initials!"
       [rating]="testimonial.rated"
@@ -9,16 +9,18 @@
     />
   </div>
   <div *ngIf="paginationVariation() === 'circles' && testimonials().length > 0"
-       class="mt-16  flex items-center justify-center">
+       class="mt-16 flex items-center justify-center">
     <div class="flex items-center gap-3">
-      <button class="flex items-center justify-center w-10 h-10 border border-zinc-800 rounded-full text-xl">1</button>
-      <button class="flex items-center justify-center w-10 h-10 border border-zinc-800 rounded-full text-xl">2</button>
-      <button class="flex items-center justify-center w-10 h-10 border border-zinc-800 rounded-full text-xl">...
+      <button (click)="setPage(+page)"
+              *ngFor="let page of generatePaginationButtons()"
+              [disabled]="page === '...'"
+              [ngClass]="{'bg-zinc-800 text-white': currentPage() === page}"
+              class="flex items-center justify-center w-10 h-10 border border-zinc-800 rounded-full text-xl">
+        {{ page }}
       </button>
-      <button class="flex items-center justify-center w-10 h-10 border border-zinc-800 rounded-full text-xl">15</button>
     </div>
   </div>
-  <div *ngIf="paginationVariation() === 'see-more-btn' && testimonials().length > 0" class="mt-16">
-    <app-viajewels-button label="See More" styling="default" type="button" />
+  <div *ngIf="paginationVariation() === 'see-more-btn' && paginatedTestimonials.length > 0" class="mt-16">
+    <app-viajewels-button (click)="nextPage()" label="See More" styling="default" type="button" />
   </div>
 </section>

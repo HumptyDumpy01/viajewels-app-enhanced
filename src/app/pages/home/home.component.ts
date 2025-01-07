@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
   get getTestimonials() {
     // gather all reviews onto a single array and return it
     const reviews = this.testimonialData().map((j) => j.reviews).flat()
-      .filter((r) => r!.rated >= 4).slice(0, 4);
+      .filter((r) => r!.rated >= 4);
 
     return reviews!;
   }
