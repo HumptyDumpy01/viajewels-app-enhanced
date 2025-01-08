@@ -38,6 +38,10 @@ export class CartComponent {
     return this.cartService.getCart();
   }
 
+  get totalPrice() {
+    return this.cart.reduce((acc, item) => acc + item.jewel.itemDetails.price, 0);
+  }
+
   moveItemToWishlist(jewel: CartType) {
     this.cartService.removeFromCart(jewel);
     this.totalCartPrice -= jewel.jewel.itemDetails.price * jewel.count;
@@ -49,7 +53,6 @@ export class CartComponent {
   }
 
   removeItemFromCart(jewel: CartType) {
-    // this.jewelryWishlistService.removeFromWishlist(jewel);
     this.totalCartPrice -= jewel.jewel.itemDetails.price * jewel.count;
     this.cartService.removeFromCart(jewel);
     this.cdr.detectChanges();
@@ -61,10 +64,5 @@ export class CartComponent {
 
   onClose() {
     this.popupsService.changeCartPopupVisibility(false);
-  }
-
-  onTotalPriceChange(priceDifference: number) {
-    this.totalCartPrice += priceDifference;
-    this.cdr.detectChanges();
   }
 }

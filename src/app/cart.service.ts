@@ -32,15 +32,7 @@ export class CartService {
         this.saveCartToLocalStorage();
         return updatedCart;
       }
-      return prev.map((item) => {
-        if (item.jewel.id === cartItem.jewel.id) {
-          return {
-            ...item,
-            count: item.count + cartItem.count
-          };
-        }
-        return item;
-      });
+      return prev;
     });
     this.saveCartToLocalStorage();
   }

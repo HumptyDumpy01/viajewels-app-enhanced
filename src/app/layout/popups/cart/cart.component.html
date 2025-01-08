@@ -16,7 +16,6 @@
         <div *ngFor="let item of cart"
              class="flex sm:items-center gap-10 flex-col justify-between bp-1210:flex-row">
           <app-order-detail-card
-            (totalPriceChange)="onTotalPriceChange($event)"
             [heading]="item.jewel.itemDetails.heading"
             [href]="item.jewel.href"
             [imgData]="item.jewel.imgData[0]"
@@ -33,9 +32,9 @@
       </div>
       <div class="ml-auto mt-7">
         <div class="flex items-center justify-end mt-4 flex-col sm:flex-row gap-4 sm:gap-0">
-          <div class="flex items-center gap-10 mr-24">
-            <span class="text-3xl text-yellow-700">{{ totalCartPrice | currency }}</span>
-          </div>
+          <!--          <div class="flex items-center gap-10 mr-24">-->
+          <!--            <span class="text-3xl text-yellow-700">{{ totalPrice | currency }}</span>-->
+          <!--          </div>-->
           <app-viajewels-button label="Checkout" mode="btn" styling="default" type="button" />
         </div>
       </div>

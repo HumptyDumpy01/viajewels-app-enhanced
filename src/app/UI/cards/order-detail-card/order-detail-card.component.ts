@@ -24,6 +24,7 @@ export class OrderDetailCardComponent implements OnInit {
   enableButtons = input<boolean>(true);
 
   @Output() totalPriceChange = new EventEmitter<number>();
+  @Output() itemCounterChange = new EventEmitter<number>();
 
   ngOnInit() {
     this.updateTotalPrice();
@@ -36,12 +37,14 @@ export class OrderDetailCardComponent implements OnInit {
     const oldTotalPrice = this.totalPrice();
     this.itemCounter.update((count) => this.jewelDetails().itemsLeft > count ? count + 1 : count);
     this.updateTotalPrice(oldTotalPrice);
+    this.itemCounterChange.emit(this.itemCounter());
   }
 
   decreaseItemCount() {
     const oldTotalPrice = this.totalPrice();
     this.itemCounter.update((count) => count > 1 ? count - 1 : count);
     this.updateTotalPrice(oldTotalPrice);
+    this.itemCounterChange.emit(this.itemCounter());
   }
 
   private updateTotalPrice(oldTotalPrice: number | null = null) {
