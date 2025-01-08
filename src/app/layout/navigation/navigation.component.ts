@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { JewelWishlistService } from '../../jewel-wishlist.service';
 import { PopupsService } from '../../popups.service';
+import { CartService } from '../../cart.service';
 
 @Component({
   selector: 'app-navigation',
@@ -22,11 +23,12 @@ export class NavigationComponent implements OnInit {
   private popupsService = inject(PopupsService);
 
   private jewelWishlistService = inject(JewelWishlistService);
+  private cartService = inject(CartService);
   private cdr = inject(ChangeDetectorRef);
   private injector = inject(Injector);
   heading = input(`ViaJewels`);
 
-  cartItems = input(0);
+  cartItems = 0;
   wishlistedItems = 0;
 
   ngOnInit() {
@@ -34,6 +36,13 @@ export class NavigationComponent implements OnInit {
     runInInjectionContext(this.injector, () => {
       effect(() => {
         this.updateWishlistCount();
+      }, { allowSignalWrites: true });
+    });
+
+    this.updateCartCount();
+    runInInjectionContext(this.injector, () => {
+      effect(() => {
+        this.updateCartCount();
       }, { allowSignalWrites: true });
     });
   }
@@ -50,4 +59,11 @@ export class NavigationComponent implements OnInit {
     this.wishlistedItems = this.jewelWishlistService.getWishlist().length;
     this.cdr.detectChanges();
   }
+
+  private updateCartCount() {
+    this.cartItems = this.cartService.getCart().length;
+    this.cdr.detectChanges();
+  }
+
+
 }
