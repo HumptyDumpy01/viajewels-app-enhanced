@@ -40,12 +40,11 @@ export class JewelryComponent implements OnInit {
   }
 
   get suggestedItems() {
-    return this.jewelryItems.filter((jewelry) => jewelry.itemDetails.tag?.includes('new'));
+    return this.jewelryService.newestJewelry;
   }
 
   ngOnInit() {
     // scroll to top
     window.scrollTo(0, 0);
   }
-
 }

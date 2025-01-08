@@ -11,11 +11,20 @@ export class JewelryService {
     return Math.max(...this.jewelry.map(jewel => jewel.itemDetails.price));
   }
 
+  get minPrice(): number {
+    return Math.min(...this.jewelry.map(jewel => jewel.itemDetails.price));
+  }
+
+  get newestJewelry(): JewelryType[] {
+    return this.jewelry.filter(jewel => jewel.itemDetails.tag.includes(`new`));
+  }
+
   getJewelry(filters?: FiltersType): JewelryType[] {
     let jewelry = [...this.jewelry];
 
-    if (filters) {
+    if (filters && filters.category !== `all`) {
       if (filters.category) {
+        // @ts-ignore
         jewelry = jewelry.filter(jewel => jewel.itemDetails.tag.includes(filters.category as CategoryType));
       }
       if (filters.searchTerm) {
@@ -39,7 +48,7 @@ export class JewelryService {
 }
 
 
-type CategoryType = `bracelets` | `necklaces` | `rings` | `earrings`;
+type CategoryType = `bracelets` | `necklaces` | `rings` | `earrings` | `all`;
 
 export type FiltersType = {
   searchTerm: string | null;

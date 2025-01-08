@@ -1,9 +1,9 @@
 <section class="container">
-  <div class="max-w-[548px]">
-    <app-input-control helperText="Search for name, type, etc." mode="black"
+  <form (ngSubmit)="onSubmit()" class="max-w-[548px]">
+    <app-input-control #searchInput helperText="Search for name, type, etc." mode="black"
                        placeholder="e.g. Beatuful rings for wedding.."
                        type="search" />
-  </div>
+  </form>
   <div class="flex bp-1210:items-center p-1 flex-col bp-1210:flex-row gap-3">
     <div class="flex items-center gap-4 mr-6">
       <span class="text-2xl">Category:</span>
@@ -35,9 +35,10 @@
     <div class="flex items-center gap-3 bp-1453:mr-auto mr-8">
       <span class="text-2xl">Price:</span>
       <div class="flex items-center gap-1">
-        <span>133$</span>
-        <input class="min-w-24 h-8 border border-zinc-900 rounded-md text-center
-          range-input" type="range" />
+        <span>{{ activePrice() | currency }}</span>
+        <input (input)="handlePriceChange($event)" [max]="highestPrice"
+               [min]="minPrice" [value]="activePrice()"
+               class="min-w-24 h-8 border border-zinc-900 rounded-md text-center range-input" type="range" />
         <span>{{ highestPrice | currency }}</span>
       </div>
     </div>

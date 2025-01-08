@@ -1,5 +1,5 @@
 <app-search-jewelry-header [suggestedItems]="suggestedItems" />
-<app-filter-jewelry />
+<app-filter-jewelry (filtersChange)="changeFilterOptions($event)" />
 <app-jewelry-items [jewelry]="jewelryItems" />
 <app-recent-searches />
 <app-subscribe-onto-newsletter />
