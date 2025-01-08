@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CollectionCardComponent } from '../../../UI/cards/collection-card/collection-card.component';
 import { ArrowButtonComponent } from '../../../UI/buttons/arrow-button/arrow-button.component';
 import { HeadingComponent } from '../../../typography/heading/heading.component';
@@ -11,9 +11,20 @@ import { COLLECTIONS } from '../../../../../data/COLLECTIONS';
   templateUrl: './collections.component.html',
   styleUrl: './collections.component.css'
 })
-export class CollectionsComponent {
+export class CollectionsComponent implements OnInit {
   collections = signal(COLLECTIONS[0]);
   isImageVisible = signal(true);
+
+  ngOnInit() {
+    this.preloadImages();
+  }
+
+  preloadImages() {
+    COLLECTIONS.forEach(collection => {
+      const img = new Image();
+      img.src = collection.imgData.src;
+    });
+  }
 
   nextCollection() {
     this.isImageVisible.set(false);
