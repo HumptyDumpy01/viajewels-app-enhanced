@@ -73,4 +73,8 @@ export class CartService {
     });
     this.saveCartToLocalStorage();
   }
+
+  getTotalPrice() {
+    return this.cart().reduce((total, item) => total + item.jewel.itemDetails.price * item.count, 0);
+  }
 }

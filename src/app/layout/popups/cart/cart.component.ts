@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { PopupsService } from '../../../popups.service';
 import { CloseIconComponent } from '../../../UI/icons/close-icon/close-icon.component';
-import { NgClass, NgForOf, NgIf } from '@angular/common';
+import { CurrencyPipe, NgClass, NgForOf, NgIf } from '@angular/common';
 import { ViajewelsButtonComponent } from '../../../UI/buttons/viajewels-button/viajewels-button.component';
 import { OrderDetailCardComponent } from '../../../UI/cards/order-detail-card/order-detail-card.component';
 import {
@@ -19,7 +19,8 @@ import { JewelWishlistService } from '../../../jewel-wishlist.service';
     NgIf,
     NgForOf,
     OrderDetailCardComponent,
-    ViajewelsButtonSmallComponent
+    ViajewelsButtonSmallComponent,
+    CurrencyPipe
   ],
   standalone: true,
   templateUrl: './cart.component.html',
@@ -35,6 +36,10 @@ export class CartComponent {
 
   get cart() {
     return this.cartService.getCart();
+  }
+
+  get totalPrice() {
+    return this.cartService.getTotalPrice();
   }
 
   moveItemToWishlist(jewel: CartType) {
