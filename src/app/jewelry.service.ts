@@ -7,11 +7,43 @@ import { JEWELRY, JewelryType } from '../../data/JEWELRY';
 export class JewelryService {
   jewelry: JewelryType[] = JEWELRY;
 
-  getJewelry() {
-    return this.jewelry;
+  get highestPrice(): number {
+    return Math.max(...this.jewelry.map(jewel => jewel.itemDetails.price));
   }
 
-  getJewel(id: number) {
+  getJewelry(filters?: FiltersType): JewelryType[] {
+    let jewelry = [...this.jewelry];
+
+    if (filters) {
+      if (filters.category) {
+        jewelry = jewelry.filter(jewel => jewel.itemDetails.tag.includes(filters.category as CategoryType));
+      }
+      if (filters.searchTerm) {
+        jewelry = jewelry.filter(jewel => jewel.itemDetails.heading.toLowerCase().includes(filters.searchTerm!.toLowerCase()) ||
+          jewel.itemDetails.description.toLowerCase().includes(filters.searchTerm!.toLowerCase()));
+      }
+      if (filters.rating) {
+        jewelry = jewelry.filter(jewel => jewel.itemDetails.rating >= filters.rating!);
+      }
+      if (filters.price) {
+        jewelry = jewelry.filter(jewel => jewel.itemDetails.price <= filters.price!);
+      }
+    }
+
+    return jewelry;
+  }
+
+  getJewel(id: number): JewelryType | undefined {
     return this.jewelry.find(jewel => jewel.id === id);
   }
+}
+
+
+type CategoryType = `bracelets` | `necklaces` | `rings` | `earrings`;
+
+export type FiltersType = {
+  searchTerm: string | null;
+  category: CategoryType | null;
+  rating: number | null;
+  price: number | null;
 }
