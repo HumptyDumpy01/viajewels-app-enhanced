@@ -1,7 +1,9 @@
-import { Component, EventEmitter, input, OnInit, Output, signal } from '@angular/core';
+import { Component, EventEmitter, inject, input, OnInit, Output, signal } from '@angular/core';
 import { CurrencyPipe, NgIf } from '@angular/common';
 import { ImgDataType } from '../collection-card/collection-card.component';
 import { TrimTextPipe } from '../../../trim-text.pipe';
+import { CartService, CartType } from '../../../cart.service';
+import { JewelryType } from '../../../../../data/JEWELRY';
 
 @Component({
   selector: 'app-order-detail-card',
@@ -15,11 +17,13 @@ import { TrimTextPipe } from '../../../trim-text.pipe';
   styleUrl: './order-detail-card.component.css'
 })
 export class OrderDetailCardComponent implements OnInit {
+  private cartService = inject(CartService);
   itemCounter = signal<number>(1);
   totalPrice = signal<number | null>(null);
   imgData = input.required<ImgDataType>();
   heading = input.required<string>();
   text = input.required<string>();
+  item = input.required<JewelryType>();
 
   enableButtons = input<boolean>(true);
 
@@ -27,6 +31,10 @@ export class OrderDetailCardComponent implements OnInit {
   @Output() itemCounterChange = new EventEmitter<number>();
 
   ngOnInit() {
+    const cartItem = this.cartService.getCart().find((cartItem) => cartItem.jewel.id === this.item().id);
+    if (cartItem) {
+      this.itemCounter.update(() => cartItem.count);
+    }
     this.updateTotalPrice();
   }
 
@@ -38,6 +46,7 @@ export class OrderDetailCardComponent implements OnInit {
     this.itemCounter.update((count) => this.jewelDetails().itemsLeft > count ? count + 1 : count);
     this.updateTotalPrice(oldTotalPrice);
     this.itemCounterChange.emit(this.itemCounter());
+    this.cartService.increaseItemCount(this.item());
   }
 
   decreaseItemCount() {
@@ -45,6 +54,7 @@ export class OrderDetailCardComponent implements OnInit {
     this.itemCounter.update((count) => count > 1 ? count - 1 : count);
     this.updateTotalPrice(oldTotalPrice);
     this.itemCounterChange.emit(this.itemCounter());
+    this.cartService.decreaseItemCount(this.item());
   }
 
   private updateTotalPrice(oldTotalPrice: number | null = null) {

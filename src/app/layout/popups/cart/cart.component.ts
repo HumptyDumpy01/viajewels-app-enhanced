@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { PopupsService } from '../../../popups.service';
 import { CloseIconComponent } from '../../../UI/icons/close-icon/close-icon.component';
-import { CurrencyPipe, NgClass, NgForOf, NgIf } from '@angular/common';
+import { NgClass, NgForOf, NgIf } from '@angular/common';
 import { ViajewelsButtonComponent } from '../../../UI/buttons/viajewels-button/viajewels-button.component';
 import { OrderDetailCardComponent } from '../../../UI/cards/order-detail-card/order-detail-card.component';
 import {
@@ -15,7 +15,6 @@ import { JewelWishlistService } from '../../../jewel-wishlist.service';
   imports: [
     CloseIconComponent,
     NgClass,
-    CurrencyPipe,
     ViajewelsButtonComponent,
     NgIf,
     NgForOf,
@@ -38,15 +37,10 @@ export class CartComponent {
     return this.cartService.getCart();
   }
 
-  get totalPrice() {
-    return this.cart.reduce((acc, item) => acc + item.jewel.itemDetails.price, 0);
-  }
-
   moveItemToWishlist(jewel: CartType) {
     this.cartService.removeFromCart(jewel);
     this.totalCartPrice -= jewel.jewel.itemDetails.price * jewel.count;
-    if (this.wishlistService.userHasInWishlist(jewel.jewel.id)) {
-    } else {
+    if (!this.wishlistService.userHasInWishlist(jewel.jewel.id)) {
       this.wishlistService.addToWishlist(jewel.jewel);
     }
     this.cdr.detectChanges();
