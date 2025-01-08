@@ -5,7 +5,7 @@ import { Injectable, signal } from '@angular/core';
 })
 export class PopupsService {
   wishlistPopupVisibility = signal(false);
-  cartPopupVisibility = signal(true);
+  cartPopupVisibility = signal(false);
 
   changeWishlistPopupVisibility(val: boolean) {
     this.wishlistPopupVisibility.set(val);
