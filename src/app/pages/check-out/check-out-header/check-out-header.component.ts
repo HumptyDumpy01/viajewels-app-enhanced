@@ -2,13 +2,11 @@ import { Component, inject, signal } from '@angular/core';
 import { JewelryService } from '../../../jewelry.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
-import { OrderDetailCardComponent } from '../../../UI/cards/order-detail-card/order-detail-card.component';
 
 @Component({
   selector: 'app-check-out-header',
   imports: [
-    ParagraphComponent,
-    OrderDetailCardComponent
+    ParagraphComponent
   ],
   standalone: true,
   templateUrl: './check-out-header.component.html',

@@ -9,7 +9,6 @@ import { ShippingDetailsComponent } from '../check-out/shipping-details/shipping
   imports: [
     HeadingComponent,
     ParagraphComponent,
-    OrderDetailCardComponent,
     ShippingDetailsComponent
   ],
   standalone: true,
