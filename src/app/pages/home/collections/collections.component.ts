@@ -26,6 +26,7 @@ export class CollectionsComponent implements OnInit {
     });
   }
 
+
   nextCollection() {
     this.isImageVisible.set(false);
     setTimeout(() => {
