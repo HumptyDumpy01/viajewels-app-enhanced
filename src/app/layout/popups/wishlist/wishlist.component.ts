@@ -4,7 +4,7 @@ import { ViajewelsButtonComponent } from '../../../UI/buttons/viajewels-button/v
 import {
   ViajewelsButtonSmallComponent
 } from '../../../UI/buttons/viajewels-button-small/viajewels-button-small.component';
-import { CurrencyPipe, NgClass, NgForOf, NgIf } from '@angular/common';
+import { NgClass, NgForOf, NgIf } from '@angular/common';
 import { PopupsService } from '../../../popups.service';
 import { CloseIconComponent } from '../../../UI/icons/close-icon/close-icon.component';
 import { JewelWishlistService } from '../../../jewel-wishlist.service';
@@ -20,8 +20,7 @@ import { CartService } from '../../../cart.service';
     NgClass,
     CloseIconComponent,
     NgForOf,
-    NgIf,
-    CurrencyPipe
+    NgIf
   ],
   standalone: true,
   templateUrl: './wishlist.component.html',
