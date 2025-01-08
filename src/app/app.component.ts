@@ -3,10 +3,11 @@ import { NavigationComponent } from './layout/navigation/navigation.component';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { FooterComponent } from './layout/footer/footer.component';
 import { WishlistComponent } from './layout/popups/wishlist/wishlist.component';
+import { CartComponent } from './layout/popups/cart/cart.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavigationComponent, FooterComponent, WishlistComponent],
+  imports: [RouterOutlet, NavigationComponent, FooterComponent, WishlistComponent, CartComponent],
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

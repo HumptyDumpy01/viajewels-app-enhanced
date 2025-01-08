@@ -38,6 +38,10 @@ export class NavigationComponent implements OnInit {
     });
   }
 
+  onCartClick() {
+    this.popupsService.changeCartPopupVisibility(true);
+  }
+
   onWishlistClick() {
     this.popupsService.changeWishlistPopupVisibility(true);
   }
