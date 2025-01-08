@@ -14,9 +14,9 @@
               [disabled]="jewelDetails().itemsLeft === 0"
               type="button">-
       </button>
-      <input [class]="'text-3xl text-center focus:outline-none w-9 disabled:text-zinc-500 text-yellow-700'"
-             [defaultValue]="jewelDetails().itemsLeft === 0 ? 0 : itemCounter()"
-             [disabled]="jewelDetails().itemsLeft === 0" placeholder="1"
+      <input [class]="'text-3xl text-center focus:outline-none w-9 disabled:text-zinc-500 text-yellow-700'" [defaultValue]="jewelDetails().itemsLeft === 0 ? 0 : itemCounter()"
+             [disabled]="jewelDetails().itemsLeft === 0"
+             placeholder="1" readonly
              type="number">
       <button (click)="increaseItemCount()"
               [class]="'w-9 h-9 border text-2xl transition-all duration-300 ' + getButtonExtraStyles"
