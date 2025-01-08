@@ -8,7 +8,7 @@
   </a>
   <div class="flex items-center gap-4">
     <span class="text-yellow-600 text-xl">{{ totalPrice() | currency }}</span>
-    <div class="flex items-center gap-2 ">
+    <div *ngIf="enableButtons()" class="flex items-center gap-2 ">
       <button (click)="decreaseItemCount()"
               [class]="'w-9 h-9 border text-2xl transition-all duration-300 ' + getButtonExtraStyles"
               [disabled]="jewelDetails().itemsLeft === 0"

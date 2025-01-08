@@ -1,5 +1,5 @@
 import { Component, EventEmitter, input, OnInit, Output, signal } from '@angular/core';
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, NgIf } from '@angular/common';
 import { ImgDataType } from '../collection-card/collection-card.component';
 import { TrimTextPipe } from '../../../trim-text.pipe';
 
@@ -7,7 +7,8 @@ import { TrimTextPipe } from '../../../trim-text.pipe';
   selector: 'app-order-detail-card',
   imports: [
     CurrencyPipe,
-    TrimTextPipe
+    TrimTextPipe,
+    NgIf
   ],
   standalone: true,
   templateUrl: './order-detail-card.component.html',
@@ -19,6 +20,8 @@ export class OrderDetailCardComponent implements OnInit {
   imgData = input.required<ImgDataType>();
   heading = input.required<string>();
   text = input.required<string>();
+
+  enableButtons = input<boolean>(true);
 
   @Output() totalPriceChange = new EventEmitter<number>();
 

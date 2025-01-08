@@ -17,6 +17,7 @@
              class="flex sm:items-center gap-10 flex-col justify-between bp-1210:flex-row">
           <app-order-detail-card
             (totalPriceChange)="onTotalPriceChange($event)"
+            [enableButtons]="false"
             [heading]="item.itemDetails.heading"
             [href]="item.href"
             [imgData]="item.imgData[0]"
@@ -34,7 +35,6 @@
         <div class="flex items-center justify-end mt-4 flex-col sm:flex-row gap-4 sm:gap-0">
           <div class="flex items-center gap-10 mr-24">
             <span class="text-3xl text-yellow-700">{{ totalWishlistPrice | currency }}</span>
-            <span class="text-3xl text-zinc-700">{{ wishlist.length }}</span>
           </div>
           <app-viajewels-button label="Move all to Cart" mode="btn" styling="default" type="button" />
         </div>

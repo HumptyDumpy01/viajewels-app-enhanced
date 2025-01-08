@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { OrderDetailCardComponent } from '../../../UI/cards/order-detail-card/order-detail-card.component';
 import { ViajewelsButtonComponent } from '../../../UI/buttons/viajewels-button/viajewels-button.component';
 import {
@@ -29,6 +29,7 @@ import { JewelryType } from '../../../../../data/JEWELRY';
 export class WishlistComponent {
   private jewelryWishlistService = inject(JewelWishlistService);
   private popupsService = inject(PopupsService);
+  private cdr = inject(ChangeDetectorRef);
 
   totalWishlistPrice = 0;
 
@@ -38,6 +39,8 @@ export class WishlistComponent {
 
   removeItemFromWishlist(jewel: JewelryType) {
     this.jewelryWishlistService.removeFromWishlist(jewel);
+    this.totalWishlistPrice -= jewel.itemDetails.price;
+    this.cdr.detectChanges();
   }
 
   get popupVisibility() {
@@ -50,5 +53,6 @@ export class WishlistComponent {
 
   onTotalPriceChange(priceDifference: number) {
     this.totalWishlistPrice += priceDifference;
+    this.cdr.detectChanges();
   }
 }
