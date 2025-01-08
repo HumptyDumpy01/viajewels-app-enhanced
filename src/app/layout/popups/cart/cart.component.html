@@ -6,37 +6,37 @@
       <h2 class="text-6xl text-zinc-800 mb-6"><span class="font-alexBrush">Y</span>our <span
         class="font-alexBrush">C</span>art
       </h2>
-      <span class="text-5xl font-alexBrush text-zinc-800">{{ wishlist.length }}</span>
+      <span class="text-5xl font-alexBrush text-zinc-800">{{ cart.length }}</span>
     </div>
-    <p *ngIf="wishlist.length === 0">Your cart is empty! Feel free to add some items!</p>
-    <div *ngIf="wishlist.length > 0">
+    <p *ngIf="cart.length === 0">Your cart is empty! Feel free to add some items!</p>
+    <div *ngIf="cart.length > 0">
 
       <div
         class="grid grid-cols-1 gap-5 sm:max-h-80 max-h-[400px] overflow-y-auto scrollbar-thin pt-4">
-        <!--<div *ngFor="let item of wishlist"
+        <div *ngFor="let item of cart"
              class="flex sm:items-center gap-10 flex-col justify-between bp-1210:flex-row">
           <app-order-detail-card
             (totalPriceChange)="onTotalPriceChange($event)"
-            [enableButtons]="false"
-            [heading]="item.itemDetails.heading"
-            [href]="item.href"
-            [imgData]="item.imgData[0]"
-            [jewelDetails]="{itemsLeft: item.itemsLeft, itemPrice: item.itemDetails.price}"
-            [text]="item.itemDetails.description"
+            [heading]="item.jewel.itemDetails.heading"
+            [href]="item.jewel.href"
+            [imgData]="item.jewel.imgData[0]"
+            [jewelDetails]="{itemsLeft: item.jewel.itemsLeft, itemPrice: item.jewel.itemDetails.price}"
+            [text]="item.jewel.itemDetails.description"
           />
           <div class="flex sm:items-center gap-5 flex-col sm:flex-row">
-            <app-viajewels-button-small label="Move to Cart" mode="default" type="button" />
-            <app-viajewels-button-small (click)="removeItemFromWishlist(item)" label="Remove" mode="grey"
+            <app-viajewels-button-small (click)="moveItemToWishlist(item)" label="Move to Wishlist" mode="default"
+                                        type="button" />
+            <app-viajewels-button-small (click)="removeItemFromCart(item)" label="Remove" mode="grey"
                                         type="button" />
           </div>
-        </div>-->
+        </div>
       </div>
       <div class="ml-auto mt-7">
         <div class="flex items-center justify-end mt-4 flex-col sm:flex-row gap-4 sm:gap-0">
           <div class="flex items-center gap-10 mr-24">
-            <span class="text-3xl text-yellow-700">{{ totalWishlistPrice | currency }}</span>
+            <span class="text-3xl text-yellow-700">{{ totalCartPrice | currency }}</span>
           </div>
-          <app-viajewels-button label="Move all to Cart" mode="btn" styling="default" type="button" />
+          <app-viajewels-button label="Checkout" mode="btn" styling="default" type="button" />
         </div>
       </div>
     </div>

@@ -1,9 +1,14 @@
 import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { PopupsService } from '../../../popups.service';
-import { JewelryType } from '../../../../../data/JEWELRY';
 import { CloseIconComponent } from '../../../UI/icons/close-icon/close-icon.component';
-import { CurrencyPipe, NgClass, NgIf } from '@angular/common';
+import { CurrencyPipe, NgClass, NgForOf, NgIf } from '@angular/common';
 import { ViajewelsButtonComponent } from '../../../UI/buttons/viajewels-button/viajewels-button.component';
+import { OrderDetailCardComponent } from '../../../UI/cards/order-detail-card/order-detail-card.component';
+import {
+  ViajewelsButtonSmallComponent
+} from '../../../UI/buttons/viajewels-button-small/viajewels-button-small.component';
+import { CartService, CartType } from '../../../cart.service';
+import { JewelWishlistService } from '../../../jewel-wishlist.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,27 +17,41 @@ import { ViajewelsButtonComponent } from '../../../UI/buttons/viajewels-button/v
     NgClass,
     CurrencyPipe,
     ViajewelsButtonComponent,
-    NgIf
+    NgIf,
+    NgForOf,
+    OrderDetailCardComponent,
+    ViajewelsButtonSmallComponent
   ],
   standalone: true,
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
 export class CartComponent {
-  // private jewelryWishlistService = inject(JewelWishlistService);
+  private cartService = inject(CartService);
+  private wishlistService = inject(JewelWishlistService);
   private popupsService = inject(PopupsService);
   private cdr = inject(ChangeDetectorRef);
 
-  totalWishlistPrice = 0;
+  totalCartPrice = 0;
 
-  get wishlist() {
-    // return this.jewelryWishlistService.getWishlist();
-    return [];
+  get cart() {
+    return this.cartService.getCart();
   }
 
-  removeItemFromWishlist(jewel: JewelryType) {
+  moveItemToWishlist(jewel: CartType) {
+    this.cartService.removeFromCart(jewel);
+    this.totalCartPrice -= jewel.jewel.itemDetails.price * jewel.count;
+    if (this.wishlistService.userHasInWishlist(jewel.jewel.id)) {
+    } else {
+      this.wishlistService.addToWishlist(jewel.jewel);
+    }
+    this.cdr.detectChanges();
+  }
+
+  removeItemFromCart(jewel: CartType) {
     // this.jewelryWishlistService.removeFromWishlist(jewel);
-    this.totalWishlistPrice -= jewel.itemDetails.price;
+    this.totalCartPrice -= jewel.jewel.itemDetails.price * jewel.count;
+    this.cartService.removeFromCart(jewel);
     this.cdr.detectChanges();
   }
 
@@ -45,7 +64,7 @@ export class CartComponent {
   }
 
   onTotalPriceChange(priceDifference: number) {
-    this.totalWishlistPrice += priceDifference;
+    this.totalCartPrice += priceDifference;
     this.cdr.detectChanges();
   }
 }

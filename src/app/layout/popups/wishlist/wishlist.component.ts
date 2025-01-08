@@ -9,6 +9,7 @@ import { PopupsService } from '../../../popups.service';
 import { CloseIconComponent } from '../../../UI/icons/close-icon/close-icon.component';
 import { JewelWishlistService } from '../../../jewel-wishlist.service';
 import { JewelryType } from '../../../../../data/JEWELRY';
+import { CartService } from '../../../cart.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -28,6 +29,7 @@ import { JewelryType } from '../../../../../data/JEWELRY';
 })
 export class WishlistComponent {
   private jewelryWishlistService = inject(JewelWishlistService);
+  private cartService = inject(CartService);
   private popupsService = inject(PopupsService);
   private cdr = inject(ChangeDetectorRef);
 
@@ -41,6 +43,33 @@ export class WishlistComponent {
     this.jewelryWishlistService.removeFromWishlist(jewel);
     this.totalWishlistPrice -= jewel.itemDetails.price;
     this.cdr.detectChanges();
+  }
+
+  handleMoveItemToCart(jewel: JewelryType) {
+    // if there are no items left in stock, then just remove the item from wishlist
+    if (jewel.itemsLeft === 0) {
+      this.jewelryWishlistService.removeFromWishlist(jewel);
+      return;
+    }
+    this.jewelryWishlistService.removeFromWishlist(jewel);
+    this.cartService.addToCart({ jewel, count: 1 });
+    this.totalWishlistPrice -= jewel.itemDetails.price;
+    this.cdr.detectChanges();
+  }
+
+  moveAllItemsToCart() {
+    for (const jewel of this.wishlist) {
+      if (jewel.itemsLeft === 0) {
+        this.jewelryWishlistService.removeFromWishlist(jewel);
+        this.cdr.detectChanges();
+        return;
+      } else {
+        this.cartService.addToCart({ jewel, count: 1 });
+        this.totalWishlistPrice -= jewel.itemDetails.price;
+        this.jewelryWishlistService.removeFromWishlist(jewel);
+        this.cdr.detectChanges();
+      }
+    }
   }
 
   get popupVisibility() {

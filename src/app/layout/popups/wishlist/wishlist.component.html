@@ -25,7 +25,8 @@
             [text]="item.itemDetails.description"
           />
           <div class="flex sm:items-center gap-5 flex-col sm:flex-row">
-            <app-viajewels-button-small label="Move to Cart" mode="default" type="button" />
+            <app-viajewels-button-small (click)="handleMoveItemToCart(item)" label="Move to Cart" mode="default"
+                                        type="button" />
             <app-viajewels-button-small (click)="removeItemFromWishlist(item)" label="Remove" mode="grey"
                                         type="button" />
           </div>
@@ -36,7 +37,8 @@
           <div class="flex items-center gap-10 mr-24">
             <span class="text-3xl text-yellow-700">{{ totalWishlistPrice | currency }}</span>
           </div>
-          <app-viajewels-button label="Move all to Cart" mode="btn" styling="default" type="button" />
+          <app-viajewels-button (click)="moveAllItemsToCart()" label="Move all to Cart" mode="btn" styling="default"
+                                type="button" />
         </div>
       </div>
     </div>

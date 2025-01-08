@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { JewelryType } from '../../data/JEWELRY';
 
-type CartType = {
+export type CartType = {
   jewel: JewelryType;
   count: number;
 }
@@ -25,10 +25,6 @@ export class CartService {
     return this.cart();
   }
 
-  userHasInCart(id: number) {
-    return this.cart().some((item) => item.jewel.id === id);
-  }
-
   addToCart(cartItem: CartType) {
     this.cart.update((prev) => {
       if (!prev.some((item) => item.jewel.id === cartItem.jewel.id)) {
@@ -36,7 +32,15 @@ export class CartService {
         this.saveCartToLocalStorage();
         return updatedCart;
       }
-      return prev;
+      return prev.map((item) => {
+        if (item.jewel.id === cartItem.jewel.id) {
+          return {
+            ...item,
+            count: item.count + cartItem.count
+          };
+        }
+        return item;
+      });
     });
     this.saveCartToLocalStorage();
   }
