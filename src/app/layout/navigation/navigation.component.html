@@ -8,7 +8,11 @@
       <button (click)="onWishlistClick()">Wishlist({{ wishlistedItems }})</button>
     </li>
     <li>
-      <button>Menu</button>
+      <select (change)="onSelectChange($event)" class="text-zinc-800 outline-none">
+        <option value="">Menu</option>
+        <option value="/">Home</option>
+        <option value="/jewelry">Jewelry</option>
+      </select>
     </li>
   </ul>
 </nav>
