@@ -20,6 +20,8 @@ import { scrollToTag } from '../../../utils/functions/scrollToTag';
 })
 export class TestimonialsComponent {
   currentPage = signal(1);
+  scrollToTagIdentifier = input<string>(`.testimonials-heading`);
+
   testimonialsPerPage = 4;
   totalTestimonialsToShow = signal(this.testimonialsPerPage);
 
@@ -68,6 +70,8 @@ export class TestimonialsComponent {
       const newTotal = this.totalTestimonialsToShow() + this.testimonialsPerPage;
       if (newTotal <= this.testimonials().length) {
         this.totalTestimonialsToShow.set(newTotal);
+      } else {
+        this.totalTestimonialsToShow.set(this.testimonials().length);
       }
     }
   }
@@ -80,7 +84,7 @@ export class TestimonialsComponent {
     this.totalTestimonialsToShow.set(this.testimonialsPerPage);
     this.currentPage.set(1);
     //scroll to testimonials-heading class
-    scrollToTag('.testimonials-heading');
+    scrollToTag(this.scrollToTagIdentifier());
   }
 }
 

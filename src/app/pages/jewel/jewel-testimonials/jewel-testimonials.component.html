@@ -1,5 +1,5 @@
 <section class="container mt-20">
-  <app-heading class="md:text-nowrap" span="Our Customers adore this jewelry!">
+  <app-heading class="md:text-nowrap reviews-sub-heading" span="Our Customers adore this jewelry!">
     <span class="font-alexBrush">C</span>heckout the <span class="font-alexBrush">R</span>eviews!
   </app-heading>
   <p *ngIf="jewelReviews().length === 0" class="mt-4 text-3xl text-zinc-800">
@@ -8,10 +8,11 @@
   <div *ngIf="jewelReviews().length > 0" class="flex items-center gap-4 mr-6 mb-16 mt-3">
     <span class="text-2xl text-nowrap">Sort by:</span>
     <div class="flex items-center gap-3 overflow-x-auto text-nowrap">
-      <app-bulky-badge [active]="false" label="New" />
-      <app-bulky-badge [active]="true" label="Top Rated" />
-      <app-bulky-badge [active]="false" label="Old" />
+      <app-bulky-badge (click)="switchFilter('new')" [active]="filterBy() === 'new'" label="New" />
+      <app-bulky-badge (click)="switchFilter('top-rated')" [active]="filterBy() === 'top-rated'" label="Top Rated" />
+      <app-bulky-badge (click)="switchFilter('old')" [active]="filterBy() === 'old'" label="Old" />
     </div>
   </div>
-  <app-testimonials [testimonials]="jewelReviews().slice(0, 4)" />
+  <app-testimonials [testimonials]="filteredReviews" paginationVariation="see-more-btn"
+                    scrollToTagIdentifier=".reviews-sub-heading" />
 </section>

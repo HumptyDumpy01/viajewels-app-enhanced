@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, input, signal } from '@angular/core';
 import { HeadingComponent } from '../../../typography/heading/heading.component';
 import { TestimonialsComponent } from '../../../layout/testimonials/testimonials.component';
 import { JewelryReviewType } from '../../../../../data/JEWELRY';
@@ -19,4 +19,26 @@ import { NgIf } from '@angular/common';
 })
 export class JewelTestimonialsComponent {
   jewelReviews = input.required<JewelryReviewType[]>();
+  filterBy = signal<FilterTestimonialsType>(`top-rated`);
+  private cdr = inject(ChangeDetectorRef);
+
+  switchFilter(filter: FilterTestimonialsType) {
+    this.filterBy.set(filter);
+    this.cdr.detectChanges();
+  }
+
+  get filteredReviews() {
+    switch (this.filterBy()) {
+      case `top-rated`:
+        return this.jewelReviews().sort((a, b) => b.rated - a.rated);
+      case `new`:
+        return this.jewelReviews().sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+      case `old`:
+        return this.jewelReviews().sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+    }
+  }
+
+
 }
+
+export type FilterTestimonialsType = `top-rated` | `new` | `old`;
