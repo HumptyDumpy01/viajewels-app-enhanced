@@ -23,11 +23,12 @@
           </app-paragraph>
         </div>
       </div>
+      <p *ngIf="errorMessage()" class="text-2xl text-white mb-2">{{ errorMessage() }}</p>
       <div class="flex items-center justify-center bp-890:justify-between">
         <div class="flex items-center max-w-[599px]">
-          <form class="w-full flex flex-col gap-14">
+          <form (ngSubmit)="onSubmit()" class="w-full flex flex-col gap-14">
             <div class="flex justify-center flex-col gap-1">
-              <app-input-control helperText="Enter your email" placeholder="Email" type="email" />
+              <app-input-control #emailInput helperText="Enter your email" placeholder="Email" type="email" />
             </div>
             <app-viajewels-button class="text-purple-600" label="Subscribe" styling="empty-white" type="submit" />
           </form>
