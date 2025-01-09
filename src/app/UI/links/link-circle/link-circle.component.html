@@ -1,6 +1,6 @@
 <a
-  [class]="'text-3xl uppercase w-[200px] h-[200px] rounded-full border border-zinc-800 transition duration-300 ease-in-out hover:bg-zinc-900 hover:text-white flex items-center justify-center bg-white' +
-  (customClasses() ? ' ' + customClasses() : '')"
+  [class]="'text-3xl uppercase w-[200px] h-[200px] rounded-full border border-zinc-800 transition duration-300 ease-in-out hover:text-white flex items-center justify-center bg-white' +
+  (customClasses() ? ' ' + customClasses() : '') + applyThemeClasses(theme, 'hover:bg-zinc-900 ', 'hover:bg-zinc-950')"
   [queryParams]="queryParams()"
   [routerLink]="routerLinkHref()"
   [target]="linkTarget()">

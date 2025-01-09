@@ -1,12 +1,13 @@
 <section>
   <div>
-    <h1 class="text-7xl text-zinc-900 mb-14 relative w-fit">
+    <h1 [class]="'text-7xl  mb-14 relative w-fit' + applyThemeClasses(theme, 'text-zinc-900', 'text-neutral-100')">
       <span class="font-alexBrush">E</span>xplore
       <span class="font-alexBrush">H</span>undreds <br>
       Of Posh <span class="font-alexBrush">J</span>ewellery!
-      <app-limited-addition-circle customClasses="absolute -top-6 sm:-right-2 -right-20" />
+      <app-limited-addition-circle [fillColor]="(theme === 'dark' ? 'white': 'black')"
+                                   customClasses="absolute -top-6 sm:-right-2 -right-20" />
     </h1>
-    <app-paragraph customClasses="mb-4">
+    <app-paragraph [class]="applyThemeClasses(theme, '', 'text-white')" customClasses="mb-4">
       <span class="font-alexBrush">U</span>nveil a world of
       sophistication with
       Viajewels, your go-to destination

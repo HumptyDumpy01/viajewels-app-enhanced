@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, input, OnInit, Output, signal } from '@angular/core';
-import { CurrencyPipe, NgClass, NgIf } from '@angular/common';
+import { CurrencyPipe, NgClass } from '@angular/common';
 import { ImgDataType } from '../collection-card/collection-card.component';
 import { TrimTextPipe } from '../../../trim-text.pipe';
 import { CartService } from '../../../cart.service';
@@ -10,7 +10,6 @@ import { JewelryType } from '../../../../../data/JEWELRY';
   imports: [
     CurrencyPipe,
     TrimTextPipe,
-    NgIf,
     NgClass
   ],
   standalone: true,
