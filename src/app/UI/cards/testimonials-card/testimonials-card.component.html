@@ -1,14 +1,15 @@
 <div class="flex flex-col sm:flex-row max-w-screen-sm items-center gap-9">
       <span
-        class="flex items-center justify-center p-9 h-32 w-32 border border-zinc-800 rounded-full text-4xl">{{ initials() | abbrInitials }}</span>
+        [class]="'flex items-center justify-center p-9 h-32 w-32 border border-zinc-800 rounded-full text-4xl' +
+applyThemeClasses(theme, 'text-zinc-800', 'text-neutral-100')">{{ initials() | abbrInitials }}</span>
   <div>
     <div class="flex flex-col sm-xl:flex-row sm-xl:gap-0 gap-2 items-center justify-between mb-3.5">
-      <h3 class="text-4xl text-zinc-700">{{ initials() }}</h3>
+      <h3 [class]="'text-4xl ' + applyThemeClasses(theme, 'text-zinc-700', 'text-neutral-200')">{{ initials() }}</h3>
       <div class="flex items-center gap-1">
         <app-star-icon *ngFor="let star of getRatingArray" [mode]="star" dimensions="md" />
       </div>
     </div>
-    <app-paragraph>
+    <app-paragraph [class]="applyThemeClasses(theme, 'text-zinc-900', 'text-neutral-200')">
       <span class="font-alexBrush">{{ firstLetterOfText }}</span> {{ restOfText | trimText: 190 }}
     </app-paragraph>
     <time class="mt-3 inline-block text-zinc-400">{{ createdAt() | date: 'short' }}</time>

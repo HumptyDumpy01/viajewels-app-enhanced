@@ -1,8 +1,10 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { HeadingComponent } from '../../../typography/heading/heading.component';
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
 import { TestimonialsComponent } from '../../../layout/testimonials/testimonials.component';
 import { JewelryReviewType } from '../../../../../data/JEWELRY';
+import { ThemeService } from '../../../theme.service';
+import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({
   selector: 'app-customer-testimonials',
@@ -16,5 +18,12 @@ import { JewelryReviewType } from '../../../../../data/JEWELRY';
   styleUrl: './customer-testimonials.component.css'
 })
 export class CustomerTestimonialsComponent {
+  private themeService = inject(ThemeService);
+
+  get theme() {
+    return this.themeService.getTheme;
+  }
+
   testimonials = input.required<JewelryReviewType[]>();
+  protected readonly applyThemeClasses = applyThemeClasses;
 }

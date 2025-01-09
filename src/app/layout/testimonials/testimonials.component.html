@@ -21,7 +21,9 @@
     </div>
   </div>
   <div *ngIf="paginationVariation() === 'see-more-btn' && paginatedTestimonials.length > 0" class="mt-16">
-    <app-viajewels-button (click)="nextPage()" label="See More" styling="default" type="button" />
+    <app-viajewels-button (click)="nextPage()" [styling]="theme === 'light' ? 'default': 'empty-white'"
+                          label="See More"
+                          type="button" />
     <button (click)="setTestimonialsToDefault()" *ngIf="totalTestimonialsToShow() > 4"
             class="text-zinc-400 text-2xl ml-9 mt-4 sm:mt-0 transition-all duration-300 hover:text-zinc-800">Hide
     </button>

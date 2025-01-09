@@ -3,7 +3,7 @@
   think about <span class="font-alexBrush">U</span>s!
 </app-heading>
 <div class="flex items-center justify-between mb-16">
-  <app-paragraph>
+  <app-paragraph [class]="applyThemeClasses(theme, '', 'text-neutral-100')">
     <span class="font-alexBrush">A</span>t Viajewels, we pride ourselves on delivering not just stunning jewelry but
     also exceptional experiences. Our
     customers love sharing their stories of how our pieces have added elegance to their style and meaning to their
@@ -11,7 +11,7 @@
   </app-paragraph>
 
   <div class="hidden lg:flex">
-    <app-paragraph>
+    <app-paragraph [class]="applyThemeClasses(theme, '', 'text-neutral-100')">
       <span class="font-alexBrush">F</span>rom the sparkle of our designs to the quality of our service, our
       customers
       can’t stop raving about their Viajewels experience. With glowing reviews and heartfelt testimonials, we’re

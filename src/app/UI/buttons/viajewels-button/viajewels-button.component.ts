@@ -29,7 +29,7 @@ export class ViajewelsButtonComponent {
     transition-all duration-300 hover:bg-zinc-800 hover:text-white active:bg-transparent active:text-zinc-800`;
     const whiteStyles = ` bg-white text-red-600 border border-red-600 hover:border hover:border-white transition-all duration-300 hover:bg-red-600 hover:text-white active:bg-transparent active:text-red-600`;
     const emptyWhiteStyles = `text-white border border-white transition-all duration-300
-    hover:bg-white hover:text-red-600
+    hover:bg-white hover:text-inherit
     active:bg-transparent active:text-white`;
     return this.styling() === `default` ? defaultStyles : this.styling() === `white` ? whiteStyles : emptyWhiteStyles;
   }

@@ -1,9 +1,11 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { StarIconComponent } from '../../icons/star-icon/star-icon.component';
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
 import { DatePipe, NgForOf } from '@angular/common';
 import { AbbrInitialsPipe } from '../../../abbr-initials.pipe';
 import { TrimTextPipe } from '../../../trim-text.pipe';
+import { ThemeService } from '../../../theme.service';
+import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({
   selector: 'app-testimonials-card',
@@ -20,17 +22,25 @@ import { TrimTextPipe } from '../../../trim-text.pipe';
   styleUrl: './testimonials-card.component.css'
 })
 export class TestimonialsCardComponent {
+  private themeService = inject(ThemeService);
+
+  get theme() {
+    return this.themeService.getTheme;
+  }
+
   initials = input.required<string>();
   review = input.required<string>();
   rating = input.required<number>();
   createdAt = input.required<string>();
+
+  themeStarFilling = computed(() => this.theme === 'light' ? 'filled' : 'darkFilled');
 
   // if e.g. rating is 4.5, we want to create an array of 4 elements
   get getRatingArray() {
     const filledStars = Math.floor(this.rating());
     const emptyStars = 5 - filledStars;
     return [
-      ...Array(filledStars).fill('filled'),
+      ...Array(filledStars).fill(this.themeStarFilling()),
       ...Array(emptyStars).fill('empty')
     ];
   }
@@ -43,4 +53,5 @@ export class TestimonialsCardComponent {
     return this.review().slice(1);
   }
 
+  protected readonly applyThemeClasses = applyThemeClasses;
 }

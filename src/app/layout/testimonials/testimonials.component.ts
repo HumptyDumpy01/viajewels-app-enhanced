@@ -1,9 +1,10 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, inject, input, signal } from '@angular/core';
 import { TestimonialsCardComponent } from '../../UI/cards/testimonials-card/testimonials-card.component';
 import { ViajewelsButtonComponent } from '../../UI/buttons/viajewels-button/viajewels-button.component';
 import { NgClass, NgForOf, NgIf } from '@angular/common';
 import { JewelryReviewType } from '../../../../data/JEWELRY';
 import { scrollToTag } from '../../../utils/functions/scrollToTag';
+import { ThemeService } from '../../theme.service';
 
 @Component({
   selector: 'app-testimonials',
@@ -19,6 +20,12 @@ import { scrollToTag } from '../../../utils/functions/scrollToTag';
   styleUrls: ['./testimonials.component.css']
 })
 export class TestimonialsComponent {
+  private themeService = inject(ThemeService);
+
+  get theme() {
+    return this.themeService.getTheme;
+  }
+
   currentPage = signal(1);
   scrollToTagIdentifier = input<string>(`.testimonials-heading`);
 
