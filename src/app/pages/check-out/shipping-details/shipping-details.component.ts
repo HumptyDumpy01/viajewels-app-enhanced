@@ -30,6 +30,50 @@ export class ShippingDetailsComponent {
   button = input.required<BtnType>();
   errorMessage = signal<string>(``);
 
+  inputData = input<InputDataType>({
+    firstName: {
+      placeholder: `First Name`,
+      readOnly: false
+    },
+    lastName: {
+      placeholder: `Last Name`,
+      readOnly: false
+    },
+    address: {
+      placeholder: `Address`,
+      readOnly: false
+    },
+    apartment: {
+      placeholder: `Apartment(optional)`,
+      readOnly: false
+    },
+    city: {
+      placeholder: `City`,
+      readOnly: false
+    },
+    country: {
+      placeholder: `Country`,
+      readOnly: false
+    },
+    state: {
+      placeholder: `State`,
+      readOnly: false
+    },
+    zipCode: {
+      placeholder: `Zip Code`,
+      readOnly: false
+    },
+    email: {
+      placeholder: `Email`,
+      readOnly: false
+    },
+    phone: {
+      placeholder: `Phone`,
+      readOnly: false
+    }
+  });
+
+
   @ViewChild('firstNameInput') firstNameInput!: InputControlComponent;
   @ViewChild('lastNameInput') lastNameInput!: InputControlComponent;
   @ViewChild('addressInput') addressInput!: InputControlComponent;
@@ -77,6 +121,50 @@ export class ShippingDetailsComponent {
     console.log(`Executing phone: ${this.phoneInput.getValue()}`);
   }
 
+  protected readonly input = input;
+}
+
+type InputDataType = {
+  firstName: {
+    placeholder: string;
+    readOnly: boolean;
+  },
+  lastName: {
+    placeholder: string;
+    readOnly: boolean;
+  },
+  address: {
+    placeholder: string;
+    readOnly: boolean;
+  },
+  apartment: {
+    placeholder: string;
+    readOnly: boolean;
+  },
+  city: {
+    placeholder: string;
+    readOnly: boolean;
+  },
+  country: {
+    placeholder: string;
+    readOnly: boolean;
+  },
+  state: {
+    placeholder: string;
+    readOnly: boolean;
+  },
+  zipCode: {
+    placeholder: string;
+    readOnly: boolean;
+  },
+  email: {
+    placeholder: string;
+    readOnly: boolean;
+  },
+  phone: {
+    placeholder: string;
+    readOnly: boolean;
+  }
 }
 
 type BtnType = {

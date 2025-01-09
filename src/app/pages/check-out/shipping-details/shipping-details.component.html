@@ -10,37 +10,57 @@
   <p *ngIf="errorMessage()" class="text-2xl text-red-600 mt-3">{{ errorMessage() }}</p>
   <form (ngSubmit)="onSubmit()" class="md:max-w-screen-bp-890 w-full mt-8">
     <div class="flex flex-col md:flex-row md:items-center md:gap-9 gap-3">
-      <app-input-control #firstNameInput helperText="Enter your first name" mode="black" placeholder="First Name"
+      <app-input-control #firstNameInput [placeholder]="inputData().firstName.placeholder"
+                         [readOnly]="inputData().firstName.readOnly" helperText="Enter your first name"
+                         mode="black"
                          type="text" />
-      <app-input-control #lastNameInput helperText="Enter your last name" mode="black" placeholder="Last Name"
+      <app-input-control #lastNameInput [placeholder]="inputData().lastName.placeholder"
+                         [readOnly]="inputData().lastName.readOnly"
+                         helperText="Enter your last name"
+                         mode="black"
                          type="text" />
     </div>
 
     <div class="flex flex-col md:flex-row md:items-center md:gap-9 gap-3">
-      <app-input-control #addressInput helperText="Enter your shipping address" mode="black" placeholder="Address"
+      <app-input-control #addressInput [placeholder]="inputData().address.placeholder"
+                         [readOnly]="inputData().address.readOnly" helperText="Enter your shipping address"
+                         mode="black"
                          type="text" />
-      <app-input-control #apartmentInput helperText="Enter your Apartment(optional)" mode="black"
-                         placeholder="Apartment(optional)" type="text" />
+      <app-input-control #apartmentInput [placeholder]="inputData().apartment.placeholder"
+                         [readOnly]="inputData().apartment.readOnly" helperText="Enter your Apartment(optional)"
+                         mode="black" type="text" />
     </div>
     <div class="w-full">
-      <app-input-control #cityInput helperText="Enter your City" mode="black" placeholder="City" type="text" />
+      <app-input-control #cityInput [placeholder]="inputData().city.placeholder" [readOnly]="inputData().city.readOnly"
+                         helperText="Enter your City"
+                         mode="black" type="text" />
     </div>
     <div class="flex flex-col md:flex-row md:items-center gap-9">
       <div class="flex flex-col sm:flex-row sm:items-center gap-9">
-        <app-input-control #countryInput class="max-w-64" helperText="Choose your Country" mode="black"
-                           placeholder="Country"
+        <app-input-control #countryInput [placeholder]="inputData().country.placeholder"
+                           [readOnly]="inputData().country.readOnly" class="max-w-64"
+                           helperText="Choose your Country"
+                           mode="black"
                            type="text" />
-        <app-input-control #stateInput class="max-w-64" helperText="Choose a State" mode="black" placeholder="State"
+        <app-input-control #stateInput [placeholder]="inputData().state.placeholder"
+                           [readOnly]="inputData().state.readOnly" class="max-w-64" helperText="Choose a State"
+                           mode="black"
                            type="text" />
       </div>
-      <app-input-control #zipCodeInput class="max-w-64" helperText="Enter your Zip Code" mode="black"
-                         placeholder="Zip Code"
+      <app-input-control #zipCodeInput [placeholder]="inputData().zipCode.placeholder"
+                         [readOnly]="inputData().zipCode.readOnly" class="max-w-64"
+                         helperText="Enter your Zip Code"
+                         mode="black"
                          type="number" />
     </div>
     <div class="flex flex-col md:flex-row md:items-center gap-9 mb-12">
-      <app-input-control #emailInput helperText="Enter your valid Email" mode="black" placeholder="Email"
+      <app-input-control #emailInput [placeholder]="inputData().email.placeholder"
+                         [readOnly]="inputData().email.readOnly"
+                         helperText="Enter your valid Email" mode="black"
                          type="email" />
-      <app-input-control #phoneInput helperText="Enter your valid Phone" mode="black" placeholder="Phone"
+      <app-input-control #phoneInput [placeholder]="inputData().phone.placeholder"
+                         [readOnly]="inputData().phone.readOnly" helperText="Enter your valid Phone"
+                         mode="black"
                          type="number" />
     </div>
     <app-info-message text="Double-check everything to make sure it’s

@@ -20,6 +20,7 @@ export class InputControlComponent {
   helperText = input.required<string>();
   name = input<string>(``);
   mode = input<InputControlMode>(`red`);
+  readOnly = input<boolean>(false);
 
   formControlName = input<string>(``);
 
