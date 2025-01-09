@@ -1,6 +1,7 @@
 <nav class="pt-7 flex items-center pb-7 container flex-col sm:flex-row">
-  <span class="text-6xl mr-9 font-alexBrush text-zinc-900">{{ heading() }}</span>
-  <ul class="flex items-center gap-4">
+  <span
+    [class]="'text-6xl mr-9 font-alexBrush' + applyThemeClasses(theme, 'text-zinc-800', 'text-neutral-200')">{{ heading() }}</span>
+  <ul [class]="'flex items-center gap-4' + applyThemeClasses(theme, 'text-zinc-800', 'text-neutral-200')">
     <li>
       <button (click)="onCartClick()">Cart({{ cartItems }})</button>
     </li>
@@ -8,8 +9,9 @@
       <button (click)="onWishlistClick()">Wishlist({{ wishlistedItems }})</button>
     </li>
     <li>
-      <select (change)="onSelectChange($event)" class="text-zinc-800 outline-none">
-        <option value="">Menu</option>
+      <select (change)="onSelectChange($event)"
+              [class]="'outline-none' + applyThemeClasses(theme, 'text-zinc-800', 'bg-zinc-950 text-neutral-100')">
+        <option [class]="applyThemeClasses(theme, '', 'text-neutral-100')" value="">Menu</option>
         <option value="/">Home</option>
         <option value="/jewelry">Jewelry</option>
       </select>

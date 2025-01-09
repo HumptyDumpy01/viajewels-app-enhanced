@@ -13,6 +13,7 @@ import { PopupsService } from '../../popups.service';
 import { CartService } from '../../cart.service';
 import { ToggleIconComponent } from '../../UI/theme/toggle-icon/toggle-icon.component';
 import { ThemeService } from '../../theme.service';
+import { applyThemeClasses } from '../../../utils/functions/applyThemeClasses';
 
 @Component({
   selector: 'app-navigation',
@@ -24,6 +25,7 @@ import { ThemeService } from '../../theme.service';
   styleUrl: './navigation.component.css'
 })
 export class NavigationComponent implements OnInit {
+
   private popupsService = inject(PopupsService);
   private jewelWishlistService = inject(JewelWishlistService);
   private themeService = inject(ThemeService);
@@ -91,4 +93,6 @@ export class NavigationComponent implements OnInit {
     this.themeService.changeTheme(this.theme === 'light' ? 'dark' : 'light');
     this.cdr.detectChanges();
   }
+
+  protected readonly applyThemeClasses = applyThemeClasses;
 }

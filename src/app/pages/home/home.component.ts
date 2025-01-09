@@ -18,7 +18,6 @@ import { HeadingComponent } from '../../typography/heading/heading.component';
 export class HomeComponent implements OnInit {
   private jewelryService = inject(JewelryService);
 
-
   get jewelry() {
     return this.jewelryService.getJewelry();
   }
