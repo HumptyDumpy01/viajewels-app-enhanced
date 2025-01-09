@@ -63,8 +63,7 @@
                          mode="black"
                          type="number" />
     </div>
-    <app-info-message text="Double-check everything to make sure it’s
-        just how you want it." />
+    <app-info-message [text]="infoMessage()" />
     <app-viajewels-button
       [href]="button().href"
       [label]="button().text"
@@ -74,4 +73,3 @@
       styling="default"
     />
   </form>
-</section>

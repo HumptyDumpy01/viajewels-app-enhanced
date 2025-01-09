@@ -28,7 +28,8 @@ import { NgIf } from '@angular/common';
 })
 export class ShippingDetailsComponent {
   button = input.required<BtnType>();
-  errorMessage = signal<string>(``);
+  errorMessage = signal(``);
+  infoMessage = input(`Double-check everything to make sure it’s just how you want it.`);
 
   inputData = input<InputDataType>({
     firstName: {
@@ -124,7 +125,7 @@ export class ShippingDetailsComponent {
   protected readonly input = input;
 }
 
-type InputDataType = {
+export type InputDataType = {
   firstName: {
     placeholder: string;
     readOnly: boolean;

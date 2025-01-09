@@ -1,4 +1,8 @@
 <section class="container">
+  <div class="flex items-center gap-2">
+    <app-navigate-to-link [href]="['/']" label="Home ." />
+    <app-navigate-to-link [href]="['/jewelry']" label="Jewelry ." />
+  </div>
   <div class="mt-3">
     <app-heading span="Wow! What a nice order!">
       Thanks for purchase!
@@ -10,31 +14,21 @@
     </app-paragraph>
 
     <div class="flex flex-col justify-center gap-5">
-      <!--<app-order-detail-card
-        [imgData]="{alt: 'Image 1', src: 'jewelry/classic-gold-bracelet/classic-gold-bracelet-1.png'}"
-        [jewelDetails]="{itemsLeft: 0, itemPrice: 999}"
-        heading="A classic golden bracelet"
-        href="#"
-        text="A classic golden bracelet designed to enhance elegance with every wear. Features intricate detailing and a smooth finish."
-      />
-
       <app-order-detail-card
-        [imgData]="{alt: 'Image 1', src: 'jewelry/classic-gold-bracelet/classic-gold-bracelet-1.png'}"
-        [jewelDetails]="{itemsLeft: 0, itemPrice: 999}"
-        heading="A classic golden bracelet"
-        href="#"
-        text="A classic golden bracelet designed to enhance elegance with every wear. Features intricate detailing and a smooth finish."
-      />
-      <app-order-detail-card
-        [imgData]="{alt: 'Image 1', src: 'jewelry/classic-gold-bracelet/classic-gold-bracelet-1.png'}"
-        [jewelDetails]="{itemsLeft: 0, itemPrice: 999}"
-        heading="A classic golden bracelet"
-        href="#"
-        text="A classic golden bracelet designed to enhance elegance with every wear. Features intricate detailing and a smooth finish."
-      />-->
+        *ngFor="let cartItem of cart"
+        [enableButtons]="false"
+        [heading]="cartItem.jewel.itemDetails.heading"
+        [href]="cartItem.jewel.href"
+        [imgData]="cartItem.jewel.imgData[0]"
+        [item]="cartItem.jewel"
+        [jewelDetails]="{itemsLeft: cartItem.jewel.itemsLeft, itemPrice: cartItem.jewel.itemDetails.price}"
+        [text]="cartItem.jewel.itemDetails.description" />
     </div>
-    <span class="text-3xl text-zinc-800 inline-block mt-8">Total: 3,882$</span>
-    <app-shipping-details [button]="{type: 'button', text: 'Go Home', href: '/', btnMode: 'link'}"
-                          class="mt-12 block" />
+    <span class="text-3xl text-zinc-800 inline-block mt-8">Total Checkout: {{ totalPrice | currency }}</span>
+    <app-shipping-details
+      [button]="{type: 'button', text: 'Go Home', href: '/', btnMode: 'link'}"
+      [inputData]="inputData"
+      class="mt-12 block"
+      infoMessage="Thanks for participation in my project! It was fully built by Nikolas Tuz, Software Developer, as part of his portfolio." />
   </div>
 </section>

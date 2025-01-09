@@ -8,19 +8,26 @@
   </a>
   <div class="flex items-center gap-4">
     <span class="text-yellow-600 text-xl">{{ totalPrice() | currency }}</span>
-    <div *ngIf="enableButtons()" class="flex items-center gap-2 ">
+    <div class="flex items-center gap-2 ">
       <button (click)="decreaseItemCount()"
               [class]="'w-9 h-9 border text-2xl transition-all duration-300 ' + getButtonExtraStyles"
               [disabled]="jewelDetails().itemsLeft === 0"
+              [ngClass]="{
+              'hidden': !enableButtons()
+              }"
               type="button">-
       </button>
-      <input [class]="'text-3xl text-center focus:outline-none w-9 disabled:text-zinc-500 text-yellow-700'" [defaultValue]="jewelDetails().itemsLeft === 0 ? 0 : itemCounter()"
+      <input [class]="'text-3xl text-center focus:outline-none w-9 disabled:text-zinc-500 text-yellow-700'"
+             [defaultValue]="jewelDetails().itemsLeft === 0 ? 0 : itemCounter()"
              [disabled]="jewelDetails().itemsLeft === 0"
              placeholder="1" readonly
              type="number">
       <button (click)="increaseItemCount()"
               [class]="'w-9 h-9 border text-2xl transition-all duration-300 ' + getButtonExtraStyles"
-              [disabled]="jewelDetails().itemsLeft === 0" type="button">+
+              [disabled]="jewelDetails().itemsLeft === 0"
+              [ngClass]="{
+              'hidden': !enableButtons()
+              }" type="button">+
       </button>
     </div>
   </div>

@@ -1,8 +1,8 @@
 import { Component, EventEmitter, inject, input, OnInit, Output, signal } from '@angular/core';
-import { CurrencyPipe, NgIf } from '@angular/common';
+import { CurrencyPipe, NgClass, NgIf } from '@angular/common';
 import { ImgDataType } from '../collection-card/collection-card.component';
 import { TrimTextPipe } from '../../../trim-text.pipe';
-import { CartService, CartType } from '../../../cart.service';
+import { CartService } from '../../../cart.service';
 import { JewelryType } from '../../../../../data/JEWELRY';
 
 @Component({
@@ -10,7 +10,8 @@ import { JewelryType } from '../../../../../data/JEWELRY';
   imports: [
     CurrencyPipe,
     TrimTextPipe,
-    NgIf
+    NgIf,
+    NgClass
   ],
   standalone: true,
   templateUrl: './order-detail-card.component.html',
@@ -24,7 +25,6 @@ export class OrderDetailCardComponent implements OnInit {
   heading = input.required<string>();
   text = input.required<string>();
   item = input.required<JewelryType>();
-
   enableButtons = input<boolean>(true);
 
   @Output() totalPriceChange = new EventEmitter<number>();
