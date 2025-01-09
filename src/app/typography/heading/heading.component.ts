@@ -21,6 +21,8 @@ export class HeadingComponent {
   spanColor = input<string | null>(null);
   mode = input<modeType>(`light`);
 
+  headingColorLight = input(`text-zinc-800`);
+
   get spanStyles() {
     const lightStyles = `text-amber-600`;
     const darkStyles = `text-amber-500`;

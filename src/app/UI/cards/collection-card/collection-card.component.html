@@ -14,7 +14,8 @@
         <span class="font-alexBrush">{{ firstLetterOfText }}</span>{{ restOfText | trimText: 250 }}
       </div>
     </app-paragraph>
-    <app-link-grey [label]="buttonData().label" [routerLink]="buttonData().href"
+    <app-link-grey [label]="buttonData().label" [mode]="theme === 'light' ? 'dark': 'white-red'"
+                   [routerLink]="buttonData().href"
                    customClasses="flex sm:inline-block sm:w-fit w-full justify-center my-auto" />
   </div>
 </div>

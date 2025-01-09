@@ -1,8 +1,9 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { LinkGreyComponent } from '../../links/link-grey/link-grey.component';
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
 import { TrimTextPipe } from '../../../trim-text.pipe';
 import { NgClass } from '@angular/common';
+import { ThemeService } from '../../../theme.service';
 
 @Component({
   selector: 'app-collection-card',
@@ -17,6 +18,12 @@ import { NgClass } from '@angular/common';
   styleUrl: './collection-card.component.css'
 })
 export class CollectionCardComponent {
+  private themeService = inject(ThemeService);
+
+  get theme() {
+    return this.themeService.getTheme;
+  }
+
   imgData = input.required<ImgDataType>();
   heading = input.required<string>();
   text = input.required<string>();

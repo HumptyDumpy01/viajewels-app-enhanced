@@ -1,8 +1,10 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { CollectionCardComponent } from '../../../UI/cards/collection-card/collection-card.component';
 import { ArrowButtonComponent } from '../../../UI/buttons/arrow-button/arrow-button.component';
 import { HeadingComponent } from '../../../typography/heading/heading.component';
 import { COLLECTIONS } from '../../../../../data/COLLECTIONS';
+import { ThemeService } from '../../../theme.service';
+import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({
   selector: 'app-collections',
@@ -12,6 +14,12 @@ import { COLLECTIONS } from '../../../../../data/COLLECTIONS';
   styleUrl: './collections.component.css'
 })
 export class CollectionsComponent implements OnInit {
+  private themeService = inject(ThemeService);
+
+  get theme() {
+    return this.themeService.getTheme;
+  }
+
   collections = signal(COLLECTIONS[0]);
   isImageVisible = signal(true);
 
@@ -50,4 +58,6 @@ export class CollectionsComponent implements OnInit {
       this.isImageVisible.set(true);
     }, 500);
   }
+
+  protected readonly applyThemeClasses = applyThemeClasses;
 }

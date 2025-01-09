@@ -1,24 +1,37 @@
-<section>
-  <div>
-    <app-heading customContainerClasses="mb-14" mode="dark" span="Exclusive collections">
-      <span class="font-alexBrush">E</span>xplore <span class="font-alexBrush">E</span>xclusive hot <span
-      class="font-alexBrush">C</span>ollections
-    </app-heading>
-    <div class="relative">
+<div [class]="'py-24 relative z-10 mb-24 pb-32 sm:pb-24' + applyThemeClasses(theme, 'bg-zinc-900 ', 'bg-red-600')">
+    <span
+      [class]="'absolute md:top-12 top-10 font-aboreto  md:text-[200px] text-9xl text-nowrap z-[-10] pointer-events-none' +
+applyThemeClasses(theme, 'text-zinc-800', 'text-red-700')">exclusive exclusive exclusive exclusive</span>
+  <div class="container">
+    <section>
       <div>
-        <app-collection-card
-          [buttonData]="{ label: 'View Collection', href: collections().href }"
-          [heading]="collections().heading"
-          [imgData]="collections().imgData"
-          [isImageVisible]="isImageVisible()"
-          [text]="collections().text"
-        />
+        <app-heading [spanColor]="theme === 'dark' ? 'text-neutral-100': ''" customContainerClasses="mb-14"
+                     headingColorLight="text-neutral-200" mode="dark"
+                     span="Exclusive collections">
+          <span class="font-alexBrush">E</span>xplore <span class="font-alexBrush">E</span>xclusive hot <span
+          class="font-alexBrush">C</span>ollections
+        </app-heading>
+        <div class="relative">
+          <div>
+            <app-collection-card
+              [buttonData]="{ label: 'View Collection', href: collections().href }"
+              [heading]="collections().heading"
+              [imgData]="collections().imgData"
+              [isImageVisible]="isImageVisible()"
+              [text]="collections().text"
+            />
+          </div>
+          <div
+            class="absolute md:top-0 md:right-0 md:bottom-auto md:left-auto -bottom-16 left-[25%] flex items-center gap-6">
+            <app-arrow-button (click)="nextCollection()" [btnStyle]="theme === 'light' ? 'black': 'red'" />
+            <app-arrow-button (click)="prevCollection()" [btnStyle]="theme === 'light' ? 'black': 'red'"
+                              customIconClasses="rotate-180" />
+          </div>
+        </div>
       </div>
-      <div
-        class="absolute md:top-0 md:right-0 md:bottom-auto md:left-auto -bottom-16 left-[25%] flex items-center gap-6">
-        <app-arrow-button (click)="nextCollection()" />
-        <app-arrow-button (click)="prevCollection()" customIconClasses="rotate-180" />
-      </div>
-    </div>
+    </section>
   </div>
-</section>
+  <span
+    [class]="'absolute md:bottom-6 bottom-10 font-aboreto  md:text-[200px] text-9xl text-nowrap z-[-10] pointer-events-none' +
+applyThemeClasses(theme, 'text-zinc-800', 'text-red-700')">exclusive exclusive exclusive exclusive</span>
+</div>
