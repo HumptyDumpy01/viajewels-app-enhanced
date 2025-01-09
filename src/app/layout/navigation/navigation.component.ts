@@ -11,11 +11,14 @@ import {
 import { JewelWishlistService } from '../../jewel-wishlist.service';
 import { PopupsService } from '../../popups.service';
 import { CartService } from '../../cart.service';
-import { Router } from '@angular/router';
+import { ToggleIconComponent } from '../../UI/theme/toggle-icon/toggle-icon.component';
+import { ThemeService } from '../../theme.service';
 
 @Component({
   selector: 'app-navigation',
-  imports: [],
+  imports: [
+    ToggleIconComponent
+  ],
   standalone: true,
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css'
@@ -23,16 +26,20 @@ import { Router } from '@angular/router';
 export class NavigationComponent implements OnInit {
   private popupsService = inject(PopupsService);
   private jewelWishlistService = inject(JewelWishlistService);
+  private themeService = inject(ThemeService);
 
   private cartService = inject(CartService);
   private cdr = inject(ChangeDetectorRef);
   private injector = inject(Injector);
-  private router = inject(Router);
 
   heading = input(`ViaJewels`);
 
   cartItems = 0;
   wishlistedItems = 0;
+
+  get theme() {
+    return this.themeService.getTheme;
+  }
 
   ngOnInit() {
     this.updateWishlistCount();
@@ -80,4 +87,8 @@ export class NavigationComponent implements OnInit {
   }
 
 
+  handleTogglingTheme() {
+    this.themeService.changeTheme(this.theme === 'light' ? 'dark' : 'light');
+    this.cdr.detectChanges();
+  }
 }
