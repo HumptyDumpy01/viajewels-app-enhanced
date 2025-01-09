@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, input, OnInit, signal } from '@angular/core';
 import { NavigateToLinkComponent } from '../../../UI/links/navigate-to-link/navigate-to-link.component';
 import { DetailsComponent } from '../../../UI/details/details/details.component';
 import { HeartIconComponent } from '../../../UI/icons/heart-icon/heart-icon.component';
@@ -7,6 +7,7 @@ import { StarIconComponent } from '../../../UI/icons/star-icon/star-icon.compone
 import { CurrencyPipe, NgForOf, TitleCasePipe } from '@angular/common';
 import { JewelryType } from '../../../../../data/JEWELRY';
 import { Router } from '@angular/router';
+import { JewelWishlistService } from '../../../jewel-wishlist.service';
 
 @Component({
   selector: 'app-jewel-header',
@@ -25,11 +26,28 @@ import { Router } from '@angular/router';
   styleUrl: './jewel-header.component.css'
 })
 export class JewelHeaderComponent implements OnInit {
+  private jewelWishlistService = inject(JewelWishlistService);
   private router = inject(Router);
+  private cdr = inject(ChangeDetectorRef);
 
   jewelDetails = input.required<JewelryType>();
   itemCounter = signal<number>(1);
   totalPrice = signal<number | null>(null);
+
+  get userHasItemInWishlist() {
+    return this.jewelWishlistService.userHasInWishlist(this.jewelDetails().id);
+  }
+
+  addItemToWishlist() {
+    this.jewelWishlistService.addToWishlist(this.jewelDetails());
+    this.cdr.detectChanges();
+  }
+
+  removeItemFromWishlist() {
+    this.jewelWishlistService.removeFromWishlist(this.jewelDetails());
+    this.cdr.detectChanges();
+  }
+
 
   handleBuyNow() {
     this.router.navigate([`/check-out`, this.jewelDetails().id]).then();

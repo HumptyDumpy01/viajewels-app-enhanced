@@ -30,7 +30,8 @@
           <div *ngFor="let tag of jewelDetails().itemDetails.tag" class="flex items-center">
             <app-bulky-badge [active]="false" class="-mr-3" label="{{tag | titlecase}}" />
           </div>
-          <div class="ml-3 cursor-pointer">
+          <div (click)="userHasItemInWishlist ? removeItemFromWishlist() : addItemToWishlist()"
+               class="ml-3 cursor-pointer">
             <app-heart-icon [color]="{
             filled: {
             color: 'rgb(161, 98, 7)'
@@ -38,7 +39,7 @@
             empty: {
             color : 'rgb(161, 98, 7)'
             }
-            }" mode="empty" />
+            }" [mode]="userHasItemInWishlist ? 'filled': 'empty'" />
           </div>
         </div>
       </div>

@@ -41,7 +41,6 @@ export class JewelComponent implements OnInit {
     return jewel;
   }
 
-
   ngOnInit() {
     window.scrollTo(0, 0);
 
