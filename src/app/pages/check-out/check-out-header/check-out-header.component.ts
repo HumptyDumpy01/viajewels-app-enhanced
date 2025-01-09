@@ -1,38 +1,39 @@
-import { Component, inject, signal } from '@angular/core';
-import { JewelryService } from '../../../jewelry.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
+import { NavigateToLinkComponent } from '../../../UI/links/navigate-to-link/navigate-to-link.component';
+import { CartService } from '../../../cart.service';
+import { OrderDetailCardComponent } from '../../../UI/cards/order-detail-card/order-detail-card.component';
+import { CurrencyPipe, NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-check-out-header',
   imports: [
-    ParagraphComponent
+    ParagraphComponent,
+    NavigateToLinkComponent,
+    OrderDetailCardComponent,
+    NgForOf,
+    CurrencyPipe
   ],
   standalone: true,
   templateUrl: './check-out-header.component.html',
   styleUrl: './check-out-header.component.css'
 })
-export class CheckOutHeaderComponent {
-  private jewelryService = inject(JewelryService);
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
+export class CheckOutHeaderComponent implements OnInit {
 
-  id = signal(this.route.snapshot.params['id']);
+  private cartService = inject(CartService);
 
-  get jewelDetails() {
-    const jewel = this.jewelryService.getJewel(Number(this.id()));
-    if (!jewel) {
-      this.router.navigate([`/`]).then();
+  ngOnInit() {
+    if (this.cartService.getCart().length === 0) {
+      window.location.href = '/';
     }
-    return jewel;
   }
 
-  getLinkData() {
-    const jewelHeading = signal(this.jewelDetails?.itemDetails.heading || '');
-    const jewelId = signal(this.jewelDetails?.id || '');
-    return {
-      jewelHeading: jewelHeading() ? jewelHeading() + ` .` : ``,
-      jewelUrl: [`/jewelry`, `${jewelId()}`]
-    };
+  get cartItems() {
+    return this.cartService.getCart();
   }
+
+  get totalPrice() {
+    return this.cartService.getTotalPrice();
+  }
+
 }

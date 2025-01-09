@@ -64,4 +64,8 @@ export class CartComponent {
   onClose() {
     this.popupsService.changeCartPopupVisibility(false);
   }
+
+  onCheckoutBtnClick() {
+    window.location.href = '/checkout';
+  }
 }

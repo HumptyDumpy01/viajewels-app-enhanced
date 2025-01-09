@@ -36,7 +36,8 @@
           <div class="flex items-center gap-10 mr-24">
             <span class="text-3xl text-yellow-700">{{ totalPrice | currency }}</span>
           </div>
-          <app-viajewels-button label="Checkout" mode="btn" styling="default" type="button" />
+          <app-viajewels-button (click)="onCheckoutBtnClick()" label="Checkout" mode="btn" styling="default"
+                                type="button" />
         </div>
       </div>
     </div>
