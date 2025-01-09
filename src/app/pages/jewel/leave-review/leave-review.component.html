@@ -10,7 +10,7 @@
             <span class="font-alexBrush">B</span>elow!</p>
         </app-heading>
         <div class="flex items-center justify-between mb-16">
-          <app-paragraph customClasses="text-white">
+          <app-paragraph class="leave-review-par" customClasses="text-white">
             <span class="font-alexBrush">W</span>e value your feedback and would love to hear about your experience
             with our products! Sharing your thoughts not only helps us improve but also helps other customers make
             informed decisions. Whether it’s a story about how the item brought joy to your life or a suggestion for
@@ -18,9 +18,10 @@
           </app-paragraph>
         </div>
       </div>
+      <p *ngIf="errorMessage()" class="text-2xl text-white mb-5">{{ errorMessage() }}</p>
       <div class="flex items-center">
         <div class="flex items-center">
-          <form (ngSubmit)="onSubmit()" [formGroup]="leaveReviewForm" class="w-full flex flex-col gap-14">
+          <form (ngSubmit)="onSubmit()" class="w-full flex flex-col gap-14">
             <div class="flex justify-center flex-col gap-1">
               <div class="flex items-center gap-4 mb-7">
                 <span class="uppercase text-3xl text-white">rating</span>
@@ -38,14 +39,16 @@
                 </div>
               </div>
               <div class="flex sm:items-center sm:gap-20 flex-col sm:flex-row">
-                <app-input-control class="sm:max-w-96" helperText="Enter a valid email" name="email"
+                <app-input-control #emailInput class="sm:max-w-96" helperText="Enter a valid email" name="email"
                                    placeholder="Email" type="email" />
-                <app-input-control class="sm:max-w-96" helperText="Enter your initials. At least 2 characters"
+                <app-input-control #initialsInput class="sm:max-w-96"
+                                   helperText="Enter your initials. At least 2 characters"
                                    name="initials"
                                    placeholder="Initials"
                                    type="text" />
               </div>
-              <app-input-control class="w-full" helperText="Enter your review. From 10 to 800 characters long."
+              <app-input-control #reviewInput class="w-full"
+                                 helperText="Enter your review. From 10 to 800 characters long."
                                  name="review" placeholder="Review" type="text" />
             </div>
             <app-viajewels-button class="text-white" label="leave Review" styling="empty-white" type="submit" />
