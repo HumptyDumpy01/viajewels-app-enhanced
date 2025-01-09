@@ -8,6 +8,8 @@ import { CurrencyPipe, NgForOf, TitleCasePipe } from '@angular/common';
 import { JewelryType } from '../../../../../data/JEWELRY';
 import { Router } from '@angular/router';
 import { JewelWishlistService } from '../../../jewel-wishlist.service';
+import { CartService } from '../../../cart.service';
+import { PopupsService } from '../../../popups.service';
 
 @Component({
   selector: 'app-jewel-header',
@@ -27,6 +29,8 @@ import { JewelWishlistService } from '../../../jewel-wishlist.service';
 })
 export class JewelHeaderComponent implements OnInit {
   private jewelWishlistService = inject(JewelWishlistService);
+  private cartService = inject(CartService);
+  private popupsService = inject(PopupsService);
   private router = inject(Router);
   private cdr = inject(ChangeDetectorRef);
 
@@ -36,6 +40,20 @@ export class JewelHeaderComponent implements OnInit {
 
   get userHasItemInWishlist() {
     return this.jewelWishlistService.userHasInWishlist(this.jewelDetails().id);
+  }
+
+  get userHasItemInCart() {
+    return this.cartService.userHasInCart(this.jewelDetails());
+  }
+
+  removeItemFromCart() {
+    this.cartService.removeFromCart({ jewel: this.jewelDetails(), count: this.itemCounter() });
+    this.cdr.detectChanges();
+  }
+
+  addItemToCart() {
+    this.cartService.addToCart({ jewel: this.jewelDetails(), count: this.itemCounter() });
+    this.cdr.detectChanges();
   }
 
   addItemToWishlist() {
@@ -50,7 +68,10 @@ export class JewelHeaderComponent implements OnInit {
 
 
   handleBuyNow() {
-    this.router.navigate([`/check-out`, this.jewelDetails().id]).then();
+    if (!this.userHasItemInCart) {
+      this.cartService.addToCart({ jewel: this.jewelDetails(), count: this.itemCounter() });
+    }
+    this.popupsService.changeCartPopupVisibility(true);
   }
 
   ngOnInit() {
@@ -79,7 +100,7 @@ export class JewelHeaderComponent implements OnInit {
 
   get getButtonExtraStyles() {
     return this.jewelDetails().itemsLeft === 0 ? ' text-zinc-500 border-zinc-500' :
-      ' text-yellow-700 border-yellow-700';
+      ' text-zinc-800 border border-zinc-800 hover:bg-zinc-800 hover:text-white';
   }
 
   get getRatingArray() {

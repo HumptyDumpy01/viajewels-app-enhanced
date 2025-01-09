@@ -25,6 +25,10 @@ export class CartService {
     return this.cart();
   }
 
+  userHasInCart(jewel: JewelryType) {
+    return this.cart().some((item) => item.jewel.id === jewel.id);
+  }
+
   addToCart(cartItem: CartType) {
     this.cart.update((prev) => {
       if (!prev.some((item) => item.jewel.id === cartItem.jewel.id)) {

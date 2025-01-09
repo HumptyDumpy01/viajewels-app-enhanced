@@ -1,5 +1,5 @@
-<details [open]="open()" class="cursor-pointer w-fit">
-  <summary class="text-lg text-zinc-800 mt-4">{{ summary() }}</summary>
+<details [open]="open()" class="w-fit">
+  <summary class="text-lg text-zinc-800 mt-4 cursor-pointer">{{ summary() }}</summary>
   <div class="mt-4">
     <p *ngFor="let paragraph of text()" class="text-lg text-neutral-600 mb-1">{{ paragraph }}</p>
   </div>
