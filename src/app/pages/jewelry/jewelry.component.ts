@@ -7,6 +7,7 @@ import { FiltersType, JewelryService } from '../../jewelry.service';
 import {
   SubscribeOntoNewsletterComponent
 } from '../../layout/subscribe-onto-newsletter/subscribe-onto-newsletter.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-jewelry',
@@ -23,6 +24,7 @@ import {
 })
 export class JewelryComponent implements OnInit {
   private jewelryService = inject(JewelryService);
+  private route = inject(ActivatedRoute);
 
   filterOptions = signal<FiltersType>({
     searchTerm: null,
@@ -46,5 +48,13 @@ export class JewelryComponent implements OnInit {
   ngOnInit() {
     // scroll to top
     window.scrollTo(0, 0);
+
+    this.route.queryParams.subscribe((params) => {
+      const category = params[`category`];
+      if (category) {
+        this.changeFilterOptions({ ...this.filterOptions(), category: category });
+      }
+    });
+
   }
 }

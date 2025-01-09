@@ -21,14 +21,14 @@
     <div class="flex gap-3 overflow-y-auto scrollbar-thin">
       <div class="flex items-center gap-3 text-left pt-4">
         <app-link-circle
-          [queryParams]="{ searchFor: 'rings' }"
+          [queryParams]="{ category: 'rings' }"
           [routerLinkHref]="['/jewelry']"
         >
           <span class="font-alexBrush mb-6">E</span>xplore <br />Rings
         </app-link-circle>
 
         <app-link-circle
-          [queryParams]="{ searchFor: 'earrings' }"
+          [queryParams]="{ category: 'earrings' }"
           [routerLinkHref]="['/jewelry']"
           customClasses="sm:mb-6"
         >
@@ -38,14 +38,14 @@
       </div>
       <div class="flex items-center gap-3 text-left sm:ml-5 sm:-mt-4">
         <app-link-circle
-          [queryParams]="{ searchFor: 'necklaces' }"
+          [queryParams]="{ category: 'necklaces' }"
           [routerLinkHref]="['/jewelry']"
         >
           <span class="font-alexBrush mb-6">E</span>xplore <br />Necklaces
         </app-link-circle>
 
         <app-link-circle
-          [queryParams]="{ searchFor: 'bracelets' }"
+          [queryParams]="{ category: 'bracelets' }"
           [routerLinkHref]="['/jewelry']"
           customClasses="sm:mb-6"
         >
