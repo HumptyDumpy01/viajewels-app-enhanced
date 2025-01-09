@@ -1,7 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { CardsCarouselComponent } from '../cards-carousel/cards-carousel.component';
 import { HeadingComponent } from '../../typography/heading/heading.component';
-import { JewelryService } from '../../jewelry.service';
+import { RecentSearchesService } from '../../recent-searches.service';
 
 @Component({
   selector: 'app-recent-searches',
@@ -14,10 +14,11 @@ import { JewelryService } from '../../jewelry.service';
   styleUrl: './recent-searches.component.css'
 })
 export class RecentSearchesComponent {
-  private jewelryService = inject(JewelryService);
+  private recentSearchesService = inject(RecentSearchesService);
+  messageIfNoItems = input<string>(`You haven't browsed for anything yet! Let's change it :)`);
 
   get recentSearches() {
-    return this.jewelryService.getJewelry();
+    return this.recentSearchesService.getRecentSearches;
   }
 
 }

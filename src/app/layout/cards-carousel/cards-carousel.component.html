@@ -1,5 +1,5 @@
 <div class="flex items-center gap-6 px-8 overflow-x-auto pt-3 scrollbar-hidden">
-  <p *ngIf="jewelry().length === 0" class="text-white">Oops! No items to be seen!</p>
+  <p *ngIf="jewelry().length === 0" class="text-white container">{{ messageIfNoItems() }}</p>
   <app-item-card
     *ngFor="let item of jewelry()"
     [cardMode]="cardMode()"

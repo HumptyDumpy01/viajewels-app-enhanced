@@ -5,5 +5,5 @@
       <span class="font-alexBrush">Y</span>our recent <span class="font-alexBrush text-nowrap">S</span>earches
     </app-heading>
   </div>
-  <app-cards-carousel [jewelry]="recentSearches" cardMode="white" />
+  <app-cards-carousel [jewelry]="recentSearches" [messageIfNoItems]="messageIfNoItems()" cardMode="white" />
 </section>

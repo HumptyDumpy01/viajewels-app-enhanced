@@ -13,4 +13,5 @@ import { NgForOf, NgIf } from '@angular/common';
 export class CardsCarouselComponent {
   jewelry = input.required<JewelryType[]>();
   cardMode = input<CardModeType>(`black`);
+  messageIfNoItems = input<string>(`Oops! No items to be seen!`);
 }
