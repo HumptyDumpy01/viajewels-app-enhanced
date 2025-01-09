@@ -1,8 +1,9 @@
 <footer class="pt-20 pb-10 relative">
   <div class="container">
-    <div class=" flex flex-col bp-1210:justify-center bp-1210:items-center">
+    <div [class]="'flex flex-col bp-1210:justify-center bp-1210:items-center'  +
+     applyThemeClasses(theme, 'text-zinc-800', 'text-neutral-100')">
       <span class="text-amber-600">CONTACT US IF NECESSARY! LET’S STAY IN TOUCH!</span>
-      <h2 class="sm:text-9xl text-8xl align-center my-auto text-zinc-800">LET’S STAY IN TOUCH!</h2>
+      <h2 class="sm:text-9xl text-8xl align-center my-auto ">LET’S STAY IN TOUCH!</h2>
 
       <div class="flex flex-col items-center sm:items-start sm:text-left text-center sm:flex-row gap-8 sm:gap-24 mt-8">
         <div class="flex flex-col bp-1210:flex-row gap-10">
@@ -14,15 +15,18 @@
           <div class="pb-16">
             <span class="font-alexBrush text-5xl mb-4 inline-block">Follow us!</span>
             <div class="flex justify-center gap-3">
-              <a class="flex items-center justify-center p-5 rounded-full bg-zinc-900" href="#">
+              <a class="flex items-center justify-center p-5 rounded-full bg-zinc-900
+transition-all duration-300 hover:scale-110 hover:rotate-2 hover:animate-pulse" href="#">
                 <app-instagram-icon />
               </a>
 
-              <a class="flex items-center justify-center p-5 rounded-full bg-zinc-900" href="#">
+              <a class="flex items-center justify-center p-5 rounded-full bg-zinc-900
+transition-all duration-300 hover:scale-110 hover:rotate-2 hover:animate-pulse" href="#">
                 <app-linkedin-icon />
               </a>
 
-              <a class="flex items-center justify-center p-5 rounded-full bg-zinc-900" href="">
+              <a class="flex items-center justify-center p-5 rounded-full bg-zinc-900
+transition-all duration-300 hover:scale-110 hover:rotate-2 hover:animate-pulse" href="">
                 <app-viber-icon />
               </a>
             </div>
@@ -30,7 +34,8 @@
         </div>
       </div>
     </div>
-    <div class="flex items-center flex-col sm:flex-row sm:justify-between gap-4">
+    <div [class]="'flex items-center flex-col sm:flex-row sm:justify-between gap-4' +
+    applyThemeClasses(theme, 'text-zinc-700', 'text-neutral-600')">
       <div>
         &copy; 2024 Via Jewels. All rights reserved.
       </div>
