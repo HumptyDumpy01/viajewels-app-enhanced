@@ -14,7 +14,7 @@ export class CircularBadgeComponent {
 
   get getColorClasses() {
     const blackColorStyle = `bg-zinc-900 text-white`;
-    const whitishColorStyles = `border border-zinc-800 text-zinc-800`;
+    const whitishColorStyles = `border border-zinc-800`;
     const orangeColorStyles = `text-white bg-amber-600`;
     switch (this.color()) {
       case `black`:

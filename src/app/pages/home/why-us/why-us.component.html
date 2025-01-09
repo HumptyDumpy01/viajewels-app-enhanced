@@ -6,8 +6,8 @@
   <div class="flex bp-1210:items-center gap-8 mb-10 flex-col bp-1210:flex-row">
     <div class="flex items-center gap-8 flex-col sm:flex-row">
       <app-circular-badge color="black" customClasses="text-xl">trust</app-circular-badge>
-      <div>
-        <h3 class="text-zinc-900 text-4xl mb-6">Built on Trust, Designed for You</h3>
+      <div [class]="applyThemeClasses(theme, 'text-zinc-900', 'text-neutral-200')">
+        <h3 class=" text-4xl mb-6">Built on Trust, Designed for You</h3>
         <app-paragraph>
           At Viajewels, trust is the foundation of everything we do. With transparent policies, secure transactions, and
           a
@@ -16,12 +16,13 @@
       </div>
     </div>
 
-    <div class="flex items-center gap-8 flex-col sm:flex-row">
+    <div
+      [class]="'flex items-center gap-8 flex-col sm:flex-row' + applyThemeClasses(theme, 'text-zinc-900', 'text-neutral-200')">
       <app-circular-badge color="whitish" customClasses="text-xl">
         unique <br /> ness
       </app-circular-badge>
       <div>
-        <h3 class="text-zinc-900 text-4xl mb-6">Jewelry as Unique as You Are</h3>
+        <h3 class="text-4xl mb-6">Jewelry as Unique as You Are</h3>
         <app-paragraph>
           Stand out with one-of-a-kind jewelry that speaks to your individuality. Our collection showcases exclusive
           designs crafted to add a touch of uniqueness to your style, <span class="font-semibold">ensuring you find pieces are special!</span>
@@ -30,11 +31,11 @@
     </div>
   </div>
 
-  <div class="flex gap-8 flex-col bp-1210:flex-row">
+  <div [class]="'flex gap-8 flex-col bp-1210:flex-row' + applyThemeClasses(theme, 'text-zinc-900', 'text-neutral-200')">
     <div class="flex items-center gap-8 flex-col sm:flex-row">
       <app-circular-badge color="black" customClasses="text-xl">support</app-circular-badge>
       <div>
-        <h3 class="text-zinc-900 text-4xl mb-6">Support You Can Count On</h3>
+        <h3 class="text-4xl mb-6">Support You Can Count On</h3>
         <app-paragraph>
           Your satisfaction is our priority. Our dedicated support team is here to assist you every step of the way,
           from helping you choose <span class="font-semibold">the perfect piece </span> to addressing any questions.
@@ -47,7 +48,7 @@
         quality
       </app-circular-badge>
       <div>
-        <h3 class="text-zinc-900 text-4xl mb-6">Crafted for Quality, Made to Last</h3>
+        <h3 class="text-4xl mb-6">Crafted for Quality, Made to Last</h3>
         <app-paragraph>
           When you choose Viajewels, you’re choosing excellence. Our jewelry is crafted with precision using <span
           class="font-semibold">the finest

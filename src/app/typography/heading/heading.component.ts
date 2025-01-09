@@ -1,4 +1,6 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+import { ThemeService } from '../../theme.service';
+import { applyThemeClasses } from '../../../utils/functions/applyThemeClasses';
 
 @Component({
   selector: 'app-heading',
@@ -8,16 +10,16 @@ import { Component, input } from '@angular/core';
   styleUrl: './heading.component.css'
 })
 export class HeadingComponent {
+  private themeService = inject(ThemeService);
+
+  get theme() {
+    return this.themeService.getTheme;
+  }
+
   customContainerClasses = input<string>();
   span = input.required<string>();
   spanColor = input<string | null>(null);
   mode = input<modeType>(`light`);
-
-  get headingStyles() {
-    const lightStyles = `text-zinc-900`;
-    const darkStyles = `text-white`;
-    return this.mode() === `dark` ? darkStyles : lightStyles;
-  }
 
   get spanStyles() {
     const lightStyles = `text-amber-600`;
@@ -25,6 +27,8 @@ export class HeadingComponent {
 
     return this.spanColor() ? this.spanColor() : this.mode() === `dark` ? darkStyles : lightStyles;
   }
+
+  protected readonly applyThemeClasses = applyThemeClasses;
 }
 
 type modeType = `dark` | `light`;
