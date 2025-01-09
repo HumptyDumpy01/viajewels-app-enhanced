@@ -1,11 +1,12 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { HeadingComponent } from '../../typography/heading/heading.component';
 import { ParagraphComponent } from '../../typography/paragraph/paragraph.component';
 import { InputDataType, ShippingDetailsComponent } from '../check-out/shipping-details/shipping-details.component';
-import { CartService } from '../../cart.service';
+import { CartService, CartType } from '../../cart.service';
 import { OrderDetailCardComponent } from '../../UI/cards/order-detail-card/order-detail-card.component';
 import { CurrencyPipe, NgForOf } from '@angular/common';
 import { NavigateToLinkComponent } from '../../UI/links/navigate-to-link/navigate-to-link.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-success',
@@ -22,8 +23,35 @@ import { NavigateToLinkComponent } from '../../UI/links/navigate-to-link/navigat
   templateUrl: './success.component.html',
   styleUrl: './success.component.css'
 })
-export class SuccessComponent {
+export class SuccessComponent implements OnInit {
   private cartService = inject(CartService);
+  private route = inject(ActivatedRoute);
+
+  orderInfo = signal<OrderType | null>(null);
+
+  ngOnInit() {
+    // scroll to top
+    window.scrollTo(0, 0);
+
+    this.route.queryParams.subscribe((params) => {
+      /* TODO: PARSE THIS DATA FROM URL AND THEN UPDATE THE UI */
+      const orderId = params[`orderId`];
+      const items = params[`items`];
+      const totalCheckout = params[`totalCheckout`];
+      const shipping = params[`shippingDetails`];
+      if (orderId && items && totalCheckout && shipping) {
+        this.orderInfo.set({
+          id: orderId,
+          items: JSON.parse(items),
+          totalCheckout: parseFloat(totalCheckout),
+          shipping: JSON.parse(shipping)
+        });
+      } else {
+        window.location.href = '/';
+      }
+    });
+
+  }
 
   get cart() {
     return this.cartService.getCart();
@@ -75,4 +103,11 @@ export class SuccessComponent {
       readOnly: true
     }
   };
+}
+
+export type OrderType = {
+  id: string;
+  items: CartType[];
+  totalCheckout: number;
+  shipping: InputDataType;
 }
