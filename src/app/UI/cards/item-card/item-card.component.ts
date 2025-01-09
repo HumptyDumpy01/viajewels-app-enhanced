@@ -11,6 +11,8 @@ import { TrimTextPipe } from '../../../trim-text.pipe';
 import { HeartIconComponent } from '../../icons/heart-icon/heart-icon.component';
 import { JewelWishlistService } from '../../../jewel-wishlist.service';
 import { JewelryType } from '../../../../../data/JEWELRY';
+import { ThemeService } from '../../../theme.service';
+import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({
   selector: 'app-item-card',
@@ -31,6 +33,12 @@ import { JewelryType } from '../../../../../data/JEWELRY';
   styleUrl: './item-card.component.css'
 })
 export class ItemCardComponent implements OnInit {
+  private themeService = inject(ThemeService);
+
+  get theme() {
+    return this.themeService.getTheme;
+  }
+
   private jewelryWishlistService = inject(JewelWishlistService);
   private cdr = inject(ChangeDetectorRef);
 
@@ -121,6 +129,8 @@ export class ItemCardComponent implements OnInit {
 
     return chosenText;
   }
+
+  protected readonly applyThemeClasses = applyThemeClasses;
 }
 
 export type ItemTagType = `coming-soon` | `collection` | `new` | `bracelets` | `necklaces` | `rings` | `earrings`;
