@@ -1,4 +1,4 @@
-<section class="container">
+<section [class]="'container' + applyThemeClasses(theme, '', 'text-white')">
   <div class="flex items-center gap-2">
     <app-navigate-to-link [href]="['/']" label="Home ." />
     <app-navigate-to-link [href]="['/jewelry']" label="Jewelry ." />
@@ -24,7 +24,9 @@
         [jewelDetails]="{itemsLeft: cartItem.jewel.itemsLeft, itemPrice: cartItem.jewel.itemDetails.price}"
         [text]="cartItem.jewel.itemDetails.description" />
     </div>
-    <span class="text-3xl text-zinc-800 inline-block mt-8">Total Checkout: {{ totalPrice | currency }}</span>
+    <span
+      [class]="'text-3xl inline-block mt-8'
+      + applyThemeClasses(theme, 'text-zinc-800', 'text-white')">Total Checkout: {{ totalPrice | currency }}</span>
     <app-shipping-details
       [button]="{type: 'button', text: 'Go Home', href: '/', btnMode: 'link'}"
       [inputData]="inputData"

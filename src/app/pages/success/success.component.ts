@@ -7,6 +7,8 @@ import { OrderDetailCardComponent } from '../../UI/cards/order-detail-card/order
 import { CurrencyPipe, NgForOf } from '@angular/common';
 import { NavigateToLinkComponent } from '../../UI/links/navigate-to-link/navigate-to-link.component';
 import { ActivatedRoute } from '@angular/router';
+import { ThemeService } from '../../theme.service';
+import { applyThemeClasses } from '../../../utils/functions/applyThemeClasses';
 
 @Component({
   selector: 'app-success',
@@ -24,6 +26,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './success.component.css'
 })
 export class SuccessComponent implements OnInit {
+  private themeService = inject(ThemeService);
+
+  get theme() {
+    return this.themeService.getTheme;
+  }
+
   private cartService = inject(CartService);
   private route = inject(ActivatedRoute);
 
@@ -103,6 +111,7 @@ export class SuccessComponent implements OnInit {
       readOnly: true
     }
   };
+  protected readonly applyThemeClasses = applyThemeClasses;
 }
 
 export type OrderType = {
