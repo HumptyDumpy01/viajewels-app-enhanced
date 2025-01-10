@@ -10,6 +10,8 @@ import { CloseIconComponent } from '../../../UI/icons/close-icon/close-icon.comp
 import { JewelWishlistService } from '../../../jewel-wishlist.service';
 import { JewelryType } from '../../../../../data/JEWELRY';
 import { CartService } from '../../../cart.service';
+import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
+import { ThemeService } from '../../../theme.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -27,6 +29,12 @@ import { CartService } from '../../../cart.service';
   styleUrl: './wishlist.component.css'
 })
 export class WishlistComponent {
+  private themeService = inject(ThemeService);
+
+  get theme() {
+    return this.themeService.getTheme;
+  }
+
   private jewelryWishlistService = inject(JewelWishlistService);
   private cartService = inject(CartService);
   private popupsService = inject(PopupsService);
@@ -83,4 +91,6 @@ export class WishlistComponent {
     this.totalWishlistPrice += priceDifference;
     this.cdr.detectChanges();
   }
+
+  protected readonly applyThemeClasses = applyThemeClasses;
 }

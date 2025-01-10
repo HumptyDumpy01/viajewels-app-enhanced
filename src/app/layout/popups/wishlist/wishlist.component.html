@@ -1,12 +1,14 @@
-<dialog (close)="onClose()" [open]="popupVisibility"
-        class="bg-white fixed top-0 left-0 w-screen sm:h-[650px] h-screen z-50">
+<dialog (close)="onClose()" [class]="'fixed top-0 left-0 w-screen sm:h-[650px] h-screen z-50'
+ + applyThemeClasses(theme, 'bg-white ', 'bg-zinc-950')"
+        [open]="popupVisibility">
   <app-close-icon (click)="onClose()" class="absolute top-5 right-14" />
   <div class="container pt-11">
-    <div class="flex items-center gap-5 mb-5">
-      <h2 class="text-6xl text-zinc-800 mb-6"><span class="font-alexBrush">Y</span>our <span
+    <div [class]="'flex items-center gap-5 mb-5'
+    + applyThemeClasses(theme, 'text-zinc-800', 'text-neutral-200')">
+      <h2 class="text-6xl mb-6"><span class="font-alexBrush">Y</span>our <span
         class="font-alexBrush">W</span>ishlist
       </h2>
-      <span class="text-5xl font-alexBrush text-zinc-800">{{ wishlist.length }}</span>
+      <span class="text-5xl font-alexBrush">{{ wishlist.length }}</span>
     </div>
     <p *ngIf="wishlist.length === 0">Your wishlist is empty! Feel free to add some!</p>
     <div *ngIf="wishlist.length > 0">
@@ -26,7 +28,9 @@
             [text]="item.itemDetails.description"
           />
           <div class="flex sm:items-center gap-5 flex-col sm:flex-row">
-            <app-viajewels-button-small (click)="handleMoveItemToCart(item)" label="Move to Cart" mode="default"
+            <app-viajewels-button-small (click)="handleMoveItemToCart(item)"
+                                        [mode]="theme === 'dark' ? 'whitish' : 'grey'"
+                                        label="Move to Cart"
                                         type="button" />
             <app-viajewels-button-small (click)="removeItemFromWishlist(item)" label="Remove" mode="grey"
                                         type="button" />
@@ -38,7 +42,9 @@
           <!--        <div class="flex items-center gap-10 mr-24">
                     <span class="text-3xl text-yellow-700">{{ totalWishlistPrice | currency }}</span>
                   </div>-->
-          <app-viajewels-button (click)="moveAllItemsToCart()" label="Move all to Cart" mode="btn" styling="default"
+          <app-viajewels-button (click)="moveAllItemsToCart()" [styling]="theme === 'dark' ? 'empty-white' : 'default'"
+                                label="Move all to Cart"
+                                mode="btn"
                                 type="button" />
         </div>
       </div>
