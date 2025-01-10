@@ -35,7 +35,7 @@
     </div>
     <div [class]="cardMode() === 'white' ? 'text-neutral-100': ''">
       <h2
-        [class]="'text-2xl mb-2 ' + applyThemeClasses(theme,  'text-zinc-800', 'text-neutral-200')">{{ item().itemDetails.heading | trimText: 28 }}</h2>
+        [class]="'text-2xl mb-2 ' + (cardMode() !== 'pure-white-text' ? applyThemeClasses(theme,  'text-zinc-800', 'text-neutral-200'): 'text-white')">{{ item().itemDetails.heading | trimText: 28 }}</h2>
       <div *ngIf="extraDetailsVisible()" class="flex items-center gap-2 mb-6">
         <span class="text-green-600 text-2xl">{{ item().itemDetails.price | currency }}</span>
         <div class="flex items-center">
@@ -43,7 +43,8 @@
         </div>
         <span class="">({{ item().itemDetails.reviewCount | number }})</span>
       </div>
-      <app-paragraph [class]="applyThemeClasses(theme, 'text-zinc-800', 'text-neutral-300')">
+      <app-paragraph
+        [class]="(cardMode() !== 'pure-white-text' ? applyThemeClasses(theme, 'text-zinc-800', 'text-neutral-300'): 'text-neutral-100')">
         <span class="font-alexBrush">{{ firstLetterOfText }}</span>{{ restOfText | trimText: 150 }}
       </app-paragraph>
     </div>

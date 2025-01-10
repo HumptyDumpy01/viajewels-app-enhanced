@@ -1,9 +1,9 @@
 <section class="bg-zinc-950 pt-16 pb-24 mt-14">
   <div class="container">
-    <app-heading customContainerClasses="md:text-nowrap mb-14" mode="dark"
+    <app-heading customContainerClasses="md:text-nowrap mb-14" headingColorLight="text-neutral-100" mode="dark"
                  span="Seems you've already searched fo these!">
       <span class="font-alexBrush">Y</span>our recent <span class="font-alexBrush text-nowrap">S</span>earches
     </app-heading>
   </div>
-  <app-cards-carousel [jewelry]="recentSearches" [messageIfNoItems]="messageIfNoItems()" cardMode="white" />
+  <app-cards-carousel [jewelry]="recentSearches" [messageIfNoItems]="messageIfNoItems()" cardMode="pure-white-text" />
 </section>

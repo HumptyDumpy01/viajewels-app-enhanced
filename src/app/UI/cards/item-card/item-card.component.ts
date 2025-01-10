@@ -135,4 +135,4 @@ export class ItemCardComponent implements OnInit {
 
 export type ItemTagType = `coming-soon` | `collection` | `new` | `bracelets` | `necklaces` | `rings` | `earrings`;
 
-export type CardModeType = `black` | `white`;
+export type CardModeType = `black` | `white` | `pure-white-text`;
