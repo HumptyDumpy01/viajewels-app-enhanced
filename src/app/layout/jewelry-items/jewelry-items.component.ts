@@ -1,8 +1,10 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { ItemCardComponent } from '../../UI/cards/item-card/item-card.component';
 import { ViajewelsButtonComponent } from '../../UI/buttons/viajewels-button/viajewels-button.component';
 import { JewelryType } from '../../../../data/JEWELRY';
 import { NgForOf, NgIf } from '@angular/common';
+import { applyThemeClasses } from '../../../utils/functions/applyThemeClasses';
+import { ThemeService } from '../../theme.service';
 
 @Component({
   selector: 'app-jewelry-items',
@@ -17,5 +19,11 @@ import { NgForOf, NgIf } from '@angular/common';
   styleUrl: './jewelry-items.component.css'
 })
 export class JewelryItemsComponent {
+  private themeService = inject(ThemeService);
+
+  get theme() {
+    return this.themeService.getTheme;
+  }
   jewelry = input.required<JewelryType[]>();
+  protected readonly applyThemeClasses = applyThemeClasses;
 }
