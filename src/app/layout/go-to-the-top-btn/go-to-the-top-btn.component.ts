@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, HostListener, inject, signal } from '@angular/core';
 import { ThemeService } from '../../theme.service';
+import { SHOW_FIXED_LAYOUTS } from '../../../utils/vars/variables';
 
 @Component({
   selector: 'app-go-to-the-top-btn',
@@ -16,7 +17,7 @@ export class GoToTheTopBtnComponent {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    this.isVisible.set(scrollPosition > 500);
+    this.isVisible.set(scrollPosition > SHOW_FIXED_LAYOUTS);
     this.cdr.detectChanges();
   }
 

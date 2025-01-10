@@ -16,6 +16,7 @@ import { ThemeService } from '../../../theme.service';
 import { PopupsService } from '../../../popups.service';
 import { JewelWishlistService } from '../../../jewel-wishlist.service';
 import { CartService } from '../../../cart.service';
+import { SHOW_FIXED_LAYOUTS } from '../../../../utils/vars/variables';
 
 @Component({
   selector: 'app-fixed-nav',
@@ -74,7 +75,7 @@ export class FixedNavComponent implements OnInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    this.isVisible.set(scrollPosition > 200);
+    this.isVisible.set(scrollPosition > SHOW_FIXED_LAYOUTS);
     this.cdr.detectChanges();
   }
 
