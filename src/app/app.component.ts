@@ -5,10 +5,11 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { WishlistComponent } from './layout/popups/wishlist/wishlist.component';
 import { CartComponent } from './layout/popups/cart/cart.component';
 import { ThemeService } from './theme.service';
+import { FixedNavComponent } from './layout/navigation/fixed-nav/fixed-nav.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavigationComponent, FooterComponent, WishlistComponent, CartComponent],
+  imports: [RouterOutlet, NavigationComponent, FooterComponent, WishlistComponent, CartComponent, FixedNavComponent],
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
