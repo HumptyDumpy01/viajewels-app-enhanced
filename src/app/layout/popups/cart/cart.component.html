@@ -1,4 +1,4 @@
-<dialog (close)="onClose()" [class]="'fixed top-0 left-0 w-screen sm:h-[650px] h-screen z-50'
+<dialog (close)="onClose()" [class]="'fixed top-0 left-0 w-screen sm:h-[650px] h-screen z-[60]'
 + applyThemeClasses(theme, 'bg-white ', 'bg-zinc-950')"
         [open]="popupVisibility">
   <app-close-icon (click)="onClose()" [color]="theme === 'dark' ? '#eeeeee': '#333333'" class="absolute top-5 right-14" />
