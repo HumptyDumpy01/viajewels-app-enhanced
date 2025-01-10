@@ -6,10 +6,11 @@ import { WishlistComponent } from './layout/popups/wishlist/wishlist.component';
 import { CartComponent } from './layout/popups/cart/cart.component';
 import { ThemeService } from './theme.service';
 import { FixedNavComponent } from './layout/navigation/fixed-nav/fixed-nav.component';
+import { GoToTheTopBtnComponent } from './layout/go-to-the-top-btn/go-to-the-top-btn.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavigationComponent, FooterComponent, WishlistComponent, CartComponent, FixedNavComponent],
+  imports: [RouterOutlet, NavigationComponent, FooterComponent, WishlistComponent, CartComponent, FixedNavComponent, GoToTheTopBtnComponent],
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
