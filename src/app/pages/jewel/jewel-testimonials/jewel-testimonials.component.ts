@@ -4,6 +4,8 @@ import { TestimonialsComponent } from '../../../layout/testimonials/testimonials
 import { JewelryReviewType } from '../../../../../data/JEWELRY';
 import { BulkyBadgeComponent } from '../../../UI/badges/bulky-badge/bulky-badge.component';
 import { NgIf } from '@angular/common';
+import { ThemeService } from '../../../theme.service';
+import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({
   selector: 'app-jewel-testimonials',
@@ -18,6 +20,12 @@ import { NgIf } from '@angular/common';
   styleUrl: './jewel-testimonials.component.css'
 })
 export class JewelTestimonialsComponent {
+  private themeService = inject(ThemeService);
+
+  get theme() {
+    return this.themeService.getTheme;
+  }
+
   jewelReviews = input.required<JewelryReviewType[]>();
   filterBy = signal<FilterTestimonialsType>(`top-rated`);
   private cdr = inject(ChangeDetectorRef);
@@ -39,6 +47,7 @@ export class JewelTestimonialsComponent {
   }
 
 
+  protected readonly applyThemeClasses = applyThemeClasses;
 }
 
 export type FilterTestimonialsType = `top-rated` | `new` | `old`;

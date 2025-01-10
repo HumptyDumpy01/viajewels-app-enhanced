@@ -1,5 +1,6 @@
 <header class="container">
-  <div class="flex items-center gap-2 pb-2 text-nowrap overflow-x-auto">
+  <div [class]="'flex items-center gap-2 pb-2 text-nowrap overflow-x-auto'
+  + applyThemeClasses(theme, 'text-zinc-800', 'text-neutral-100')">
     <app-navigate-to-link [href]="['/']" label="Home ." />
     <app-navigate-to-link [href]="['/jewelry']" label="Jewelry ." />
     <app-navigate-to-link [href]="getLinkData().jewelUrl" [label]="getLinkData().jewelHeading" />
@@ -17,17 +18,22 @@
     </div>
     <div>
       <div>
-        <span class="text-yellow-700">Enjoy this precious!</span>
+        <span class="text-yellow-600">Enjoy this precious!</span>
       </div>
-      <h1 class="text-5xl text-zinc-800 leading-normal mb-2">{{ jewelDetails().itemDetails.heading | titlecase }}</h1>
+      <h1
+        [class]="'text-5xl leading-normal mb-2'
+        + applyThemeClasses(theme, 'text-zinc-800', 'text-white')">{{ jewelDetails().itemDetails.heading | titlecase }}</h1>
       <div class="flex items-center mb-4">
         <app-star-icon *ngFor="let star of getRatingArray" [mode]="star" dimensions="sm" />
-        <span class="text-neutral-600 text-lg ml-2">({{ jewelDetails().itemDetails.reviewCount }})</span>
+        <span
+          [class]="'text-lg ml-2' + applyThemeClasses(theme, 'text-neutral-600 ','text-neutral-200')">({{ jewelDetails().reviews.length }})</span>
       </div>
       <div class="flex flex-col sm-xl:flex-row items-center gap-7">
         <span class="text-yellow-700 text-2xl">{{ jewelDetails().itemDetails.price | currency }}</span>
         <div class="flex items-center gap-6">
-          <div *ngFor="let tag of jewelDetails().itemDetails.tag" class="flex items-center">
+          <div *ngFor="let tag of jewelDetails().itemDetails.tag"
+               [class]="'flex items-center'
+               + applyThemeClasses(theme, '', 'text-white')">
             <app-bulky-badge [active]="false" class="-mr-3" label="{{tag | titlecase}}" />
           </div>
           <div (click)="userHasItemInWishlist ? removeItemFromWishlist() : addItemToWishlist()"
@@ -45,24 +51,59 @@
       </div>
       <app-details
         [open]="true"
+        [textColor]="theme === 'dark' ? {
+          summary: 'text-yellow-600',
+          paragraph: 'text-neutral-200'
+        }: {
+          summary: 'text-zinc-800',
+          paragraph: 'text-neutral-600'
+        }"
         [text]="[jewelDetails().itemDetails.info.description, jewelDetails().itemDetails.description]"
         summary="Product Description"
       />
       <app-details
+        [textColor]="theme === 'dark' ? {
+          summary: 'text-yellow-600',
+          paragraph: 'text-neutral-200'
+        }: {
+          summary: 'text-zinc-800',
+          paragraph: 'text-neutral-600'
+        }"
         [text]="[jewelDetails().itemDetails.info.material]"
         summary="Material"
       />
       <app-details
+        [textColor]="theme === 'dark' ? {
+          summary: 'text-yellow-600',
+          paragraph: 'text-neutral-200'
+        }: {
+          summary: 'text-zinc-800',
+          paragraph: 'text-neutral-600'
+        }"
         [text]="[jewelDetails().itemDetails.info.dimensions]"
         summary="Dimensions"
       />
 
       <app-details
+        [textColor]="theme === 'dark' ? {
+          summary: 'text-yellow-600',
+          paragraph: 'text-neutral-200'
+        }: {
+          summary: 'text-zinc-800',
+          paragraph: 'text-neutral-600'
+        }"
         [text]="[jewelDetails().itemDetails.info.warranty]"
         summary="Warranty"
       />
 
       <app-details
+        [textColor]="theme === 'dark' ? {
+          summary: 'text-yellow-600',
+          paragraph: 'text-neutral-200'
+        }: {
+          summary: 'text-zinc-800',
+          paragraph: 'text-neutral-600'
+        }"
         [text]="[jewelDetails().itemDetails.info.delivery]"
         summary="Delivery options"
       />
@@ -82,17 +123,22 @@
         <div class="flex flex-col  gap-2 order-1 sm-xl:order-none">
           <div class="flex items-center gap-2 ">
             <button (click)="decreaseItemCount()"
-                    [class]="'transition-all duration-200 w-9 h-9 border text-2xl' + getButtonExtraStyles"
+                    [class]="'transition-all duration-200 w-9 h-9 border text-2xl'
+                     + applyThemeClasses(theme, 'border-zinc-800 hover:bg-zinc-900 hover:text-white',
+                      'border-white text-white hover:bg-white hover:text-zinc-800')"
                     [disabled]="jewelDetails().itemsLeft === 0"
                     type="button">-
             </button>
-            <input [class]="'text-3xl text-center focus:outline-none w-9 disabled:text-zinc-500 text-zinc-800'"
+            <input [class]="'text-3xl text-center focus:outline-none w-9 disabled:text-zinc-500 '
+            + applyThemeClasses(theme, 'text-zinc-800', 'bg-transparent text-white')"
                    [defaultValue]="jewelDetails().itemsLeft === 0 ? 0 : itemCounter()"
                    [disabled]="jewelDetails().itemsLeft === 0"
                    placeholder="1" readonly
                    type="number">
             <button (click)="increaseItemCount()"
-                    [class]="'transition-all duration-200 w-9 h-9 border text-2xl' + getButtonExtraStyles"
+                    [class]="'transition-all duration-200 w-9 h-9 border text-2xl'
+                     + applyThemeClasses(theme, 'border-zinc-800 hover:bg-zinc-900 hover:text-white',
+                      'border-white text-white hover:bg-white hover:text-zinc-800')"
                     [disabled]="jewelDetails().itemsLeft === 0" type="button">+
             </button>
           </div>

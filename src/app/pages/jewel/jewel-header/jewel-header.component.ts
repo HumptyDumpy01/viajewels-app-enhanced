@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 import { JewelWishlistService } from '../../../jewel-wishlist.service';
 import { CartService } from '../../../cart.service';
 import { PopupsService } from '../../../popups.service';
+import { ThemeService } from '../../../theme.service';
+import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({
   selector: 'app-jewel-header',
@@ -28,6 +30,12 @@ import { PopupsService } from '../../../popups.service';
   styleUrl: './jewel-header.component.css'
 })
 export class JewelHeaderComponent implements OnInit {
+  private themeService = inject(ThemeService);
+
+  get theme() {
+    return this.themeService.getTheme;
+  }
+
   private jewelWishlistService = inject(JewelWishlistService);
   private cartService = inject(CartService);
   private popupsService = inject(PopupsService);
@@ -98,9 +106,19 @@ export class JewelHeaderComponent implements OnInit {
     };
   }
 
+  get normalBtnStyles() {
+    const ifThemeLight = `text-zinc-800 border border-zinc-800 hover:bg-zinc-800 hover:text-white`;
+    const ifThemeDark = `bg-white text-zinc-900 hover:bg-zinc-900 hover:animate-pulse hover:text-white border-none`;
+    return this.theme === 'dark' ? ifThemeDark : ifThemeLight;
+  }
+
   get getButtonExtraStyles() {
     return this.jewelDetails().itemsLeft === 0 ? ' text-zinc-500 border-zinc-500' :
-      ' text-zinc-800 border border-zinc-800 hover:bg-zinc-800 hover:text-white';
+      this.normalBtnStyles;
+  }
+
+  get ratingStarFilling() {
+    return this.theme === 'dark' ? 'darkFilled' : 'filled';
   }
 
   get getRatingArray() {
@@ -108,7 +126,7 @@ export class JewelHeaderComponent implements OnInit {
       const filledStars = Math.floor(this.jewelDetails().itemDetails.rating);
       const emptyStars = 5 - filledStars;
       return [
-        ...Array(filledStars).fill(`filled`),
+        ...Array(filledStars).fill(this.ratingStarFilling),
         ...Array(emptyStars).fill('empty')
       ];
     } else {
@@ -116,4 +134,6 @@ export class JewelHeaderComponent implements OnInit {
       return;
     }
   }
+
+  protected readonly applyThemeClasses = applyThemeClasses;
 }

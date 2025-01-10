@@ -1,6 +1,6 @@
 <nav class="pt-7 flex items-center pb-7 container flex-col sm:flex-row">
   <span
-    [class]="'text-6xl mr-9 font-alexBrush' + applyThemeClasses(theme, 'text-zinc-800', 'text-neutral-200')">{{ heading() }}</span>
+    [class]="'text-6xl mr-9 font-alexBrush' + applyThemeClasses(theme, 'text-zinc-800', 'text-white')">{{ heading() }}</span>
   <ul [class]="'flex items-center gap-4' + applyThemeClasses(theme, 'text-zinc-800', 'text-neutral-200')">
     <li>
       <button (click)="onCartClick()">Cart({{ cartItems }})</button>

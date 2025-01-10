@@ -14,4 +14,9 @@ export class DetailsComponent {
   summary = input.required<string>();
   text = input.required<string[]>();
   open = input<boolean>(false);
+
+  textColor = input({
+    summary: 'text-zinc-800',
+    paragraph: 'text-neutral-600'
+  });
 }
