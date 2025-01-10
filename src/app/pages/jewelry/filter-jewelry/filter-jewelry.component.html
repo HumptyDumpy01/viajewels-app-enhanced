@@ -1,6 +1,7 @@
-<section class="container">
+<section [class]="'container' + applyThemeClasses(theme, '', 'text-neutral-100')">
   <form (ngSubmit)="onSubmit()" class="max-w-[548px]">
-    <app-input-control #searchInput helperText="Search for name, type, etc." mode="black"
+    <app-input-control #searchInput [mode]="theme === 'dark' ? 'red': 'black'"
+                       helperText="Search for name, type, etc."
                        placeholder="e.g. Beatuful rings for wedding.."
                        type="search" />
   </form>
@@ -20,15 +21,15 @@
     <div class="flex items-center gap-3.5 mr-10">
       <span class="text-2xl">Rating:</span>
       <div class="flex items-center">
-        <app-star-icon (click)="switchRating(1)" [mode]="activeRating() >= 1 ? 'filled' : 'empty'"
+        <app-star-icon (click)="switchRating(1)" [mode]="activeRating() >= 1 ? activeRatingFilling : 'empty'"
                        class="cursor-pointer" dimensions="sm" />
-        <app-star-icon (click)="switchRating(2)" [mode]="activeRating() >= 2 ? 'filled' : 'empty'"
+        <app-star-icon (click)="switchRating(2)" [mode]="activeRating() >= 2 ? activeRatingFilling : 'empty'"
                        class="cursor-pointer" dimensions="sm" />
-        <app-star-icon (click)="switchRating(3)" [mode]="activeRating() >= 3 ? 'filled' : 'empty'"
+        <app-star-icon (click)="switchRating(3)" [mode]="activeRating() >= 3 ? activeRatingFilling : 'empty'"
                        class="cursor-pointer" dimensions="sm" />
-        <app-star-icon (click)="switchRating(4)" [mode]="activeRating() >= 4 ? 'filled' : 'empty'"
+        <app-star-icon (click)="switchRating(4)" [mode]="activeRating() >= 4 ? activeRatingFilling : 'empty'"
                        class="cursor-pointer" dimensions="sm" />
-        <app-star-icon (click)="switchRating(5)" [mode]="activeRating() >= 5 ? 'filled' : 'empty'"
+        <app-star-icon (click)="switchRating(5)" [mode]="activeRating() >= 5 ? activeRatingFilling : 'empty'"
                        class="cursor-pointer" dimensions="sm" />
       </div>
     </div>

@@ -6,6 +6,8 @@ import { RedBulkyButtonComponent } from '../../../UI/buttons/red-bulky-button/re
 import { FiltersType, JewelryService } from '../../../jewelry.service';
 import { CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ThemeService } from '../../../theme.service';
+import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({
   selector: 'app-filter-jewelry',
@@ -22,6 +24,16 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './filter-jewelry.component.css'
 })
 export class FilterJewelryComponent {
+  private themeService = inject(ThemeService);
+
+  get theme() {
+    return this.themeService.getTheme;
+  }
+
+  get activeRatingFilling() {
+    return this.theme === 'dark' ? 'darkFilled' : 'filled';
+  }
+
   private jewelryService = inject(JewelryService);
   activeCategory = signal<ActiveCategoryType>('all');
   activeRating = signal<number>(4);
@@ -74,6 +86,8 @@ export class FilterJewelryComponent {
       price: this.activePrice()
     });
   }
+
+  protected readonly applyThemeClasses = applyThemeClasses;
 }
 
 export type ActiveCategoryType = 'bracelets' | 'necklaces' | 'rings' | 'earrings' | 'all';
