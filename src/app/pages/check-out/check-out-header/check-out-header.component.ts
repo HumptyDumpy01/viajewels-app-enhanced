@@ -19,7 +19,6 @@ import { CurrencyPipe, NgForOf } from '@angular/common';
   styleUrl: './check-out-header.component.css'
 })
 export class CheckOutHeaderComponent implements OnInit {
-
   private cartService = inject(CartService);
 
   ngOnInit() {

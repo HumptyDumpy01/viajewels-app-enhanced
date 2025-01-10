@@ -4,14 +4,14 @@
     <app-navigate-to-link [href]="['/jewelry']" label="Jewelry ." />
     <app-navigate-to-link [href]="['/checkout']" label="Checkout" />
   </div>
-  <h1 class="text-zinc-800 text-5xl max-w-screen-sm-xl leading-tight">Good choice! Let's finish your order!</h1>
+  <h1 class="text-5xl max-w-screen-sm-xl leading-tight">Good choice! Let's finish your order!</h1>
   <app-paragraph class="mt-6 inline-block mb-8">
     <span class="font-alexBrush">Y</span>ou've made a fantastic selection! We’re thrilled to help you bring this
     product into your life. Rest assured,
     you’re just moments away from owning something special. Let’s move forward to secure your order and ensure a
     seamless shopping experience!
   </app-paragraph>
-  <h2 class="text-4xl text-zinc-800 mb-7">Order Details</h2>
+  <h2 class="text-4xl mb-7">Order Details</h2>
   <div class="flex flex-col justify-center gap-5">
     <app-order-detail-card
       *ngFor="let cartItem of cartItems"

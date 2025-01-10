@@ -9,6 +9,7 @@ import { Component, input } from '@angular/core';
 })
 export class InfoMessageComponent {
   text = input.required<string>();
+  textColor = input(`text-zinc-800`);
 
   get firstLetterOfText() {
     return this.text()[0];

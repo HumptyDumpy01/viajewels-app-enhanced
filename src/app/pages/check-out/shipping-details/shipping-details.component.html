@@ -1,5 +1,5 @@
 <section>
-  <h2 class="text-4xl text-zinc-800">Shipping Details</h2>
+  <h2 class="text-4xl">Shipping Details</h2>
   <app-paragraph class="inline-block mt-7 shipping-details-par">
     <span class="font-alexBrush">Y</span>ou’re almost there! A few quick steps are all that’s left to complete your
     purchase. Review your
@@ -10,66 +10,68 @@
   <p *ngIf="errorMessage()" class="text-2xl text-red-600 mt-3">{{ errorMessage() }}</p>
   <form (ngSubmit)="onSubmit()" class="md:max-w-screen-bp-890 w-full mt-8">
     <div class="flex flex-col md:flex-row md:items-center md:gap-9 gap-3">
-      <app-input-control #firstNameInput [placeholder]="inputData().firstName.placeholder"
-                         [readOnly]="inputData().firstName.readOnly" helperText="Enter your first name"
-                         mode="black"
+      <app-input-control #firstNameInput [mode]="theme === 'dark' ? 'red' : 'black'"
+                         [placeholder]="inputData().firstName.placeholder" [readOnly]="inputData().firstName.readOnly"
+                         helperText="Enter your first name"
                          type="text" />
-      <app-input-control #lastNameInput [placeholder]="inputData().lastName.placeholder"
+      <app-input-control #lastNameInput [mode]="theme === 'dark' ? 'red' : 'black'"
+                         [placeholder]="inputData().lastName.placeholder"
                          [readOnly]="inputData().lastName.readOnly"
                          helperText="Enter your last name"
-                         mode="black"
                          type="text" />
     </div>
 
     <div class="flex flex-col md:flex-row md:items-center md:gap-9 gap-3">
-      <app-input-control #addressInput [placeholder]="inputData().address.placeholder"
-                         [readOnly]="inputData().address.readOnly" helperText="Enter your shipping address"
-                         mode="black"
+      <app-input-control #addressInput [mode]="theme === 'dark' ? 'red' : 'black'"
+                         [placeholder]="inputData().address.placeholder" [readOnly]="inputData().address.readOnly"
+                         helperText="Enter your shipping address"
                          type="text" />
-      <app-input-control #apartmentInput [placeholder]="inputData().apartment.placeholder"
-                         [readOnly]="inputData().apartment.readOnly" helperText="Enter your Apartment(optional)"
-                         mode="black" type="text" />
+      <app-input-control #apartmentInput [mode]="theme === 'dark' ? 'red' : 'black'"
+                         [placeholder]="inputData().apartment.placeholder" [readOnly]="inputData().apartment.readOnly"
+                         helperText="Enter your Apartment(optional)" type="text" />
     </div>
     <div class="w-full">
-      <app-input-control #cityInput [placeholder]="inputData().city.placeholder" [readOnly]="inputData().city.readOnly"
-                         helperText="Enter your City"
-                         mode="black" type="text" />
+      <app-input-control #cityInput [mode]="theme === 'dark' ? 'red' : 'black'"
+                         [placeholder]="inputData().city.placeholder"
+                         [readOnly]="inputData().city.readOnly"
+                         helperText="Enter your City" type="text" />
     </div>
     <div class="flex flex-col md:flex-row md:items-center gap-9">
       <div class="flex flex-col sm:flex-row sm:items-center gap-9">
-        <app-input-control #countryInput [placeholder]="inputData().country.placeholder"
-                           [readOnly]="inputData().country.readOnly" class="max-w-64"
+        <app-input-control #countryInput [mode]="theme === 'dark' ? 'red' : 'black'"
+                           [placeholder]="inputData().country.placeholder" [readOnly]="inputData().country.readOnly"
+                           class="max-w-64"
                            helperText="Choose your Country"
-                           mode="black"
                            type="text" />
-        <app-input-control #stateInput [placeholder]="inputData().state.placeholder"
-                           [readOnly]="inputData().state.readOnly" class="max-w-64" helperText="Choose a State"
-                           mode="black"
+        <app-input-control #stateInput [mode]="theme === 'dark' ? 'red' : 'black'"
+                           [placeholder]="inputData().state.placeholder" [readOnly]="inputData().state.readOnly"
+                           class="max-w-64"
+                           helperText="Choose a State"
                            type="text" />
       </div>
-      <app-input-control #zipCodeInput [placeholder]="inputData().zipCode.placeholder"
-                         [readOnly]="inputData().zipCode.readOnly" class="max-w-64"
+      <app-input-control #zipCodeInput [mode]="theme === 'dark' ? 'red' : 'black'"
+                         [placeholder]="inputData().zipCode.placeholder" [readOnly]="inputData().zipCode.readOnly"
+                         class="max-w-64"
                          helperText="Enter your Zip Code"
-                         mode="black"
                          type="number" />
     </div>
     <div class="flex flex-col md:flex-row md:items-center gap-9 mb-12">
-      <app-input-control #emailInput [placeholder]="inputData().email.placeholder"
-                         [readOnly]="inputData().email.readOnly"
-                         helperText="Enter your valid Email" mode="black"
+      <app-input-control #emailInput [mode]="theme === 'dark' ? 'red' : 'black'"
+                         [placeholder]="inputData().email.placeholder"
+                         [readOnly]="inputData().email.readOnly" helperText="Enter your valid Email"
                          type="email" />
-      <app-input-control #phoneInput [placeholder]="inputData().phone.placeholder"
-                         [readOnly]="inputData().phone.readOnly" helperText="Enter your valid Phone"
-                         mode="black"
+      <app-input-control #phoneInput [mode]="theme === 'dark' ? 'red' : 'black'"
+                         [placeholder]="inputData().phone.placeholder" [readOnly]="inputData().phone.readOnly"
+                         helperText="Enter your valid Phone"
                          type="number" />
     </div>
-    <app-info-message [text]="infoMessage()" />
+    <app-info-message [textColor]="theme === 'dark' ? 'text-white': 'text-zinc-800'" [text]="infoMessage()" />
     <app-viajewels-button
       [href]="button().href"
       [label]="button().text"
       [mode]="button().btnMode"
+      [styling]="theme === 'dark' ? 'empty-white' : 'default'"
       [type]="button().type"
-      class="mt-12 inline-block"
-      styling="default"
+      class="mt-12 inline-block text-zinc-800"
     />
   </form>

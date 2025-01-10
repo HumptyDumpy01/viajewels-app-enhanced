@@ -1,4 +1,4 @@
-import { Component, input, signal, ViewChild } from '@angular/core';
+import { Component, inject, input, signal, ViewChild } from '@angular/core';
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
 import { InputControlComponent } from '../../../UI/controls/input-control/input-control.component';
 import {
@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { validateShippingInfoForm } from '../../../../utils/schemas/validateShippingInfoForm';
 import { scrollToTag } from '../../../../utils/functions/scrollToTag';
 import { NgIf } from '@angular/common';
+import { ThemeService } from '../../../theme.service';
 
 @Component({
   selector: 'app-shipping-details',
@@ -27,6 +28,12 @@ import { NgIf } from '@angular/common';
   styleUrl: './shipping-details.component.css'
 })
 export class ShippingDetailsComponent {
+  private themeService = inject(ThemeService);
+
+  get theme() {
+    return this.themeService.getTheme;
+  }
+
   button = input.required<BtnType>();
   errorMessage = signal(``);
   infoMessage = input(`Double-check everything to make sure it’s just how you want it.`);
