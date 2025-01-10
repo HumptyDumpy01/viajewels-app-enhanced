@@ -17,13 +17,17 @@ import { PopupsService } from '../../../popups.service';
 import { JewelWishlistService } from '../../../jewel-wishlist.service';
 import { CartService } from '../../../cart.service';
 import { SHOW_FIXED_LAYOUTS } from '../../../../utils/vars/variables';
+import { ChevronIconComponent } from '../../../UI/icons/chevron-icon/chevron-icon.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-fixed-nav',
   imports: [
     ToggleIconComponent,
     EmptyHeartIconComponent,
-    CartIconComponent
+    CartIconComponent,
+    ChevronIconComponent,
+    NgIf
   ],
   standalone: true,
   templateUrl: './fixed-nav.component.html',
@@ -32,6 +36,7 @@ import { SHOW_FIXED_LAYOUTS } from '../../../../utils/vars/variables';
 export class FixedNavComponent implements OnInit {
   private themeService = inject(ThemeService);
   isVisible = signal(false);
+  expand = signal(false);
 
   get theme() {
     return this.themeService.getTheme;
@@ -80,13 +85,14 @@ export class FixedNavComponent implements OnInit {
   }
 
   onCartClick() {
+    this.expand.set(false);
     this.popupsService.changeCartPopupVisibility(true);
   }
 
   onWishlistClick() {
+    this.expand.set(false);
     this.popupsService.changeWishlistPopupVisibility(true);
   }
-
 
   private updateWishlistCount() {
     this.wishlistedItems = this.jewelWishlistService.getWishlist().length;
@@ -101,7 +107,12 @@ export class FixedNavComponent implements OnInit {
 
   handleTogglingTheme() {
     this.themeService.changeTheme(this.theme === 'light' ? 'dark' : 'light');
+    this.expand.set(false);
     this.cdr.detectChanges();
   }
 
+  handleOnExpand() {
+    this.expand.set(!this.expand());
+    this.cdr.detectChanges();
+  }
 }

@@ -2,14 +2,22 @@
   [class]="'fixed top-3 right-3 z-50 transition-all duration-200 '
    + (!isVisible() ? 'pointer-events-none opacity-0': 'opacity-100 pointer-events-auto')">
   <div class="flex justify-center flex-col gap-2">
-    <button (click)="handleTogglingTheme()" [class]="btnStyles">
-      <app-toggle-icon [theme]="theme" />
+    <button (click)="handleOnExpand()" [class]="btnStyles + ' ' + (expand() ? 'hidden' : '')">
+      <app-chevron-icon [mode]="theme" />
     </button>
-    <button (click)="onCartClick()" [class]="btnStyles">
-      <app-cart-icon [mode]="theme" />
-    </button>
-    <button (click)="onWishlistClick()" [class]="btnStyles">
-      <app-empty-heart-icon [mode]="theme" />
-    </button>
+    <div *ngIf="expand()" class="flex justify-center flex-col gap-2">
+      <button (click)="handleTogglingTheme()" [class]="btnStyles">
+        <app-toggle-icon [theme]="theme" />
+      </button>
+      <button (click)="onCartClick()" [class]="btnStyles">
+        <app-cart-icon [mode]="theme" />
+      </button>
+      <button (click)="onWishlistClick()" [class]="btnStyles">
+        <app-empty-heart-icon [mode]="theme" />
+      </button>
+      <button (click)="handleOnExpand()" [class]="btnStyles + ' ' + (!expand()  ? 'hidden' : 'rotate-180')">
+        <app-chevron-icon [mode]="theme" />
+      </button>
+    </div>
   </div>
 </div>
