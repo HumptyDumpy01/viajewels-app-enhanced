@@ -4,6 +4,7 @@ import { JewelryComponent } from './pages/jewelry/jewelry.component';
 import { JewelComponent } from './pages/jewel/jewel.component';
 import { CheckOutComponent } from './pages/check-out/check-out.component';
 import { SuccessComponent } from './pages/success/success.component';
+import { LoginComponent } from './pages/auth/login/login.component';
 
 export const routes: Routes = [
   { path: ``, component: HomeComponent, title: `ViaJewels: Welcome to Viajewels!` },
@@ -11,6 +12,7 @@ export const routes: Routes = [
   { path: `jewelry/:id`, component: JewelComponent },
   { path: `checkout`, component: CheckOutComponent, title: `ViaJewels: Check out your favorite jewelry!` },
   { path: `success`, component: SuccessComponent, title: `Thanks for the purchase at ViaJewels!` },
+  { path: `login`, component: LoginComponent, title: `Login to Viajewels Dashboard(Admin only)` },
   // add 404 page
   { path: `**`, redirectTo: `/`, pathMatch: `full` }
 ];

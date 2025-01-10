@@ -1,0 +1,21 @@
+<section [class]="'container' + applyThemeClasses(theme, 'text-zinc-800', 'text-white')">
+  <div class="max-w-[464px] p-3 m-auto">
+    <h1 class="text-6xl mb-5"><span class="font-alexBrush">L</span>ogin onto your account!</h1>
+    <form (ngSubmit)="onSubmit()">
+      <p *ngIf="errorMessage()" class="text-2xl text-red-600 mb-2">{{ errorMessage() }}</p>
+      <div class="flex flex-col gap-2 mb-1">
+        <app-input-control #login [mode]="theme === 'light' ? 'black' : 'red'"
+                           helperText="Enter your login name" placeholder="Login" type="email" />
+        <app-input-control #password [mode]="theme === 'light' ? 'black' : 'red'"
+                           helperText="Enter your password" placeholder="Password"
+                           type="password" />
+      </div>
+      <app-info-message [textColor]="theme === 'light' ? 'text-zinc-800' : 'text-neutral-300'" class="inline-block mb-6"
+                        text="Only Admin or known Personnel can log in." />
+      <app-viajewels-button [styling]="theme === 'light' ? 'default' : 'empty-white'" class="hover:text-zinc-800"
+                            customClasses="w-full"
+                            label="Login"
+                            mode="btn" type="submit" />
+    </form>
+  </div>
+</section>
