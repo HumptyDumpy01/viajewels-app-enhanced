@@ -9,6 +9,8 @@ import {
 } from '../../../UI/buttons/viajewels-button-small/viajewels-button-small.component';
 import { CartService, CartType } from '../../../cart.service';
 import { JewelWishlistService } from '../../../jewel-wishlist.service';
+import { ThemeService } from '../../../theme.service';
+import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({
   selector: 'app-cart',
@@ -27,6 +29,12 @@ import { JewelWishlistService } from '../../../jewel-wishlist.service';
   styleUrl: './cart.component.css'
 })
 export class CartComponent {
+  private themeService = inject(ThemeService);
+
+  get theme() {
+    return this.themeService.getTheme;
+  }
+
   private cartService = inject(CartService);
   private wishlistService = inject(JewelWishlistService);
   private popupsService = inject(PopupsService);
@@ -68,4 +76,6 @@ export class CartComponent {
   onCheckoutBtnClick() {
     window.location.href = '/checkout';
   }
+
+  protected readonly applyThemeClasses = applyThemeClasses;
 }

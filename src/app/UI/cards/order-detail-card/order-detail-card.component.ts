@@ -4,6 +4,8 @@ import { ImgDataType } from '../collection-card/collection-card.component';
 import { TrimTextPipe } from '../../../trim-text.pipe';
 import { CartService } from '../../../cart.service';
 import { JewelryType } from '../../../../../data/JEWELRY';
+import { ThemeService } from '../../../theme.service';
+import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({
   selector: 'app-order-detail-card',
@@ -17,6 +19,12 @@ import { JewelryType } from '../../../../../data/JEWELRY';
   styleUrl: './order-detail-card.component.css'
 })
 export class OrderDetailCardComponent implements OnInit {
+  private themeService = inject(ThemeService);
+
+  get theme() {
+    return this.themeService.getTheme;
+  }
+
   private cartService = inject(CartService);
   itemCounter = signal<number>(1);
   totalPrice = signal<number | null>(null);
@@ -70,4 +78,6 @@ export class OrderDetailCardComponent implements OnInit {
     return this.jewelDetails().itemsLeft === 0 ? ' text-zinc-500 border-zinc-500 hover:bg-zinc-500 hover:text-white' :
       ' text-yellow-700 border-yellow-700 hover:bg-yellow-700 hover:text-white';
   }
+
+  protected readonly applyThemeClasses = applyThemeClasses;
 }
