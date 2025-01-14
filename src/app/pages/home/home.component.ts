@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { HeroComponent } from './hero/hero.component';
 import { WhyUsComponent } from './why-us/why-us.component';
 import { CollectionsComponent } from './collections/collections.component';
@@ -20,6 +20,7 @@ import { JewelryReviewType } from '../../../../data/JEWELRY';
 export class HomeComponent implements OnInit {
   private jewelryService = inject(JewelryService);
   private reviewsService = inject(ReviewsService);
+  private destroyRef = inject(DestroyRef);
 
   get jewelry() {
     return this.jewelryService.getJewelry();
@@ -33,10 +34,13 @@ export class HomeComponent implements OnInit {
     // scroll to top
     window.scrollTo(0, 0);
 
-    this.reviewsService.fetchHighReviews().subscribe({
+    const reviews = this.reviewsService.fetchHighReviews().subscribe({
       next: (reviews) => {
         this.testimonialData.set((reviews));
       }
+    });
+    this.destroyRef.onDestroy(() => {
+      reviews.unsubscribe();
     });
   }
 }
