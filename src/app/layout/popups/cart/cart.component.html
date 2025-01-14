@@ -1,7 +1,8 @@
 <dialog (close)="onClose()" [class]="'fixed top-0 left-0 w-screen sm:h-[650px] h-screen z-[60]'
 + applyThemeClasses(theme, 'bg-white ', 'bg-zinc-950')"
         [open]="popupVisibility">
-  <app-close-icon (click)="onClose()" [color]="theme === 'dark' ? '#eeeeee': '#333333'" class="absolute top-5 right-14" />
+  <app-close-icon (click)="onClose()" [color]="theme === 'dark' ? '#eeeeee': '#333333'"
+                  class="absolute top-5 right-14" />
   <div class="container pt-11">
     <div [class]="'flex items-center gap-5 mb-5' + applyThemeClasses(theme, 'text-zinc-800 ', 'text-neutral-200')">
       <h2 class="text-6xl mb-6"><span class="font-alexBrush">Y</span>our <span
@@ -18,7 +19,7 @@
              class="flex sm:items-center gap-10 flex-col justify-between bp-1210:flex-row">
           <app-order-detail-card
             [heading]="item.jewel.itemDetails.heading"
-            [href]="item.jewel.href"
+            [href]="'/jewelry/' + item.jewel.id"
             [imgData]="item.jewel.imgData[0]"
             [item]="item.jewel"
             [jewelDetails]="{itemsLeft: item.jewel.itemsLeft, itemPrice: item.jewel.itemDetails.price}"

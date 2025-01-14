@@ -12,6 +12,7 @@ import { CartService } from '../../../cart.service';
 import { PopupsService } from '../../../popups.service';
 import { ThemeService } from '../../../theme.service';
 import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
+import { calcAverageNumber } from '../../../../utils/functions/calcAverageNumber';
 
 @Component({
   selector: 'app-jewel-header',
@@ -123,7 +124,7 @@ export class JewelHeaderComponent implements OnInit {
 
   get getRatingArray() {
     if (this.jewelDetails) {
-      const filledStars = Math.floor(this.jewelDetails().itemDetails.rating);
+      const filledStars = Math.floor(calcAverageNumber(this.jewelDetails().itemDetails.rating));
       const emptyStars = 5 - filledStars;
       return [
         ...Array(filledStars).fill(this.ratingStarFilling),

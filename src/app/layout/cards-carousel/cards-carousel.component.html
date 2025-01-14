@@ -3,7 +3,7 @@
   <app-item-card
     *ngFor="let item of jewelry()"
     [cardMode]="cardMode()"
-    [href]="item.href"
+    [href]="'jewelry/' + item.id"
     [imgData]="item.imgData[0]"
     [item]="item"
   />

@@ -10,7 +10,11 @@
   </div>
   <app-collections />
   <section class="container">
-    <app-customer-testimonials [testimonials]="testimonialData()" />
+    @defer (on viewport) {
+      <app-customer-testimonials [testimonials]="testimonialData()" />
+    } @placeholder () {
+      <app-loading-paragraph />
+    }
   </section>
   <section class="mt-24 mb-24">
     <div class="container">
@@ -19,7 +23,11 @@
         class="font-alexBrush">O</span>f
       </app-heading>
     </div>
-    <app-cards-carousel [jewelry]="jewelry" />
+    @defer (on viewport) {
+      <app-cards-carousel [jewelry]="jewelry" />
+    } @placeholder () {
+      <app-loading-paragraph />
+    }
   </section>
   <div class="bg-red-600 py-24 pb-28">
     <div class="container">

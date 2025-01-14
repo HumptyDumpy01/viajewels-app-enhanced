@@ -9,10 +9,11 @@ import { CustomerTestimonialsComponent } from './customer-testimonials/customer-
 import { HeadingComponent } from '../../typography/heading/heading.component';
 import { ReviewsService } from '../../reviews.service';
 import { JewelryReviewType } from '../../../../data/JEWELRY';
+import { LoadingParagraphComponent } from '../../UI/info/loading-paragraph/loading-paragraph.component';
 
 @Component({
   selector: 'app-home',
-  imports: [HeroComponent, WhyUsComponent, CollectionsComponent, CardsCarouselComponent, ContactSupportTeamComponent, CustomerTestimonialsComponent, HeadingComponent],
+  imports: [HeroComponent, WhyUsComponent, CollectionsComponent, CardsCarouselComponent, ContactSupportTeamComponent, CustomerTestimonialsComponent, HeadingComponent, LoadingParagraphComponent],
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

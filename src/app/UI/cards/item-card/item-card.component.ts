@@ -13,6 +13,7 @@ import { JewelWishlistService } from '../../../jewel-wishlist.service';
 import { JewelryType } from '../../../../../data/JEWELRY';
 import { ThemeService } from '../../../theme.service';
 import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
+import { calcAverageNumber } from '../../../../utils/functions/calcAverageNumber';
 
 @Component({
   selector: 'app-item-card',
@@ -56,7 +57,7 @@ export class ItemCardComponent implements OnInit {
   cardMode = input<CardModeType>(`black`);
 
   get getRatingArray() {
-    const filledStars = Math.floor(this.item().itemDetails.rating);
+    const filledStars = Math.floor(calcAverageNumber(this.item().itemDetails.rating));
     const emptyStars = 5 - filledStars;
     return [
       ...Array(filledStars).fill(this.cardMode() === `white` ? `darkFilled` : `filled`),

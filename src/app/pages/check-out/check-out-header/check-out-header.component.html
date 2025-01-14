@@ -16,7 +16,7 @@
     <app-order-detail-card
       *ngFor="let cartItem of cartItems"
       [heading]="cartItem.jewel.itemDetails.heading"
-      [href]="cartItem.jewel.href"
+      [href]="'/jewelry/' + cartItem.jewel.id"
       [imgData]="cartItem.jewel.imgData[0]"
       [item]="cartItem.jewel"
       [jewelDetails]="{itemsLeft: cartItem.jewel.itemsLeft, itemPrice: cartItem.jewel.itemDetails.price}"
