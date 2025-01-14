@@ -2,7 +2,7 @@
   <div *ngIf="paginatedTestimonials.length > 0" class="grid items-center bp-1124:grid-cols-2 gap-11 grid-cols-1">
     <app-testimonials-card
       *ngFor="let testimonial of paginatedTestimonials"
-      [createdAt]="testimonial.createdAt"
+      [createdAt]="testimonial.createAt"
       [initials]="testimonial.initials!"
       [rating]="testimonial.rated"
       [review]="testimonial.review"

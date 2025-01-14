@@ -1,4 +1,4 @@
-import { Component, computed, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { HeroComponent } from './hero/hero.component';
 import { WhyUsComponent } from './why-us/why-us.component';
 import { CollectionsComponent } from './collections/collections.component';
@@ -7,6 +7,8 @@ import { ContactSupportTeamComponent } from '../../layout/contact-support-team/c
 import { JewelryService } from '../../jewelry.service';
 import { CustomerTestimonialsComponent } from './customer-testimonials/customer-testimonials.component';
 import { HeadingComponent } from '../../typography/heading/heading.component';
+import { ReviewsService } from '../../reviews.service';
+import { JewelryReviewType } from '../../../../data/JEWELRY';
 
 @Component({
   selector: 'app-home',
@@ -17,25 +19,24 @@ import { HeadingComponent } from '../../typography/heading/heading.component';
 })
 export class HomeComponent implements OnInit {
   private jewelryService = inject(JewelryService);
+  private reviewsService = inject(ReviewsService);
 
   get jewelry() {
     return this.jewelryService.getJewelry();
   }
 
 
-  testimonialData = computed(() => this.jewelryService.getJewelry().filter((j) =>
-    j.reviews!.length > 0));
+  testimonialData = signal<JewelryReviewType[]>([]);
 
-  get getTestimonials() {
-    // gather all reviews onto a single array and return it
-    const reviews = this.testimonialData().map((j) => j.reviews).flat()
-      .filter((r) => r!.rated >= 4);
-
-    return reviews!;
-  }
 
   ngOnInit() {
     // scroll to top
     window.scrollTo(0, 0);
+
+    this.reviewsService.fetchHighReviews().subscribe({
+      next: (reviews) => {
+        this.testimonialData.set((reviews));
+      }
+    });
   }
 }

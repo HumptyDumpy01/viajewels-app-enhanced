@@ -40,9 +40,9 @@ export class JewelTestimonialsComponent {
       case `top-rated`:
         return this.jewelReviews().sort((a, b) => b.rated - a.rated);
       case `new`:
-        return this.jewelReviews().sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+        return this.jewelReviews().sort((a, b) => new Date(b.createAt).getTime() - new Date(a.createAt).getTime());
       case `old`:
-        return this.jewelReviews().sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+        return this.jewelReviews().sort((a, b) => new Date(a.createAt).getTime() - new Date(b.createAt).getTime());
     }
   }
 
