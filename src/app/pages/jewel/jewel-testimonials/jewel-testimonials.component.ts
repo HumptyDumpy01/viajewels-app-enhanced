@@ -27,7 +27,7 @@ export class JewelTestimonialsComponent {
   }
 
   jewelReviews = input.required<JewelryReviewType[]>();
-  filterBy = signal<FilterTestimonialsType>(`top-rated`);
+  filterBy = signal<FilterTestimonialsType>(`new`);
   private cdr = inject(ChangeDetectorRef);
 
   switchFilter(filter: FilterTestimonialsType) {
