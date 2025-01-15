@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 export class JewelryService {
   private httpClient = inject(HttpClient);
   jewelry = signal<JewelryType[]>([]);
+  errorMessage = signal<string | null>(null);
 
   constructor() {
     this.loadJewelry().subscribe();

@@ -10,10 +10,12 @@ import { HeadingComponent } from '../../typography/heading/heading.component';
 import { ReviewsService } from '../../reviews.service';
 import { JewelryReviewType } from '../../../../data/JEWELRY';
 import { LoadingParagraphComponent } from '../../UI/info/loading-paragraph/loading-paragraph.component';
+import { NgIf } from '@angular/common';
+import { InfoMessageComponent } from '../../UI/info/info-message/info-message.component';
 
 @Component({
   selector: 'app-home',
-  imports: [HeroComponent, WhyUsComponent, CollectionsComponent, CardsCarouselComponent, ContactSupportTeamComponent, CustomerTestimonialsComponent, HeadingComponent, LoadingParagraphComponent],
+  imports: [HeroComponent, WhyUsComponent, CollectionsComponent, CardsCarouselComponent, ContactSupportTeamComponent, CustomerTestimonialsComponent, HeadingComponent, LoadingParagraphComponent, NgIf, InfoMessageComponent],
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
@@ -29,7 +31,6 @@ export class HomeComponent implements OnInit {
 
 
   testimonialData = signal<JewelryReviewType[]>([]);
-
 
   ngOnInit() {
     // scroll to top
