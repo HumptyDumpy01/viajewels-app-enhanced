@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { JewelryService } from '../../jewelry.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -39,6 +39,8 @@ export class JewelComponent implements OnInit {
   private route = inject(ActivatedRoute);
 
   reviews: JewelryReviewType[] = [];
+  jewelId = signal<number | null>(null);
+
   jewelDetails: any;
 
   ngOnInit() {
@@ -48,12 +50,14 @@ export class JewelComponent implements OnInit {
       const id = Number(params.get('id'));
       this.loadJewelDetails(id);
       this.loadReviews(id);
+      this.jewelId.set(id);
     });
   }
 
   private loadJewelDetails(id: number) {
     const jewel = this.jewelryService.getJewel(id);
     if (jewel) {
+      this.jewelId.set(jewel.id);
       this.jewelDetails = jewel;
       this.titleService.setTitle(`ViaJewels: Jewel ${jewel.itemDetails.heading}`);
       if (!this.recentSearchesService.userHasInRecentSearches(jewel.id)) {
@@ -70,5 +74,9 @@ export class JewelComponent implements OnInit {
         this.reviews = response.data as JewelryReviewType[];
       }
     });
+  }
+
+  onReviewSubmitted(newReview: JewelryReviewType) {
+    this.reviews = [newReview, ...this.reviews];
   }
 }

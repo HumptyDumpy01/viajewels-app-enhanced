@@ -5,7 +5,7 @@
   } @placeholder () {
     <app-loading-paragraph />
   }
-  <app-leave-review />
+  <app-leave-review (reviewSubmitted)="onReviewSubmitted($event)" />
   @defer (on viewport) {
     <app-you-might-also-like [currentJewelryId]="jewelDetails.id" />
   } @placeholder () {

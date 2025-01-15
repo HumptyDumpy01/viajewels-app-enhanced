@@ -19,6 +19,7 @@ export type JewelryType = {
 }
 
 export type JewelryReviewType = {
+  jewelId: number;
   initials: string;
   email?: string;
   rated: number;
