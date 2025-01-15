@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Output, signal, ViewChild } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit, Output, signal, ViewChild } from '@angular/core';
 import { InputControlComponent } from '../../../UI/controls/input-control/input-control.component';
 import { StarIconComponent } from '../../../UI/icons/star-icon/star-icon.component';
 import { BulkyBadgeComponent } from '../../../UI/badges/bulky-badge/bulky-badge.component';
@@ -23,7 +23,7 @@ import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses
   templateUrl: './filter-jewelry.component.html',
   styleUrl: './filter-jewelry.component.css'
 })
-export class FilterJewelryComponent {
+export class FilterJewelryComponent implements OnInit {
   private themeService = inject(ThemeService);
 
   get theme() {
@@ -34,10 +34,16 @@ export class FilterJewelryComponent {
     return this.theme === 'dark' ? 'darkFilled' : 'filled';
   }
 
+  ngOnInit() {
+    this.jewelryService.loadJewelry(() => {
+      this.activePrice.set(this.jewelryService.highestPrice);
+    }).subscribe();
+  }
+
   private jewelryService = inject(JewelryService);
   activeCategory = signal<ActiveCategoryType>('all');
   activeRating = signal<number>(4);
-  activePrice = signal<number>(this.jewelryService.highestPrice);
+  activePrice = signal<number>(0);
 
   @ViewChild('searchInput') searchInput!: InputControlComponent;
   @Output() filtersChange = new EventEmitter<FiltersType>();

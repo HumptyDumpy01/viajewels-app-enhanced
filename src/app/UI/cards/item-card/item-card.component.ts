@@ -57,7 +57,7 @@ export class ItemCardComponent implements OnInit {
   cardMode = input<CardModeType>(`black`);
 
   get getRatingArray() {
-    const filledStars = Math.floor(calcAverageNumber(this.item().itemDetails.rating));
+    const filledStars = calcAverageNumber(this.item().itemDetails.rating);
     const emptyStars = 5 - filledStars;
     return [
       ...Array(filledStars).fill(this.cardMode() === `white` ? `darkFilled` : `filled`),

@@ -17,7 +17,7 @@ export class JewelryService {
     this.loadJewelry().subscribe();
   }
 
-  loadJewelry() {
+  loadJewelry(onLoadCallback?: () => void) {
     return this.fetchJewelry(`${environment.backendUrl}/jewelry`).pipe(
       map(response => {
         if (response) {
@@ -31,7 +31,12 @@ export class JewelryService {
         }
       }),
       tap({
-        next: (jewelry) => this.jewelry.set(jewelry)
+        next: (jewelry) => {
+          this.jewelry.set(jewelry);
+          if (onLoadCallback) {
+            onLoadCallback();
+          }
+        }
       })
     );
   }
@@ -51,8 +56,8 @@ export class JewelryService {
   getJewelry(filters?: FiltersType): JewelryType[] {
     let jewelry = [...this.jewelry()];
 
-    if (filters && filters.category !== 'all') {
-      if (filters.category) {
+    if (filters) {
+      if (filters.category && filters.category !== 'all') {
         // @ts-ignore
         jewelry = jewelry.filter(jewel => jewel.itemDetails.tag.includes(filters.category as CategoryType));
       }
@@ -61,8 +66,8 @@ export class JewelryService {
           jewel.itemDetails.description.toLowerCase().includes(filters.searchTerm!.toLowerCase()));
       }
       if (filters.rating) {
-        jewelry = jewelry.filter(jewel => jewel.itemDetails.rating
-          .reduce((acc, itm) => acc + itm, 0) / jewel.itemDetails.rating.length >= filters.rating!);
+        jewelry = jewelry.filter(jewel => Array.isArray(jewel.itemDetails.rating) &&
+          jewel.itemDetails.rating.reduce((acc, itm) => acc + itm, 0) / jewel.itemDetails.rating.length >= filters.rating!);
       }
       if (filters.price) {
         jewelry = jewelry.filter(jewel => jewel.itemDetails.price <= filters.price!);

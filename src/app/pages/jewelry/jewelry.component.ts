@@ -56,5 +56,7 @@ export class JewelryComponent implements OnInit {
       }
     });
 
+    // Emit initial filters
+    this.changeFilterOptions(this.filterOptions());
   }
 }
