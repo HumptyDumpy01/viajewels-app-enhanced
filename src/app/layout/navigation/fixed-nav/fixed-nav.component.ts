@@ -85,12 +85,10 @@ export class FixedNavComponent implements OnInit {
   }
 
   onCartClick() {
-    this.expand.set(false);
     this.popupsService.changeCartPopupVisibility(true);
   }
 
   onWishlistClick() {
-    this.expand.set(false);
     this.popupsService.changeWishlistPopupVisibility(true);
   }
 
@@ -107,8 +105,6 @@ export class FixedNavComponent implements OnInit {
 
   handleTogglingTheme() {
     this.themeService.changeTheme(this.theme === 'light' ? 'dark' : 'light');
-    this.expand.set(false);
-    this.cdr.detectChanges();
   }
 
   handleOnExpand() {
