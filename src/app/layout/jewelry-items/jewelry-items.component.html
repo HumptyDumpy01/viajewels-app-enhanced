@@ -8,7 +8,7 @@
       seen!</p>
     <app-item-card
       *ngFor="let item of jewelry()"
-      [href]="'jewelry/' + item.id"
+      [href]="'/jewelry/' + item.id"
       [imgData]="item.imgData[0]"
       [item]="item"
     />
