@@ -41,7 +41,7 @@
         <div class="flex items-center">
           <app-star-icon *ngFor="let star of getRatingArray" [mode]="star" dimensions="sm" />
         </div>
-        <span class="">({{ item().itemDetails.reviewCount | number }})</span>
+        <span class="">({{ item().itemDetails.rating.length }})</span>
       </div>
       <app-paragraph
         [class]="(cardMode() !== 'pure-white-text' ? applyThemeClasses(theme, 'text-zinc-800', 'text-neutral-300'): 'text-neutral-100')">
