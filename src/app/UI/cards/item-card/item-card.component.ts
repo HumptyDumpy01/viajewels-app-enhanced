@@ -6,7 +6,7 @@ import { StarIconComponent } from '../../icons/star-icon/star-icon.component';
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
 import { RouterLink } from '@angular/router';
 import { ImgDataType } from '../collection-card/collection-card.component';
-import { CurrencyPipe, DecimalPipe, NgForOf, NgIf } from '@angular/common';
+import { CurrencyPipe, NgForOf, NgIf } from '@angular/common';
 import { TrimTextPipe } from '../../../trim-text.pipe';
 import { HeartIconComponent } from '../../icons/heart-icon/heart-icon.component';
 import { JewelWishlistService } from '../../../jewel-wishlist.service';
@@ -25,7 +25,6 @@ import { calcAverageNumber } from '../../../../utils/functions/calcAverageNumber
     CurrencyPipe,
     NgForOf,
     TrimTextPipe,
-    DecimalPipe,
     NgIf,
     HeartIconComponent
   ],

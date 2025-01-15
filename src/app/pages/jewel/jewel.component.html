@@ -1,6 +1,6 @@
 <div *ngIf="jewelDetails">
   <app-jewel-header [jewelDetails]="jewelDetails" />
-  <app-jewel-testimonials [jewelReviews]="[]" />
+  <app-jewel-testimonials [jewelReviews]="reviews || []" />
   <app-leave-review />
   <app-you-might-also-like [currentJewelryId]="jewelDetails.id" />
   <app-subscribe-onto-newsletter background="purple" />

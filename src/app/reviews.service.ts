@@ -28,6 +28,10 @@ export class ReviewsService {
         })));
     return reviews;
   }
+
+  fetchReviewsByJewelId(jewelId: number) {
+    return this.fetchAllReviews(`${environment.backendUrl}/jewelry/${jewelId}/reviews`);
+  }
 }
 
 export type ReviewResponseType = {
