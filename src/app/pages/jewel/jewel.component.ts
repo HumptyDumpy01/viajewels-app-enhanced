@@ -13,6 +13,7 @@ import {
 import { RecentSearchesService } from '../../recent-searches.service';
 import { ReviewsService } from '../../reviews.service';
 import { JewelryReviewType } from '../../../../data/JEWELRY';
+import { LoadingParagraphComponent } from '../../UI/info/loading-paragraph/loading-paragraph.component';
 
 @Component({
   selector: 'app-jewel',
@@ -22,7 +23,8 @@ import { JewelryReviewType } from '../../../../data/JEWELRY';
     JewelTestimonialsComponent,
     LeaveReviewComponent,
     YouMightAlsoLikeComponent,
-    SubscribeOntoNewsletterComponent
+    SubscribeOntoNewsletterComponent,
+    LoadingParagraphComponent
   ],
   standalone: true,
   templateUrl: './jewel.component.html',

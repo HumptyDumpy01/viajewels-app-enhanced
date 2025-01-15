@@ -1,7 +1,15 @@
 <div *ngIf="jewelDetails">
   <app-jewel-header [jewelDetails]="jewelDetails" />
-  <app-jewel-testimonials [jewelReviews]="reviews || []" />
+  @defer (on viewport) {
+    <app-jewel-testimonials [jewelReviews]="reviews || []" />
+  } @placeholder () {
+    <app-loading-paragraph />
+  }
   <app-leave-review />
-  <app-you-might-also-like [currentJewelryId]="jewelDetails.id" />
+  @defer (on viewport) {
+    <app-you-might-also-like [currentJewelryId]="jewelDetails.id" />
+  } @placeholder () {
+    <app-loading-paragraph />
+  }
   <app-subscribe-onto-newsletter background="purple" />
 </div>
