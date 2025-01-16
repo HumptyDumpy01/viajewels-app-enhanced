@@ -1,4 +1,4 @@
 export const environment = {
-  production: false,
+  production: true,
   backendUrl: 'https://viajewels-backend-production.up.railway.app'
 };
