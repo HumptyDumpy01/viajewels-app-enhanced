@@ -5,7 +5,7 @@ import { InfoMessageComponent } from '../../../UI/info/info-message/info-message
 import { NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { validateLoginForm } from '../../../../utils/schemas/validateLoginForm';
-import { ThemeService } from '../../../theme.service';
+import { ThemeService } from '../../../services/theme.service';
 import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({

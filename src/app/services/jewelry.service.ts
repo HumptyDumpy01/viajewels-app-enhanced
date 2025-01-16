@@ -1,9 +1,9 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { JewelryType } from '../../data/JEWELRY';
+import { JewelryType } from '../../../data/JEWELRY';
 import { HttpClient } from '@angular/common/http';
 import { StatusType } from './reviews.service';
 import { catchError, map, tap, throwError } from 'rxjs';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'

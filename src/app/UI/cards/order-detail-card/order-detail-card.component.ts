@@ -1,10 +1,10 @@
 import { Component, EventEmitter, inject, input, OnInit, Output, signal } from '@angular/core';
 import { CurrencyPipe, NgClass } from '@angular/common';
 import { ImgDataType } from '../collection-card/collection-card.component';
-import { TrimTextPipe } from '../../../trim-text.pipe';
-import { CartService } from '../../../cart.service';
+import { TrimTextPipe } from '../../../pipes/trim-text.pipe';
+import { CartService } from '../../../services/cart.service';
 import { JewelryType } from '../../../../../data/JEWELRY';
-import { ThemeService } from '../../../theme.service';
+import { ThemeService } from '../../../services/theme.service';
 import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({

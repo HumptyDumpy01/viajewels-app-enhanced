@@ -3,7 +3,7 @@ import { HeadingComponent } from '../../../typography/heading/heading.component'
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
 import { TestimonialsComponent } from '../../../layout/testimonials/testimonials.component';
 import { JewelryReviewType } from '../../../../../data/JEWELRY';
-import { ThemeService } from '../../../theme.service';
+import { ThemeService } from '../../../services/theme.service';
 import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({

@@ -3,7 +3,7 @@ import { SearchJewelryHeaderComponent } from './search-jewelry-header/search-jew
 import { FilterJewelryComponent } from './filter-jewelry/filter-jewelry.component';
 import { JewelryItemsComponent } from '../../layout/jewelry-items/jewelry-items.component';
 import { RecentSearchesComponent } from '../../layout/recent-searches/recent-searches.component';
-import { FiltersType, JewelryService } from '../../jewelry.service';
+import { FiltersType, JewelryService } from '../../services/jewelry.service';
 import {
   SubscribeOntoNewsletterComponent
 } from '../../layout/subscribe-onto-newsletter/subscribe-onto-newsletter.component';

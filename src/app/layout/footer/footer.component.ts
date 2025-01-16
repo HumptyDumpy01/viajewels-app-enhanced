@@ -3,7 +3,7 @@ import { InfoBadgeComponent } from '../../UI/badges/info-badge/info-badge.compon
 import { InstagramIconComponent } from '../../UI/icons/socials/instagram-icon/instagram-icon.component';
 import { LinkedinIconComponent } from '../../UI/icons/socials/linkedin-icon/linkedin-icon.component';
 import { ViberIconComponent } from '../../UI/icons/socials/viber-icon/viber-icon.component';
-import { ThemeService } from '../../theme.service';
+import { ThemeService } from '../../services/theme.service';
 import { applyThemeClasses } from '../../../utils/functions/applyThemeClasses';
 
 @Component({

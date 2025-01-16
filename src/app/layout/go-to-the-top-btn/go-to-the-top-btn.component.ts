@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, HostListener, inject, signal } from '@angular/core';
-import { ThemeService } from '../../theme.service';
+import { ThemeService } from '../../services/theme.service';
 import { SHOW_FIXED_LAYOUTS } from '../../../utils/vars/variables';
 
 @Component({

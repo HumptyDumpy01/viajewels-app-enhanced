@@ -3,7 +3,7 @@ import { CollectionCardComponent } from '../../../UI/cards/collection-card/colle
 import { ArrowButtonComponent } from '../../../UI/buttons/arrow-button/arrow-button.component';
 import { HeadingComponent } from '../../../typography/heading/heading.component';
 import { COLLECTIONS } from '../../../../../data/COLLECTIONS';
-import { ThemeService } from '../../../theme.service';
+import { ThemeService } from '../../../services/theme.service';
 import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({

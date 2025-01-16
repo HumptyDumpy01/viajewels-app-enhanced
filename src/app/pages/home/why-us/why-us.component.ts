@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
 import { CircularBadgeComponent } from '../../../UI/badges/circular-badge/circular-badge.component';
 import { HeadingComponent } from '../../../typography/heading/heading.component';
-import { ThemeService } from '../../../theme.service';
+import { ThemeService } from '../../../services/theme.service';
 import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({

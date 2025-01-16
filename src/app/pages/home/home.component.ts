@@ -4,10 +4,10 @@ import { WhyUsComponent } from './why-us/why-us.component';
 import { CollectionsComponent } from './collections/collections.component';
 import { CardsCarouselComponent } from '../../layout/cards-carousel/cards-carousel.component';
 import { ContactSupportTeamComponent } from '../../layout/contact-support-team/contact-support-team.component';
-import { JewelryService } from '../../jewelry.service';
+import { JewelryService } from '../../services/jewelry.service';
 import { CustomerTestimonialsComponent } from './customer-testimonials/customer-testimonials.component';
 import { HeadingComponent } from '../../typography/heading/heading.component';
-import { ReviewsService } from '../../reviews.service';
+import { ReviewsService } from '../../services/reviews.service';
 import { JewelryReviewType } from '../../../../data/JEWELRY';
 import { LoadingParagraphComponent } from '../../UI/info/loading-paragraph/loading-paragraph.component';
 

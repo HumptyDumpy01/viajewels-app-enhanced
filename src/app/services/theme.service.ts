@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { ThemeType } from './UI/theme/toggle-icon/toggle-icon.component';
+import { ThemeType } from '../UI/theme/toggle-icon/toggle-icon.component';
 
 @Injectable({
   providedIn: 'root'

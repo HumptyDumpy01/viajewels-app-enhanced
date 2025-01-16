@@ -4,7 +4,7 @@ import {
 } from '../../../typography/limited-addition-circle/limited-addition-circle.component';
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
 import { LinkCircleComponent } from '../../../UI/links/link-circle/link-circle.component';
-import { ThemeService } from '../../../theme.service';
+import { ThemeService } from '../../../services/theme.service';
 import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({

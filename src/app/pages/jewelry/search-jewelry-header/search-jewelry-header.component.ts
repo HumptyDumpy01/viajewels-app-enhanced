@@ -3,7 +3,7 @@ import { NavigateToLinkComponent } from '../../../UI/links/navigate-to-link/navi
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
 import { MinifiedItemCardsComponent } from '../../../layout/minified-item-cards/minified-item-cards.component';
 import { JewelryType } from '../../../../../data/JEWELRY';
-import { ThemeService } from '../../../theme.service';
+import { ThemeService } from '../../../services/theme.service';
 import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({

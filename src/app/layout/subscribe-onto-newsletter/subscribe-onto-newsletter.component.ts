@@ -6,7 +6,7 @@ import { ViajewelsButtonComponent } from '../../UI/buttons/viajewels-button/viaj
 import { validateNewsletterForm } from '../../../utils/schemas/validateNewsletterForm';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
-import { NewsletterService } from '../../newsletter.service';
+import { NewsletterService } from '../../services/newsletter.service';
 
 @Component({
   selector: 'app-subscribe-onto-newsletter',

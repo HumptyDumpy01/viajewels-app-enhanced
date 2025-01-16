@@ -4,7 +4,7 @@ import { ViajewelsButtonComponent } from '../../UI/buttons/viajewels-button/viaj
 import { NgClass, NgForOf, NgIf } from '@angular/common';
 import { JewelryReviewType } from '../../../../data/JEWELRY';
 import { scrollToTag } from '../../../utils/functions/scrollToTag';
-import { ThemeService } from '../../theme.service';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-testimonials',

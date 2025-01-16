@@ -7,11 +7,11 @@ import { ParagraphComponent } from '../../../typography/paragraph/paragraph.comp
 import { RouterLink } from '@angular/router';
 import { ImgDataType } from '../collection-card/collection-card.component';
 import { CurrencyPipe, NgForOf, NgIf } from '@angular/common';
-import { TrimTextPipe } from '../../../trim-text.pipe';
+import { TrimTextPipe } from '../../../pipes/trim-text.pipe';
 import { HeartIconComponent } from '../../icons/heart-icon/heart-icon.component';
-import { JewelWishlistService } from '../../../jewel-wishlist.service';
+import { JewelWishlistService } from '../../../services/jewel-wishlist.service';
 import { JewelryType } from '../../../../../data/JEWELRY';
-import { ThemeService } from '../../../theme.service';
+import { ThemeService } from '../../../services/theme.service';
 import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 import { calcAverageNumber } from '../../../../utils/functions/calcAverageNumber';
 

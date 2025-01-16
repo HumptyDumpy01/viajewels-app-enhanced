@@ -1,7 +1,7 @@
 import { Component, inject, input } from '@angular/core';
 import { CardsCarouselComponent } from '../cards-carousel/cards-carousel.component';
 import { HeadingComponent } from '../../typography/heading/heading.component';
-import { RecentSearchesService } from '../../recent-searches.service';
+import { RecentSearchesService } from '../../services/recent-searches.service';
 
 @Component({
   selector: 'app-recent-searches',

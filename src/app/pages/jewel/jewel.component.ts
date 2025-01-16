@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { JewelryService } from '../../jewelry.service';
+import { JewelryService } from '../../services/jewelry.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { JewelHeaderComponent } from './jewel-header/jewel-header.component';
@@ -10,8 +10,8 @@ import { YouMightAlsoLikeComponent } from '../../layout/you-might-also-like/you-
 import {
   SubscribeOntoNewsletterComponent
 } from '../../layout/subscribe-onto-newsletter/subscribe-onto-newsletter.component';
-import { RecentSearchesService } from '../../recent-searches.service';
-import { ReviewsService } from '../../reviews.service';
+import { RecentSearchesService } from '../../services/recent-searches.service';
+import { ReviewsService } from '../../services/reviews.service';
 import { JewelryReviewType } from '../../../../data/JEWELRY';
 import { LoadingParagraphComponent } from '../../UI/info/loading-paragraph/loading-paragraph.component';
 

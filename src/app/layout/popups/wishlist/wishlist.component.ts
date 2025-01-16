@@ -5,13 +5,13 @@ import {
   ViajewelsButtonSmallComponent
 } from '../../../UI/buttons/viajewels-button-small/viajewels-button-small.component';
 import { NgClass, NgForOf, NgIf } from '@angular/common';
-import { PopupsService } from '../../../popups.service';
+import { PopupsService } from '../../../services/popups.service';
 import { CloseIconComponent } from '../../../UI/icons/close-icon/close-icon.component';
-import { JewelWishlistService } from '../../../jewel-wishlist.service';
+import { JewelWishlistService } from '../../../services/jewel-wishlist.service';
 import { JewelryType } from '../../../../../data/JEWELRY';
-import { CartService } from '../../../cart.service';
+import { CartService } from '../../../services/cart.service';
 import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
-import { ThemeService } from '../../../theme.service';
+import { ThemeService } from '../../../services/theme.service';
 
 @Component({
   selector: 'app-wishlist',

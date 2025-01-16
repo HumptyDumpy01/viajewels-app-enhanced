@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { JewelryType } from '../../data/JEWELRY';
+import { JewelryType } from '../../../data/JEWELRY';
 
 export type CartType = {
   jewel: JewelryType;

@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { validateLeaveReviewForm } from '../../../../utils/schemas/validateLeaveReviewForm';
 import { NgIf } from '@angular/common';
 import { scrollToTag } from '../../../../utils/functions/scrollToTag';
-import { LeaveReviewService } from '../../../leave-review.service';
+import { LeaveReviewService } from '../../../services/leave-review.service';
 import { JewelryReviewType } from '../../../../../data/JEWELRY';
 
 @Component({

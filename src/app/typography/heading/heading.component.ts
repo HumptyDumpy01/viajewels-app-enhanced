@@ -1,5 +1,5 @@
 import { Component, inject, input } from '@angular/core';
-import { ThemeService } from '../../theme.service';
+import { ThemeService } from '../../services/theme.service';
 import { applyThemeClasses } from '../../../utils/functions/applyThemeClasses';
 
 @Component({

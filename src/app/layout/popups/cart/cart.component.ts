@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, inject } from '@angular/core';
-import { PopupsService } from '../../../popups.service';
+import { PopupsService } from '../../../services/popups.service';
 import { CloseIconComponent } from '../../../UI/icons/close-icon/close-icon.component';
 import { CurrencyPipe, NgClass, NgForOf, NgIf } from '@angular/common';
 import { ViajewelsButtonComponent } from '../../../UI/buttons/viajewels-button/viajewels-button.component';
@@ -7,9 +7,9 @@ import { OrderDetailCardComponent } from '../../../UI/cards/order-detail-card/or
 import {
   ViajewelsButtonSmallComponent
 } from '../../../UI/buttons/viajewels-button-small/viajewels-button-small.component';
-import { CartService, CartType } from '../../../cart.service';
-import { JewelWishlistService } from '../../../jewel-wishlist.service';
-import { ThemeService } from '../../../theme.service';
+import { CartService, CartType } from '../../../services/cart.service';
+import { JewelWishlistService } from '../../../services/jewel-wishlist.service';
+import { ThemeService } from '../../../services/theme.service';
 import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({

@@ -4,7 +4,7 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { FooterComponent } from './layout/footer/footer.component';
 import { WishlistComponent } from './layout/popups/wishlist/wishlist.component';
 import { CartComponent } from './layout/popups/cart/cart.component';
-import { ThemeService } from './theme.service';
+import { ThemeService } from './services/theme.service';
 import { FixedNavComponent } from './layout/navigation/fixed-nav/fixed-nav.component';
 import { GoToTheTopBtnComponent } from './layout/go-to-the-top-btn/go-to-the-top-btn.component';
 

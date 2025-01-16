@@ -2,12 +2,12 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { HeadingComponent } from '../../typography/heading/heading.component';
 import { ParagraphComponent } from '../../typography/paragraph/paragraph.component';
 import { InputDataType, ShippingDetailsComponent } from '../check-out/shipping-details/shipping-details.component';
-import { CartService, CartType } from '../../cart.service';
+import { CartService, CartType } from '../../services/cart.service';
 import { OrderDetailCardComponent } from '../../UI/cards/order-detail-card/order-detail-card.component';
 import { CurrencyPipe, NgForOf } from '@angular/common';
 import { NavigateToLinkComponent } from '../../UI/links/navigate-to-link/navigate-to-link.component';
 import { ActivatedRoute } from '@angular/router';
-import { ThemeService } from '../../theme.service';
+import { ThemeService } from '../../services/theme.service';
 import { applyThemeClasses } from '../../../utils/functions/applyThemeClasses';
 
 @Component({

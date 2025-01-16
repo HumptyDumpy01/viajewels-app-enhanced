@@ -1,7 +1,7 @@
 import { Component, inject, input } from '@angular/core';
 import { HeadingComponent } from '../../typography/heading/heading.component';
 import { CardsCarouselComponent } from '../cards-carousel/cards-carousel.component';
-import { JewelryService } from '../../jewelry.service';
+import { JewelryService } from '../../services/jewelry.service';
 
 @Component({
   selector: 'app-you-might-also-like',

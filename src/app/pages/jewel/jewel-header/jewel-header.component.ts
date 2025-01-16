@@ -7,10 +7,10 @@ import { StarIconComponent } from '../../../UI/icons/star-icon/star-icon.compone
 import { CurrencyPipe, NgForOf, TitleCasePipe } from '@angular/common';
 import { JewelryType } from '../../../../../data/JEWELRY';
 import { Router } from '@angular/router';
-import { JewelWishlistService } from '../../../jewel-wishlist.service';
-import { CartService } from '../../../cart.service';
-import { PopupsService } from '../../../popups.service';
-import { ThemeService } from '../../../theme.service';
+import { JewelWishlistService } from '../../../services/jewel-wishlist.service';
+import { CartService } from '../../../services/cart.service';
+import { PopupsService } from '../../../services/popups.service';
+import { ThemeService } from '../../../services/theme.service';
 import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 import { calcAverageNumber } from '../../../../utils/functions/calcAverageNumber';
 

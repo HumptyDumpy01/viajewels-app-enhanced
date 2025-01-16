@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { validateShippingInfoForm } from '../../../../utils/schemas/validateShippingInfoForm';
 import { scrollToTag } from '../../../../utils/functions/scrollToTag';
 import { NgIf } from '@angular/common';
-import { ThemeService } from '../../../theme.service';
+import { ThemeService } from '../../../services/theme.service';
 
 @Component({
   selector: 'app-shipping-details',

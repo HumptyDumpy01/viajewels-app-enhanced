@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { JewelryReviewType } from '../../data/JEWELRY';
+import { JewelryReviewType } from '../../../data/JEWELRY';
 import { catchError, map, throwError } from 'rxjs';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'

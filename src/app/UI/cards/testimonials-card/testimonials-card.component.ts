@@ -2,9 +2,9 @@ import { Component, computed, inject, input } from '@angular/core';
 import { StarIconComponent } from '../../icons/star-icon/star-icon.component';
 import { ParagraphComponent } from '../../../typography/paragraph/paragraph.component';
 import { DatePipe, NgForOf } from '@angular/common';
-import { AbbrInitialsPipe } from '../../../abbr-initials.pipe';
-import { TrimTextPipe } from '../../../trim-text.pipe';
-import { ThemeService } from '../../../theme.service';
+import { AbbrInitialsPipe } from '../../../pipes/abbr-initials.pipe';
+import { TrimTextPipe } from '../../../pipes/trim-text.pipe';
+import { ThemeService } from '../../../services/theme.service';
 import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({

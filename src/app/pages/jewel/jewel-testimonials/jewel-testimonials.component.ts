@@ -4,7 +4,7 @@ import { TestimonialsComponent } from '../../../layout/testimonials/testimonials
 import { JewelryReviewType } from '../../../../../data/JEWELRY';
 import { BulkyBadgeComponent } from '../../../UI/badges/bulky-badge/bulky-badge.component';
 import { NgIf } from '@angular/common';
-import { ThemeService } from '../../../theme.service';
+import { ThemeService } from '../../../services/theme.service';
 import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({

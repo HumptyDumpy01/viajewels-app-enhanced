@@ -2,9 +2,9 @@ import { Component, inject } from '@angular/core';
 import { CheckOutHeaderComponent } from './check-out-header/check-out-header.component';
 import { ShippingDetailsComponent } from './shipping-details/shipping-details.component';
 import { MinifiedItemCardsComponent } from '../../layout/minified-item-cards/minified-item-cards.component';
-import { JewelWishlistService } from '../../jewel-wishlist.service';
+import { JewelWishlistService } from '../../services/jewel-wishlist.service';
 import { NgIf } from '@angular/common';
-import { ThemeService } from '../../theme.service';
+import { ThemeService } from '../../services/theme.service';
 import { applyThemeClasses } from '../../../utils/functions/applyThemeClasses';
 
 @Component({

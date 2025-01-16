@@ -3,10 +3,10 @@ import { InputControlComponent } from '../../../UI/controls/input-control/input-
 import { StarIconComponent } from '../../../UI/icons/star-icon/star-icon.component';
 import { BulkyBadgeComponent } from '../../../UI/badges/bulky-badge/bulky-badge.component';
 import { RedBulkyButtonComponent } from '../../../UI/buttons/red-bulky-button/red-bulky-button.component';
-import { FiltersType, JewelryService } from '../../../jewelry.service';
+import { FiltersType, JewelryService } from '../../../services/jewelry.service';
 import { CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ThemeService } from '../../../theme.service';
+import { ThemeService } from '../../../services/theme.service';
 import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
 
 @Component({

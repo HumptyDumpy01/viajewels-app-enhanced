@@ -4,7 +4,7 @@ import { ViajewelsButtonComponent } from '../../UI/buttons/viajewels-button/viaj
 import { JewelryType } from '../../../../data/JEWELRY';
 import { NgForOf, NgIf } from '@angular/common';
 import { applyThemeClasses } from '../../../utils/functions/applyThemeClasses';
-import { ThemeService } from '../../theme.service';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-jewelry-items',

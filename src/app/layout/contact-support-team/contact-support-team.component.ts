@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { validateContactSupportForm } from '../../../utils/schemas/validateContactSupportForm';
 import { NgIf } from '@angular/common';
 import { scrollToTag } from '../../../utils/functions/scrollToTag';
-import { SupportTicketService } from '../../support-ticket.service';
+import { SupportTicketService } from '../../services/support-ticket.service';
 
 @Component({
   selector: 'app-contact-support-team',

@@ -8,11 +8,11 @@ import {
   OnInit,
   runInInjectionContext
 } from '@angular/core';
-import { JewelWishlistService } from '../../jewel-wishlist.service';
-import { PopupsService } from '../../popups.service';
-import { CartService } from '../../cart.service';
+import { JewelWishlistService } from '../../services/jewel-wishlist.service';
+import { PopupsService } from '../../services/popups.service';
+import { CartService } from '../../services/cart.service';
 import { ToggleIconComponent } from '../../UI/theme/toggle-icon/toggle-icon.component';
-import { ThemeService } from '../../theme.service';
+import { ThemeService } from '../../services/theme.service';
 import { applyThemeClasses } from '../../../utils/functions/applyThemeClasses';
 
 @Component({
