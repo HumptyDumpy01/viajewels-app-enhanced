@@ -14,15 +14,10 @@
     </app-paragraph>
 
     <div class="flex flex-col justify-center gap-5">
-      <app-order-detail-card
-        *ngFor="let cartItem of cart"
-        [enableButtons]="false"
-        [heading]="cartItem.jewel.itemDetails.heading"
-        [href]="'jewelry/' + cartItem.jewel.id"
-        [imgData]="cartItem.jewel.imgData[0]"
-        [item]="cartItem.jewel"
-        [jewelDetails]="{itemsLeft: cartItem.jewel.itemsLeft, itemPrice: cartItem.jewel.itemDetails.price}"
-        [text]="cartItem.jewel.itemDetails.description" />
+      <div *ngFor="let orderItem of orderInfo()?.items">
+        <h2 class="text-2xl text-zinc-800">{{ orderItem.jewelTitle }}</h2>
+        <p class="text-lg ">Quantity: {{ orderItem.quantity }}</p>
+      </div>
     </div>
     <span
       [class]="'text-3xl inline-block mt-8'

@@ -2,7 +2,7 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { HeadingComponent } from '../../typography/heading/heading.component';
 import { ParagraphComponent } from '../../typography/paragraph/paragraph.component';
 import { InputDataType, ShippingDetailsComponent } from '../check-out/shipping-details/shipping-details.component';
-import { CartService, CartType } from '../../services/cart.service';
+import { CartService } from '../../services/cart.service';
 import { OrderDetailCardComponent } from '../../UI/cards/order-detail-card/order-detail-card.component';
 import { CurrencyPipe, NgForOf } from '@angular/common';
 import { NavigateToLinkComponent } from '../../UI/links/navigate-to-link/navigate-to-link.component';
@@ -97,17 +97,9 @@ export type FinalOrderType = {
   items: {
     jewelId: number;
     jewelTitle: string;
-    jewelImg: string;
     price: number;
     quantity: number;
   }[],
   shipping: ShippingDetailsType;
   totalCheckout: number;
-}
-
-export type OrderType = {
-  id: string;
-  items: CartType[];
-  totalCheckout: number;
-  shipping: InputDataType;
 }
