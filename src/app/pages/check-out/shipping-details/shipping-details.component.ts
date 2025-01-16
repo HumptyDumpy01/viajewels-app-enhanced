@@ -12,6 +12,8 @@ import { validateShippingInfoForm } from '../../../../utils/schemas/validateShip
 import { scrollToTag } from '../../../../utils/functions/scrollToTag';
 import { NgIf } from '@angular/common';
 import { ThemeService } from '../../../services/theme.service';
+import { SessionDataType, StripeService } from '../../../services/stripe.service';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-shipping-details',
@@ -29,6 +31,8 @@ import { ThemeService } from '../../../services/theme.service';
 })
 export class ShippingDetailsComponent {
   private themeService = inject(ThemeService);
+  private cartService = inject(CartService);
+  private stripeService = inject(StripeService);
 
   get theme() {
     return this.themeService.getTheme;
@@ -94,17 +98,30 @@ export class ShippingDetailsComponent {
   @ViewChild('phoneInput') phoneInput!: InputControlComponent;
 
   onSubmit() {
+    this.errorMessage.set(``);
+
+    const firstName = this.firstNameInput.getValue();
+    const lastName = this.lastNameInput.getValue();
+    const address = this.addressInput.getValue();
+    const apartment = this.apartmentInput.getValue();
+    const city = this.cityInput.getValue();
+    const country = this.countryInput.getValue();
+    const state = this.stateInput.getValue();
+    const zipCode = +this.zipCodeInput.getValue();
+    const email = this.emailInput.getValue();
+    const phone = this.phoneInput.getValue();
+
     const validate = validateShippingInfoForm.safeParse({
-      firstName: this.firstNameInput.getValue(),
-      lastName: this.lastNameInput.getValue(),
-      address: this.addressInput.getValue(),
-      apartment: this.apartmentInput.getValue(),
-      city: this.cityInput.getValue(),
-      country: this.countryInput.getValue(),
-      state: this.stateInput.getValue(),
-      zipCode: +this.zipCodeInput.getValue(),
-      email: this.emailInput.getValue(),
-      phone: this.phoneInput.getValue()
+      firstName,
+      lastName,
+      address,
+      apartment,
+      city,
+      country,
+      state,
+      zipCode,
+      email,
+      phone
     });
 
     if (!validate.success) {
@@ -113,20 +130,42 @@ export class ShippingDetailsComponent {
       return;
     }
     this.errorMessage.set(``);
-    console.log(`Executing first name: ${this.firstNameInput.getValue()}`);
-    console.log(`Executing last name: ${this.lastNameInput.getValue()}`);
 
-    console.log(`Executing address: ${this.addressInput.getValue()}`);
-    console.log(`Executing apartment: ${this.apartmentInput.getValue()}`);
+    const sessionData: SessionDataType = {
+      items: this.cartService.getCart().map(item => {
+        return {
+          jewelId: item.jewel.id,
+          jewelTitle: item.jewel.itemDetails.heading,
+          quantity: item.count
+        };
+      }),
+      shippingDetails: {
+        firstName,
+        lastName,
+        address,
+        apartment,
+        city,
+        country,
+        state,
+        zipCode,
+        email,
+        phone
+      },
+      totalCheckout: this.cartService.getTotalPrice()
+    };
 
-    console.log(`Executing city: ${this.cityInput.getValue()}`);
-    console.log(`Executing country: ${this.countryInput.getValue()}`);
-    console.log(`Executing state: ${this.stateInput.getValue()}`);
-
-    console.log(`Executing zip code: ${this.zipCodeInput.getValue()}`);
-
-    console.log(`Executing email: ${this.emailInput.getValue()}`);
-    console.log(`Executing phone: ${this.phoneInput.getValue()}`);
+    this.stripeService.createCheckoutSession(sessionData).subscribe({
+      next: (response: any) => {
+        if (response.url) {
+          window.location.href = response.url;
+        } else {
+          this.errorMessage.set('Failed to create checkout session. Please try again.');
+        }
+      },
+      error: (err) => {
+        this.errorMessage.set('Failed to create checkout session. Please try again.');
+      }
+    });
   }
 
   protected readonly input = input;
