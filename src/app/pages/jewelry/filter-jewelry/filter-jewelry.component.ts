@@ -42,7 +42,7 @@ export class FilterJewelryComponent implements OnInit {
 
   private jewelryService = inject(JewelryService);
   activeCategory = signal<ActiveCategoryType>('all');
-  activeRating = signal<number>(4);
+  activeRating = signal<number>(0);
   activePrice = signal<number>(0);
 
   @ViewChild('searchInput') searchInput!: InputControlComponent;
@@ -60,7 +60,7 @@ export class FilterJewelryComponent implements OnInit {
 
   handleClearFilter() {
     this.activeCategory.set('all');
-    this.activeRating.set(4);
+    this.activeRating.set(0);
     this.activePrice.set(this.jewelryService.highestPrice);
     this.emitFiltersChange();
   }

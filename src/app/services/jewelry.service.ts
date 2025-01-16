@@ -67,7 +67,7 @@ export class JewelryService {
       }
       if (filters.rating) {
         jewelry = jewelry.filter(jewel => Array.isArray(jewel.itemDetails.rating) &&
-          jewel.itemDetails.rating.reduce((acc, itm) => acc + itm, 0) / jewel.itemDetails.rating.length >= filters.rating!);
+          Math.floor(jewel.itemDetails.rating.reduce((acc, itm) => acc + itm, 0) / jewel.itemDetails.rating.length) <= filters.rating!);
       }
       if (filters.price) {
         jewelry = jewelry.filter(jewel => jewel.itemDetails.price <= filters.price!);
