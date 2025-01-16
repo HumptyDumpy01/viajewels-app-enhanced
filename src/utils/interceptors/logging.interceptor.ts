@@ -1,8 +1,7 @@
-import { HttpEventType, HttpHandlerFn, HttpRequest } from '@angular/common/http';
-import { tap } from 'rxjs';
+import { HttpHandlerFn, HttpRequest } from '@angular/common/http';
 
 export function loggingInterceptor(request: HttpRequest<unknown>, next: HttpHandlerFn) {
-  console.log(`[OUTGOING REQUEST]`, request);
+  /*console.log(`[OUTGOING REQUEST]`, request);
 
   return next(request).pipe(
     tap({
@@ -12,7 +11,7 @@ export function loggingInterceptor(request: HttpRequest<unknown>, next: HttpHand
         }
       }
     })
-  );
+  );*/
 
 }
 

@@ -6,13 +6,15 @@ import { CartService } from '../../../services/cart.service';
 import { JewelryType } from '../../../../../data/JEWELRY';
 import { ThemeService } from '../../../services/theme.service';
 import { applyThemeClasses } from '../../../../utils/functions/applyThemeClasses';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-order-detail-card',
   imports: [
     CurrencyPipe,
     TrimTextPipe,
-    NgClass
+    NgClass,
+    RouterLink
   ],
   standalone: true,
   templateUrl: './order-detail-card.component.html',

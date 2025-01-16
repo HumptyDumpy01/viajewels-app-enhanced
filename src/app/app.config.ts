@@ -3,11 +3,10 @@ import { provideRouter, withComponentInputBinding, withRouterConfig } from '@ang
 
 import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { loggingInterceptor } from '../utils/interceptors/logging.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideHttpClient(
-    withInterceptors([loggingInterceptor])
+    withInterceptors([])
   ), provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes, withComponentInputBinding(),
     withRouterConfig({
       paramsInheritanceStrategy: `always`
