@@ -7,6 +7,7 @@ import { CartComponent } from './layout/popups/cart/cart.component';
 import { ThemeService } from './services/theme.service';
 import { FixedNavComponent } from './layout/navigation/fixed-nav/fixed-nav.component';
 import { GoToTheTopBtnComponent } from './layout/go-to-the-top-btn/go-to-the-top-btn.component';
+import { PopupsService } from './services/popups.service';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import { GoToTheTopBtnComponent } from './layout/go-to-the-top-btn/go-to-the-top
 export class AppComponent implements OnInit {
   private router = inject(Router);
   private themeService = inject(ThemeService);
+  private popupsService = inject(PopupsService);
   private renderer = inject(Renderer2);
   private injector = inject(Injector);
 
@@ -31,6 +33,7 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         window.scrollTo(0, 0);
+        this.popupsService.closeAll();
       }
     });
 

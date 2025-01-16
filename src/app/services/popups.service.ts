@@ -14,4 +14,13 @@ export class PopupsService {
   changeCartPopupVisibility(val: boolean) {
     this.cartPopupVisibility.set(val);
   }
+
+  closeAll() {
+    if (this.wishlistPopupVisibility()) {
+      this.changeWishlistPopupVisibility(false);
+    }
+    if (this.cartPopupVisibility()) {
+      this.changeCartPopupVisibility(false);
+    }
+  }
 }
