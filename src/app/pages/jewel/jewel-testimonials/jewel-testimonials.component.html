@@ -8,7 +8,7 @@
   <div *ngIf="jewelReviews().length > 0"
        [class]="'flex items-center gap-4 mr-6 mb-16 mt-3' + applyThemeClasses(theme, '', 'text-white')">
     <span class="text-2xl text-nowrap">Sort by:</span>
-    <div class="flex items-center gap-3 overflow-x-auto text-nowrap">
+    <div class="flex items-center gap-3 overflow-x-auto text-nowrap scrollbar-thin">
       <app-bulky-badge (click)="switchFilter('new')" [active]="filterBy() === 'new'" label="New" />
       <app-bulky-badge (click)="switchFilter('top-rated')" [active]="filterBy() === 'top-rated'" label="Top Rated" />
       <app-bulky-badge (click)="switchFilter('old')" [active]="filterBy() === 'old'" label="Old" />

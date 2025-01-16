@@ -1,5 +1,6 @@
 <div class="bg-red-600 py-24 pb-28 mt-20 relative z-10">
-  <img alt="A wonderful bracelets for your loved one." class="absolute object-cover top-0 -right-20 h-full z-[-1]"
+  <img alt="A wonderful bracelets for your loved one."
+       class="absolute object-cover top-0 -right-20 h-full z-[-1] hidden md:block"
        src="./jewel/leave-review.png">
   <div class="container">
     <section>
@@ -58,7 +59,11 @@
                                  helperText="Enter your review. From 10 to 800 characters long."
                                  name="review" placeholder="Review" type="text" />
             </div>
-            <app-viajewels-button class="hover:text-red-600" label="leave Review" styling="empty-white" type="submit" />
+            <div class="flex">
+              <app-viajewels-button class="hover:text-red-600" label="leave Review"
+                                    styling="empty-white"
+                                    type="submit" />
+            </div>
           </form>
         </div>
       </div>

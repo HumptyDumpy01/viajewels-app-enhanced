@@ -1,10 +1,10 @@
 <button *ngIf="mode() === 'btn'"
-        [class]="'uppercase text-3xl px-24 py-5 text-nowrap ' +  getStyles + ' ' + customClasses()"
+        [class]="'uppercase sm:text-3xl text-2xl px-24 py-5 text-nowrap ' +  getStyles + ' ' + customClasses()"
         [type]="type()">{{ label() }}
 </button>
 
 <a *ngIf="mode() === 'link'"
-   [class]="'uppercase text-3xl px-24 py-5 text-nowrap inline-block ' +  getStyles + ' ' +customClasses()"
+   [class]="'uppercase sm:text-3xl text-2xl px-24 py-5 text-nowrap inline-block ' +  getStyles + ' ' +customClasses()"
    [type]="type()"
    routerLink="{{ href() }}">{{ label() }}
 </a>
