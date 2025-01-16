@@ -20,7 +20,8 @@
           {{ i + 1 }}
         </div>
         <div>
-          <h2 class="text-2xl text-zinc-800">{{ orderItem.jewelTitle }}</h2>
+          <h2
+            [class]="'text-2xl' + applyThemeClasses(theme, 'text-zinc-800', 'text-neutral-100')">{{ orderItem.jewelTitle }}</h2>
           <p class="text-lg ">Quantity: {{ orderItem.quantity }}
           </p>
           <span
