@@ -9,6 +9,7 @@ import { NavigateToLinkComponent } from '../../UI/links/navigate-to-link/navigat
 import { ActivatedRoute } from '@angular/router';
 import { ThemeService } from '../../services/theme.service';
 import { applyThemeClasses } from '../../../utils/functions/applyThemeClasses';
+import { ShippingDetailsType } from '../../services/stripe.service';
 
 @Component({
   selector: 'app-success',
@@ -27,6 +28,7 @@ import { applyThemeClasses } from '../../../utils/functions/applyThemeClasses';
 })
 export class SuccessComponent implements OnInit {
   private themeService = inject(ThemeService);
+  inputData = signal<InputDataType | null>(null);
 
   get theme() {
     return this.themeService.getTheme;
@@ -35,14 +37,13 @@ export class SuccessComponent implements OnInit {
   private cartService = inject(CartService);
   private route = inject(ActivatedRoute);
 
-  orderInfo = signal<OrderType | null>(null);
+  orderInfo = signal<FinalOrderType | null>(null);
 
   ngOnInit() {
     // scroll to top
     window.scrollTo(0, 0);
 
     this.route.queryParams.subscribe((params) => {
-      /* TODO: PARSE THIS DATA FROM URL AND THEN UPDATE THE UI */
       const orderId = params[`orderId`];
       const items = params[`items`];
       const totalCheckout = params[`totalCheckout`];
@@ -54,6 +55,21 @@ export class SuccessComponent implements OnInit {
           totalCheckout: parseFloat(totalCheckout),
           shipping: JSON.parse(shipping)
         });
+
+        this.inputData.set({
+          firstName: { placeholder: this.orderInfo()?.shipping.firstName!, readOnly: true },
+          lastName: { placeholder: this.orderInfo()?.shipping.lastName!, readOnly: true },
+          address: { placeholder: this.orderInfo()?.shipping.address!, readOnly: true },
+          apartment: { placeholder: this.orderInfo()?.shipping.apartment!, readOnly: true },
+          city: { placeholder: this.orderInfo()?.shipping.city!, readOnly: true },
+          country: { placeholder: this.orderInfo()?.shipping.country!, readOnly: true },
+          state: { placeholder: this.orderInfo()?.shipping.state!, readOnly: true },
+          zipCode: { placeholder: String(this.orderInfo()?.shipping.zipCode!), readOnly: true },
+          email: { placeholder: this.orderInfo()?.shipping.email!, readOnly: true },
+          phone: { placeholder: this.orderInfo()?.shipping.phone!, readOnly: true }
+        });
+
+        console.log(this.orderInfo());
       } else {
         window.location.href = '/';
       }
@@ -69,49 +85,24 @@ export class SuccessComponent implements OnInit {
     return this.cartService.getTotalPrice();
   }
 
-  inputData: InputDataType = {
-    firstName: {
-      placeholder: `Bob`,
-      readOnly: true
-    },
-    lastName: {
-      placeholder: `Marley`,
-      readOnly: true
-    },
-    address: {
-      placeholder: `1234 Reggae St`,
-      readOnly: true
-    },
-    apartment: {
-      placeholder: `Apt 1, 2nd Floor`,
-      readOnly: true
-    },
-    city: {
-      placeholder: `Kingston`,
-      readOnly: true
-    },
-    country: {
-      placeholder: `Jamaica`,
-      readOnly: true
-    },
-    state: {
-      placeholder: `Some State`,
-      readOnly: true
-    },
-    zipCode: {
-      placeholder: `12345`,
-      readOnly: true
-    },
-    email: {
-      placeholder: `bob.marley@gmail.com`,
-      readOnly: true
-    },
-    phone: {
-      placeholder: `876-555-1234`,
-      readOnly: true
-    }
-  };
+  get getInputData() {
+    return this.inputData();
+  }
+
   protected readonly applyThemeClasses = applyThemeClasses;
+}
+
+export type FinalOrderType = {
+  id: string;
+  items: {
+    jewelId: number;
+    jewelTitle: string;
+    jewelImg: string;
+    price: number;
+    quantity: number;
+  }[],
+  shipping: ShippingDetailsType;
+  totalCheckout: number;
 }
 
 export type OrderType = {

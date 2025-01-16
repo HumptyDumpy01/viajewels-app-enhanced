@@ -29,7 +29,7 @@
       + applyThemeClasses(theme, 'text-zinc-800', 'text-white')">Total Checkout: {{ totalPrice | currency }}</span>
     <app-shipping-details
       [button]="{type: 'button', text: 'Go Home', href: '/', btnMode: 'link'}"
-      [inputData]="inputData"
+      [inputData]="getInputData!"
       class="mt-12 block"
       infoMessage="Thanks for participation in my project! It was fully built by Nikolas Tuz, Software Developer, as part of his portfolio." />
   </div>

@@ -107,7 +107,7 @@ export class ShippingDetailsComponent {
     const city = this.cityInput.getValue();
     const country = this.countryInput.getValue();
     const state = this.stateInput.getValue();
-    const zipCode = +this.zipCodeInput.getValue();
+    const zipCode = Number(this.zipCodeInput.getValue());
     const email = this.emailInput.getValue();
     const phone = this.phoneInput.getValue();
 
@@ -136,7 +136,8 @@ export class ShippingDetailsComponent {
         return {
           jewelId: item.jewel.id,
           jewelTitle: item.jewel.itemDetails.heading,
-          quantity: item.count
+          quantity: item.count,
+          price: item.jewel.itemDetails.price
         };
       }),
       shippingDetails: {
