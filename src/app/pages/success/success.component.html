@@ -14,14 +14,23 @@
     </app-paragraph>
 
     <div class="flex flex-col justify-center gap-5">
-      <div *ngFor="let orderItem of orderInfo()?.items">
-        <h2 class="text-2xl text-zinc-800">{{ orderItem.jewelTitle }}</h2>
-        <p class="text-lg ">Quantity: {{ orderItem.quantity }}</p>
+      <div *ngFor="let orderItem of orderInfo()?.items; let i = index" class="flex flex-col sm:flex-row gap-3">
+        <div
+          class="bg-yellow-700 h-12 w-12 rounded-full flex items-center justify-center text-white text-2xl text-nowrap mb-3 sm:mb-0">
+          {{ i + 1 }}
+        </div>
+        <div>
+          <h2 class="text-2xl text-zinc-800">{{ orderItem.jewelTitle }}</h2>
+          <p class="text-lg ">Quantity: {{ orderItem.quantity }}
+          </p>
+          <span
+            class="text-yellow-600">Total :{{ orderItem.price * orderItem.quantity | currency }}</span>
+        </div>
       </div>
     </div>
     <span
       [class]="'text-3xl inline-block mt-8'
-      + applyThemeClasses(theme, 'text-zinc-800', 'text-white')">Total Checkout: {{ totalPrice | currency }}</span>
+      + applyThemeClasses(theme, 'text-zinc-800', 'text-white')">Total Checkout: {{ orderInfo()?.totalCheckout | currency }}</span>
     <app-shipping-details
       [button]="{type: 'button', text: 'Go Home', href: '/', btnMode: 'link'}"
       [inputData]="getInputData!"

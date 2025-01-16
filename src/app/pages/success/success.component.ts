@@ -40,6 +40,8 @@ export class SuccessComponent implements OnInit {
   orderInfo = signal<FinalOrderType | null>(null);
 
   ngOnInit() {
+    this.cartService.resetCart();
+
     // scroll to top
     window.scrollTo(0, 0);
 
@@ -75,14 +77,6 @@ export class SuccessComponent implements OnInit {
       }
     });
 
-  }
-
-  get cart() {
-    return this.cartService.getCart();
-  }
-
-  get totalPrice() {
-    return this.cartService.getTotalPrice();
   }
 
   get getInputData() {
